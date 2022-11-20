@@ -1,45 +1,86 @@
-;;;; exercise 1
+* exercise 2
 
-;;; 1
+** 1
 
+#+begin_src lisp
 ;; a
 (+ (- 5 1) (+ 3 7)) ; 14
+#+end_src
 
+#+RESULTS:
+: 14
+
+#+begin_src lisp
 ;; b
 (list 1 (+ 2 3)) ; '(1 5)
+#+end_src
 
+#+RESULTS:
+| 1 | 5 |
+
+#+begin_src lisp
 ;; c
 (if (listp 1) (+ 1 2) (+ 3 4)) ; 7
+#+end_src
 
+#+RESULTS:
+: 7
+
+#+begin_src lisp
 ;; d
 (list (and (listp 3) t) (+ 1 2)) ; '(nil 3)
+#+end_src
 
-;;; 2
+#+RESULTS:
+| NIL | 3 |
 
+** 2
+
+#+begin_src lisp
 (cons 'a (cons 'b (cons 'c nil))) ; '(a b c)
+#+end_src
 
-;;; 3
+#+RESULTS:
+| A | B | C |
 
+** 3
+
+#+begin_src lisp
 (defun fourth-ele (lst)
   (if (listp lst)
       (car (cdr (cdr (cdr lst))))
       nil))
+#+end_src
 
-;;; 4
+#+RESULTS:
+: FOURTH-ELE
 
+** 4
+
+#+begin_src lisp
 (defun return-greater-in-two (a b)
   (if (> a b)
       a
       b))
+#+end_src
 
-;;; 5
+#+RESULTS:
+: RETURN-GREATER-IN-TWO
 
+** 5
+
+#+begin_src lisp
 ;; a) list must contain nil element
 (defun enigma (x)
   (and (not (null x))
        (or (null (car x))
            (enigma (cdr x)))))
+#+end_src
 
+#+RESULTS:
+: ENIGMA
+
+#+begin_src lisp
 ;; b) return first element equal x in list y
 (defun mystery (x y)
   (if (null y)
@@ -48,20 +89,40 @@
           0
           (let ((z (mystery x (cdr y))))
             (and z (+ z 1))))))
+#+end_src
 
-;;; 6
+#+RESULTS:
+: MYSTERY
 
+** 6
+
+#+begin_src lisp
 ;; a)
 (car (car (cdr '(a (b c) d))))
+#+end_src
 
+#+RESULTS:
+: B
+
+#+begin_src lisp
 ;; b)
 (or 13 (/ 1 0))
+#+end_src
 
+#+RESULTS:
+: 13
+
+#+begin_src lisp
 ;; c)
 (apply #'list 1 nil)
+#+end_src
 
-;;; 7
+#+RESULTS:
+| 1 |
 
+** 7
+
+#+begin_src lisp
 ;; list has a list element
 (defun contain-list (lst)
   (if (listp (car lst))
@@ -69,9 +130,14 @@
       (if (not (null (cdr lst)))
           (contain-list (cdr lst))
           nil)))
+#+end_src
 
-;;; 8
+#+RESULTS:
+: CONTAIN-LIST
 
+** 8
+
+#+begin_src lisp
 ;; a)
 (defun rec-dots (n)
   (if (< n 1)
@@ -83,7 +149,12 @@
   (do ((i 0 (+ i 1)))
       ((>= i n) 'done)
     (format t ".")))
+#+end_src
 
+#+RESULTS:
+: ITE-DOTS
+
+#+begin_src lisp
 ;; b)
 (defun rec-count-a (lst n)
   (if (null lst)
@@ -97,13 +168,23 @@
       (if (eql obj 'a)
           (setf n (+ n 1))))
     n))
+#+end_src
 
-;;; 9
+#+RESULTS:
+: ITE-COUNT-A
 
+** 9
+
+#+begin_src lisp
 ;; a) remove operator not change origin list
 (defun summit (lst)
   (apply #'+ (remove nil lst)))
+#+end_src
 
+#+RESULTS:
+: SUMMIT
+
+#+begin_src lisp
 ;; b) endless loop
 (defun summit (lst)
   (let ((x (car lst)))
@@ -112,3 +193,7 @@
         (if (null x)
             (summit (cdr lst))
             (+ x (summit (cdr lst)))))))
+#+end_src
+
+#+RESULTS:
+: SUMMIT
