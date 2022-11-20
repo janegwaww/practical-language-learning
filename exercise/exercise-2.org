@@ -1,4 +1,9 @@
-* exercise 2
+#+startup: showall
+#+options: toc:nil
+
+* ANSI Common LISP exercise 2
+
+#+toc: headlines local
 
 ** 1
 
