@@ -5,8 +5,7 @@
 
 ## ANSI Common LISP
 
-
-### [exercise 2](exercise/exercise-2.md)
+-   [exercise 2](exercise/exercise-2.md)
 
 
 ## [pathnames](pathnames/README.md)

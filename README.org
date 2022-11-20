@@ -4,7 +4,7 @@
 
 ** ANSI Common LISP
 
-*** [[file:exercise/exercise-2.org::*exercise 2][exercise 2]]
+- [[file:exercise/exercise-2.org::*exercise 2][exercise 2]]
 
 ** [[file:pathnames/README.md][pathnames]]
 
