@@ -32,3 +32,7 @@
 (defun addn (n)
   #'(lambda (x)
       (+ x n)))
+
+(defun askem (string)
+  (format t "~A" string)
+  (read))
