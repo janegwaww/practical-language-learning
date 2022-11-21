@@ -4,7 +4,7 @@
 
 #+toc: headlines local
 
-** 1. Show the following lists in box notation:
+** Show the following lists in box notation:
 
 1) ~(a b (c d))~
 
@@ -39,36 +39,36 @@
                        +-+ b |  c |
                          +---+----+
 
-** 2. Write a version of union that preserves the order of the elements in the original lists:
+** Write a version of union that preserves the order of the elements in the original lists:
 
 #+begin_src lisp
   (defun new-union (l1 l2)
     ())
 #+end_src
 
-** 3. Define a function that takes a list and...
+** Define a function that takes a list and...
 
 Define a function that takes a list and returns a list indicating the
 number of times each (eql) element appears, sorted from most common
 element to least common:
 
-** 4. Why does ~(member ' ( a ) ' ( ( a ) ( b ) ) )~ return nil ?
+** Why does ~(member ' ( a ) ' ( ( a ) ( b ) ) )~ return nil ?
 
-** 5. Suppose the function ~pos+~ takes a list and...
+** Suppose the function ~pos+~ takes a list and...
 
 Suppose the function pos+ takes a list and returns a list of each element
 plus its position:
 
-** 6. After years of deliberation,...
+** After years of deliberation,...
 
 After years of deliberation, a government commission has decided that lists should be represented by using the cdr to point to the first element and the car to point to the rest of the list. Define the government versions of the following functions:
 
-** 7. Modify the program in Figure 3.6 to...
+** Modify the program in Figure 3.6 to...
 
 Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted lists.)
 
-** 8. Define a function that takes a list and prints it in dot notation:
+** Define a function that takes a list and prints it in dot notation:
 
-** 9. Write a program to find the...
+** Write a program to find the...
 
 Write a program to find the ~longest~ finite path through a network represented as in Section 3.15. The network may contain cycles.

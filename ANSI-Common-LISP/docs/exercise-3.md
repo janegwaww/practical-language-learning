@@ -2,20 +2,20 @@
 
 # exercises 3
 
-1.  [1. Show the following lists in box notation:](#org2eea61d)
-2.  [2. Write a version of union that preserves the order of the elements in the original lists:](#org92d9b5a)
-3.  [3. Define a function that takes a list and&#x2026;](#org64a3747)
-4.  [4. Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil ?](#orge873f56)
-5.  [5. Suppose the function `pos+` takes a list and&#x2026;](#orgb6e38b3)
-6.  [6. After years of deliberation,&#x2026;](#orgb5a8db1)
-7.  [7. Modify the program in Figure 3.6 to&#x2026;](#orgf4d4159)
-8.  [8. Define a function that takes a list and prints it in dot notation:](#org9135366)
-9.  [9. Write a program to find the&#x2026;](#orgbd92b77)
+1.  [Show the following lists in box notation:](#org9cb24dd)
+2.  [Write a version of union that preserves the order of the elements in the original lists:](#org5cf547d)
+3.  [Define a function that takes a list and&#x2026;](#orgefa2544)
+4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil ?](#orgaa2c8c2)
+5.  [Suppose the function `pos+` takes a list and&#x2026;](#org4e39146)
+6.  [After years of deliberation,&#x2026;](#org7c8a367)
+7.  [Modify the program in Figure 3.6 to&#x2026;](#orga54b58e)
+8.  [Define a function that takes a list and prints it in dot notation:](#org032207f)
+9.  [Write a program to find the&#x2026;](#org4633919)
 
 
-<a id="org2eea61d"></a>
+<a id="org9cb24dd"></a>
 
-## 1. Show the following lists in box notation:
+## Show the following lists in box notation:
 
 1.  `(a b (c d))`
     
@@ -285,58 +285,58 @@
     <del>---</del>-&#x2014;+
 
 
-<a id="org92d9b5a"></a>
+<a id="org5cf547d"></a>
 
-## 2. Write a version of union that preserves the order of the elements in the original lists:
+## Write a version of union that preserves the order of the elements in the original lists:
 
     (defun new-union (l1 l2)
       ())
 
 
-<a id="org64a3747"></a>
+<a id="orgefa2544"></a>
 
-## 3. Define a function that takes a list and&#x2026;
+## Define a function that takes a list and&#x2026;
 
 Define a function that takes a list and returns a list indicating the
 number of times each (eql) element appears, sorted from most common
 element to least common:
 
 
-<a id="orge873f56"></a>
+<a id="orgaa2c8c2"></a>
 
-## 4. Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil ?
+## Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil ?
 
 
-<a id="orgb6e38b3"></a>
+<a id="org4e39146"></a>
 
-## 5. Suppose the function `pos+` takes a list and&#x2026;
+## Suppose the function `pos+` takes a list and&#x2026;
 
 Suppose the function pos+ takes a list and returns a list of each element
 plus its position:
 
 
-<a id="orgb5a8db1"></a>
+<a id="org7c8a367"></a>
 
-## 6. After years of deliberation,&#x2026;
+## After years of deliberation,&#x2026;
 
 After years of deliberation, a government commission has decided that lists should be represented by using the cdr to point to the first element and the car to point to the rest of the list. Define the government versions of the following functions:
 
 
-<a id="orgf4d4159"></a>
+<a id="orga54b58e"></a>
 
-## 7. Modify the program in Figure 3.6 to&#x2026;
+## Modify the program in Figure 3.6 to&#x2026;
 
 Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted lists.)
 
 
-<a id="org9135366"></a>
+<a id="org032207f"></a>
 
-## 8. Define a function that takes a list and prints it in dot notation:
+## Define a function that takes a list and prints it in dot notation:
 
 
-<a id="orgbd92b77"></a>
+<a id="org4633919"></a>
 
-## 9. Write a program to find the&#x2026;
+## Write a program to find the&#x2026;
 
 Write a program to find the `longest` finite path through a network represented as in Section 3.15. The network may contain cycles.
 
