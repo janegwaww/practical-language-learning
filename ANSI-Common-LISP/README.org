@@ -6,4 +6,4 @@
 From [[http://www.paulgraham.com/acl.html][ANSI Common LISP]] book exercises.
 #+end_center
 
-- [[file:exercise-2.org::*ANSI Common LISP exercise 2][ANSI Common LISP exercise 2]]
+- [[file:docs/exercise-2.org::*ANSI Common LISP exercise 2][ANSI Common LISP exercise 2]]

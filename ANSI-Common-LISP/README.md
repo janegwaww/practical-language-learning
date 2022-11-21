@@ -8,5 +8,5 @@ From <a href="http://www.paulgraham.com/acl.html">ANSI Common LISP</a> book exer
 </p>
 </div>
 
--   [ANSI Common LISP exercise 2](exercise-2.md)
+-   [ANSI Common LISP exercise 2](docs/exercise-2.md)
 
