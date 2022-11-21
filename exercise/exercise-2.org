@@ -162,9 +162,8 @@ list.
 
 Give iterative and recursive definitions of a function that
 
-- takes a positive integer and prints that many dots.
 #+begin_src lisp
-;; a)
+;; a) takes a positive integer and prints that many dots.
 (defun rec-dots (n)
   (if (< n 1)
       nil
@@ -180,9 +179,8 @@ Give iterative and recursive definitions of a function that
 #+RESULTS:
 : ITE-DOTS
 
-- takes a list and returns the number of times the symbol a occurs in it.
 #+begin_src lisp
-;; b)
+;; b) takes a list and returns the number of times the symbol a occurs in it.
 (defun rec-count-a (lst n)
   (if (null lst)
       n

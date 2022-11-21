@@ -2,18 +2,18 @@
 
 # ANSI Common LISP exercise 2
 
-1.  [1](#orgbd1c381)
-2.  [2](#org37ea702)
-3.  [3](#org6bf935a)
-4.  [4](#orga98308e)
-5.  [5](#org7e14cb5)
-6.  [6](#orga98ea83)
-7.  [7](#orgc6183b1)
-8.  [8](#orgf7e4d63)
-9.  [9](#orga178908)
+1.  [1](#org512810c)
+2.  [2](#orgdc3d38c)
+3.  [3](#org398318a)
+4.  [4](#orgdab3271)
+5.  [5](#org0ef5ef6)
+6.  [6](#org4ee5aac)
+7.  [7](#orgba2cc21)
+8.  [8](#orga214ba1)
+9.  [9](#org890e51b)
 
 
-<a id="orgbd1c381"></a>
+<a id="org512810c"></a>
 
 ## 1
 
@@ -32,7 +32,7 @@ Describe what happens when the following expressions are evaluated:
     (list (and (listp 3) t) (+ 1 2)) ; '(nil 3)
 
 
-<a id="org37ea702"></a>
+<a id="orgdc3d38c"></a>
 
 ## 2
 
@@ -41,7 +41,7 @@ Give three distinct cons expressions that return (a b c).
     (cons 'a (cons 'b (cons 'c nil))) ; '(a b c)
 
 
-<a id="org6bf935a"></a>
+<a id="org398318a"></a>
 
 ## 3
 
@@ -54,7 +54,7 @@ list.
           nil))
 
 
-<a id="orga98308e"></a>
+<a id="orgdab3271"></a>
 
 ## 4
 
@@ -67,7 +67,7 @@ the two.
           b))
 
 
-<a id="org7e14cb5"></a>
+<a id="org0ef5ef6"></a>
 
 ## 5
 
@@ -89,7 +89,7 @@ What do these functions do?
                 (and z (+ z 1))))))
 
 
-<a id="orga98ea83"></a>
+<a id="org4ee5aac"></a>
 
 ## 6
 
@@ -105,7 +105,7 @@ What could occur in place of the x in each of the following exchanges?
     (apply #'list 1 nil)
 
 
-<a id="orgc6183b1"></a>
+<a id="orgba2cc21"></a>
 
 ## 7
 
@@ -122,15 +122,13 @@ list.
               nil)))
 
 
-<a id="orgf7e4d63"></a>
+<a id="orga214ba1"></a>
 
 ## 8
 
 Give iterative and recursive definitions of a function that
 
--   takes a positive integer and prints that many dots.
-
-    ;; a)
+    ;; a) takes a positive integer and prints that many dots.
     (defun rec-dots (n)
       (if (< n 1)
           nil
@@ -142,9 +140,7 @@ Give iterative and recursive definitions of a function that
           ((>= i n) 'done)
         (format t ".")))
 
--   takes a list and returns the number of times the symbol a occurs in it.
-
-    ;; b)
+    ;; b) takes a list and returns the number of times the symbol a occurs in it.
     (defun rec-count-a (lst n)
       (if (null lst)
           n
@@ -159,7 +155,7 @@ Give iterative and recursive definitions of a function that
         n))
 
 
-<a id="orga178908"></a>
+<a id="org890e51b"></a>
 
 ## 9
 
