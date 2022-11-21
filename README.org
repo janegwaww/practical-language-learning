@@ -2,6 +2,8 @@
 
 * practical-common-lisp
 
+Learning Lisp programming language material.
+
 ** [[file:ANSI-Common-LISP/README.org::*ANSI Common LISP][ANSI Common LISP]]
 
 ** [[file:pathnames/README.md][pathnames]]

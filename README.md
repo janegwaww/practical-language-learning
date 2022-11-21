@@ -2,6 +2,8 @@
 
 # practical-common-lisp
 
+Learning Lisp programming language material.
+
 
 ## [ANSI Common LISP](ANSI-Common-LISP/README.md)
 
