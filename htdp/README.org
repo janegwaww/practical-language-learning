@@ -1,0 +1,10 @@
+#+options: toc:nil
+
+* htdp
+
+#+begin_center
+From [[https://htdp.org/2021-5-4/Book/index.html][How to Design Programs, Second Edition]] Exercises.
+#+end_center
+
+- [[file:docs/rd.org::*rd][rd]]
+- [[file:docs/abstracting-with-lambda.org::*abstracting-with-lambda][abstracting-with-lambda]]

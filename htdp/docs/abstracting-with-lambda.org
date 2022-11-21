@@ -1,0 +1,5 @@
+#+options: toc:nil
+
+* abstracting-with-lambda
+
+#+include: ../src/abstracting-with-lambda.rkt src lisp
