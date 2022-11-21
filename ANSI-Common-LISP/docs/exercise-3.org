@@ -43,8 +43,11 @@
 
 #+begin_src lisp
   (defun new-union (l1 l2)
-    ())
+    (reverse (remove-duplicates (reverse (append (copy-list l1) (copy-list l2))))))
 #+end_src
+
+#+RESULTS:
+: NEW-UNION
 
 ** Define a function that takes a list and...
 
@@ -52,7 +55,18 @@ Define a function that takes a list and returns a list indicating the
 number of times each (eql) element appears, sorted from most common
 element to least common:
 
-** Why does ~(member ' ( a ) ' ( ( a ) ( b ) ) )~ return nil ?
+#+begin_src lisp
+  (defun occur (lst)
+    ())
+
+  (defun occurrences (lst)
+    (sort (occur lst) #'> :key #'cdr))
+#+end_src
+
+#+RESULTS:
+: OCCURRENCES
+
+** Why does ~(member ' ( a ) ' ( ( a ) ( b ) ) )~ return nil?
 
 ** Suppose the function ~pos+~ takes a list and...
 
