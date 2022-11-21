@@ -2,9 +2,7 @@
 
 * practical-common-lisp
 
-** ANSI Common LISP
-
-- [[file:exercise/exercise-2.org::*exercise 2][exercise 2]]
+** [[file:ANSI-Common-LISP/README.org::*ANSI Common LISP][ANSI Common LISP]]
 
 ** [[file:pathnames/README.md][pathnames]]
 

@@ -3,9 +3,7 @@
 # practical-common-lisp
 
 
-## ANSI Common LISP
-
--   [exercise 2](exercise/exercise-2.md)
+## [ANSI Common LISP](ANSI-Common-LISP/README.md)
 
 
 ## [pathnames](pathnames/README.md)

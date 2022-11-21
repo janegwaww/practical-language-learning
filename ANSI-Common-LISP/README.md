@@ -1,0 +1,12 @@
+
+
+# ANSI Common LISP
+
+<div class="org-center">
+<p>
+From <a href="http://www.paulgraham.com/acl.html">ANSI Common LISP</a> book exercises.
+</p>
+</div>
+
+-   [ANSI Common LISP exercise 2](exercise-2.md)
+
