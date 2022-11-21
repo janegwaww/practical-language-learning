@@ -16,3 +16,6 @@
 
 ## [cl-binary-library](mp3-browser/README.md)
 
+
+## [htdp](htdp/README.md)
+
