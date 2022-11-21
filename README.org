@@ -14,3 +14,6 @@ Learning Lisp programming language material.
 
 ** [[file:htdp/README.md::htdp][htdp]]
 
+* License
+
+[[file:LICENSE][BSD-2-Clause license]]
