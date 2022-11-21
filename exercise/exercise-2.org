@@ -7,6 +7,8 @@
 
 ** 1
 
+Describe what happens when the following expressions are evaluated:
+
 #+begin_src lisp
 ;; a
 (+ (- 5 1) (+ 3 7)) ; 14
@@ -41,6 +43,8 @@
 
 ** 2
 
+Give three distinct cons expressions that return (a b c).
+
 #+begin_src lisp
 (cons 'a (cons 'b (cons 'c nil))) ; '(a b c)
 #+end_src
@@ -49,6 +53,9 @@
 | A | B | C |
 
 ** 3
+
+Using car and cdr, define a function to return the fourth element of a
+list.
 
 #+begin_src lisp
 (defun fourth-ele (lst)
@@ -62,6 +69,9 @@
 
 ** 4
 
+Define a function that takes two arguments and returns the greater of
+the two.
+
 #+begin_src lisp
 (defun return-greater-in-two (a b)
   (if (> a b)
@@ -73,6 +83,8 @@
 : RETURN-GREATER-IN-TWO
 
 ** 5
+
+What do these functions do?
 
 #+begin_src lisp
 ;; a) list must contain nil element
@@ -101,6 +113,8 @@
 
 ** 6
 
+What could occur in place of the x in each of the following exchanges?
+
 #+begin_src lisp
 ;; a)
 (car (car (cdr '(a (b c) d))))
@@ -127,6 +141,10 @@
 
 ** 7
 
+Using only operators introduced in this chapter, define a function that
+takes a list as an argument and returns true if one of its elements is a
+list.
+
 #+begin_src lisp
 ;; list has a list element
 (defun contain-list (lst)
@@ -142,6 +160,9 @@
 
 ** 8
 
+Give iterative and recursive definitions of a function that
+
+- takes a positive integer and prints that many dots.
 #+begin_src lisp
 ;; a)
 (defun rec-dots (n)
@@ -159,6 +180,7 @@
 #+RESULTS:
 : ITE-DOTS
 
+- takes a list and returns the number of times the symbol a occurs in it.
 #+begin_src lisp
 ;; b)
 (defun rec-count-a (lst n)
@@ -179,6 +201,11 @@
 : ITE-COUNT-A
 
 ** 9
+
+A friend is trying to write a function that returns the sum of all the
+non-nil elements in a list. He has written two versions of this function,
+and neither of them work. Explain what's wrong with each, and give a
+correct version:
 
 #+begin_src lisp
 ;; a) remove operator not change origin list

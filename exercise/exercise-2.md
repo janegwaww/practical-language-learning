@@ -2,20 +2,22 @@
 
 # ANSI Common LISP exercise 2
 
-1.  [1](#org291446a)
-2.  [2](#org2701fdd)
-3.  [3](#orgc1656cb)
-4.  [4](#orgfafad11)
-5.  [5](#orgea0fb5b)
-6.  [6](#orgde76a79)
-7.  [7](#org365340d)
-8.  [8](#orgc223956)
-9.  [9](#org8304c03)
+1.  [1](#orgbd1c381)
+2.  [2](#org37ea702)
+3.  [3](#org6bf935a)
+4.  [4](#orga98308e)
+5.  [5](#org7e14cb5)
+6.  [6](#orga98ea83)
+7.  [7](#orgc6183b1)
+8.  [8](#orgf7e4d63)
+9.  [9](#orga178908)
 
 
-<a id="org291446a"></a>
+<a id="orgbd1c381"></a>
 
 ## 1
+
+Describe what happens when the following expressions are evaluated:
 
     ;; a
     (+ (- 5 1) (+ 3 7)) ; 14
@@ -30,16 +32,21 @@
     (list (and (listp 3) t) (+ 1 2)) ; '(nil 3)
 
 
-<a id="org2701fdd"></a>
+<a id="org37ea702"></a>
 
 ## 2
+
+Give three distinct cons expressions that return (a b c).
 
     (cons 'a (cons 'b (cons 'c nil))) ; '(a b c)
 
 
-<a id="orgc1656cb"></a>
+<a id="org6bf935a"></a>
 
 ## 3
+
+Using car and cdr, define a function to return the fourth element of a
+list.
 
     (defun fourth-ele (lst)
       (if (listp lst)
@@ -47,9 +54,12 @@
           nil))
 
 
-<a id="orgfafad11"></a>
+<a id="orga98308e"></a>
 
 ## 4
+
+Define a function that takes two arguments and returns the greater of
+the two.
 
     (defun return-greater-in-two (a b)
       (if (> a b)
@@ -57,9 +67,11 @@
           b))
 
 
-<a id="orgea0fb5b"></a>
+<a id="org7e14cb5"></a>
 
 ## 5
+
+What do these functions do?
 
     ;; a) list must contain nil element
     (defun enigma (x)
@@ -77,9 +89,11 @@
                 (and z (+ z 1))))))
 
 
-<a id="orgde76a79"></a>
+<a id="orga98ea83"></a>
 
 ## 6
+
+What could occur in place of the x in each of the following exchanges?
 
     ;; a)
     (car (car (cdr '(a (b c) d))))
@@ -91,9 +105,13 @@
     (apply #'list 1 nil)
 
 
-<a id="org365340d"></a>
+<a id="orgc6183b1"></a>
 
 ## 7
+
+Using only operators introduced in this chapter, define a function that
+takes a list as an argument and returns true if one of its elements is a
+list.
 
     ;; list has a list element
     (defun contain-list (lst)
@@ -104,9 +122,13 @@
               nil)))
 
 
-<a id="orgc223956"></a>
+<a id="orgf7e4d63"></a>
 
 ## 8
+
+Give iterative and recursive definitions of a function that
+
+-   takes a positive integer and prints that many dots.
 
     ;; a)
     (defun rec-dots (n)
@@ -119,6 +141,8 @@
       (do ((i 0 (+ i 1)))
           ((>= i n) 'done)
         (format t ".")))
+
+-   takes a list and returns the number of times the symbol a occurs in it.
 
     ;; b)
     (defun rec-count-a (lst n)
@@ -135,9 +159,14 @@
         n))
 
 
-<a id="org8304c03"></a>
+<a id="orga178908"></a>
 
 ## 9
+
+A friend is trying to write a function that returns the sum of all the
+non-nil elements in a list. He has written two versions of this function,
+and neither of them work. Explain what's wrong with each, and give a
+correct version:
 
     ;; a) remove operator not change origin list
     (defun summit (lst)
