@@ -2,18 +2,18 @@
 
 # exercises 3
 
-1.  [Show the following lists in box notation:](#orgca63b2b)
-2.  [Write a version of union that preserves the order of the elements in the original lists:](#org25d2f38)
-3.  [Define a function that takes a list and&#x2026;](#org64b7622)
-4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#org71be9e8)
-5.  [Suppose the function `pos+` takes a list and&#x2026;](#org0aa07d4)
-6.  [After years of deliberation,&#x2026;](#org1644c27)
-7.  [Modify the program in Figure 3.6 to&#x2026;](#org8864d50)
-8.  [Define a function that takes a list and prints it in dot notation:](#org23cf2f5)
-9.  [Write a program to find the&#x2026;](#org30c754d)
+1.  [Show the following lists in box notation:](#org3ede903)
+2.  [Write a version of union that preserves the order of the elements in the original lists:](#org56a2a19)
+3.  [Define a function that takes a list and&#x2026;](#org2ceb985)
+4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orgcc2d8ca)
+5.  [Suppose the function `pos+` takes a list and&#x2026;](#org50f44b4)
+6.  [After years of deliberation,&#x2026;](#orgaa4a483)
+7.  [Modify the program in Figure 3.6 to&#x2026;](#orge2a665b)
+8.  [Define a function that takes a list and prints it in dot notation:](#org675a6c2)
+9.  [Write a program to find the&#x2026;](#orgbd74ce0)
 
 
-<a id="orgca63b2b"></a>
+<a id="org3ede903"></a>
 
 ## Show the following lists in box notation:
 
@@ -285,7 +285,7 @@
     <del>---</del>-&#x2014;+
 
 
-<a id="org25d2f38"></a>
+<a id="org56a2a19"></a>
 
 ## Write a version of union that preserves the order of the elements in the original lists:
 
@@ -293,7 +293,7 @@
       (reverse (remove-duplicates (reverse (append (copy-list l1) (copy-list l2))))))
 
 
-<a id="org64b7622"></a>
+<a id="org2ceb985"></a>
 
 ## Define a function that takes a list and&#x2026;
 
@@ -301,19 +301,67 @@ Define a function that takes a list and returns a list indicating the
 number of times each (eql) element appears, sorted from most common
 element to least common:
 
-    (defun occur (lst)
-      ())
+    ;;; compre
     
+    (defun compre (lst)
+      (if (consp lst)
+          (compr (car lst) 1 (cdr lst))
+          lst))
+    
+    (defun compr (elt n lst)
+      (if (null lst)
+          (list (cons elt n))
+          (let ((next (car lst)))
+            (if (eql next elt)
+                (compr elt (+ n 1) (cdr lst))
+                (if (member elt (cdr lst))
+                    (compr elt n (append (cdr lst) (list next)))
+                    (cons (cons elt n)
+                          (compr next 1 (cdr lst))))))))
+    
+    ;;; sort
+    
+    (defun new-compare (item lst)
+      (if (null lst)
+          t
+          (if (>= (cdr item) (cdar lst))
+              (new-compare item (cdr lst)))))
+    
+    (defun biggest (lst)
+      (if (null (cdr lst))
+          (car lst)
+          (if (new-compare (car lst) (cdr lst))
+              (car lst)
+              (biggest (cdr lst)))))
+    
+    (defun rest-big (lst)
+      (if (= (cdr (car lst)) (cdr (biggest lst)))
+          (cdr lst)
+          (rest-big (append (cdr lst) (list (car lst))))))
+    
+    (defun new-sort (lst)
+      (if (null (cdr lst))
+          lst
+          (let ((item (car lst))
+                (big (biggest lst)))
+            (if (= (cdr item) (cdr big))
+                (cons item (new-sort (cdr lst)))
+                (new-sort (cons big (rest-big lst)))))))
+    
+    ;;; main
+    
+    ;; > (occurrences ' ( a b a d a c d e a )
+    ;; ((A . 4) (C . 2) (D . 2) (B . 1))
     (defun occurrences (lst)
-      (sort (occur lst) #'> :key #'cdr))
+      (new-sort (compre lst)))
 
 
-<a id="org71be9e8"></a>
+<a id="orgcc2d8ca"></a>
 
 ## Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?
 
 
-<a id="org0aa07d4"></a>
+<a id="org50f44b4"></a>
 
 ## Suppose the function `pos+` takes a list and&#x2026;
 
@@ -321,26 +369,26 @@ Suppose the function pos+ takes a list and returns a list of each element
 plus its position:
 
 
-<a id="org1644c27"></a>
+<a id="orgaa4a483"></a>
 
 ## After years of deliberation,&#x2026;
 
 After years of deliberation, a government commission has decided that lists should be represented by using the cdr to point to the first element and the car to point to the rest of the list. Define the government versions of the following functions:
 
 
-<a id="org8864d50"></a>
+<a id="orge2a665b"></a>
 
 ## Modify the program in Figure 3.6 to&#x2026;
 
 Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted lists.)
 
 
-<a id="org23cf2f5"></a>
+<a id="org675a6c2"></a>
 
 ## Define a function that takes a list and prints it in dot notation:
 
 
-<a id="org30c754d"></a>
+<a id="orgbd74ce0"></a>
 
 ## Write a program to find the&#x2026;
 
