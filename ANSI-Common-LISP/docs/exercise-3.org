@@ -62,12 +62,21 @@ element to least common:
 
 ** Why does ~(member ' ( a ) ' ( ( a ) ( b ) ) )~ return nil?
 
-
+Because two lists is different object, they allocates two pointers.
 
 ** Suppose the function ~pos+~ takes a list and...
 
 Suppose the function pos+ takes a list and returns a list of each element
 plus its position:
+
+#+begin_src lisp
+  ;;> (pos+ '( 7 5 1 4 ) )
+  ;;(7 6 3 7)
+#+end_src
+
+Define this function using (a)recursion, (b)iteration, (c)mapcar.
+
+#+include: "../src/exercise-3-5.lisp" src lisp
 
 ** After years of deliberation,...
 
