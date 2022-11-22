@@ -2,18 +2,18 @@
 
 # exercises 3
 
-1.  [Show the following lists in box notation:](#org3ede903)
-2.  [Write a version of union that preserves the order of the elements in the original lists:](#org56a2a19)
-3.  [Define a function that takes a list and&#x2026;](#org2ceb985)
-4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orgcc2d8ca)
-5.  [Suppose the function `pos+` takes a list and&#x2026;](#org50f44b4)
-6.  [After years of deliberation,&#x2026;](#orgaa4a483)
-7.  [Modify the program in Figure 3.6 to&#x2026;](#orge2a665b)
-8.  [Define a function that takes a list and prints it in dot notation:](#org675a6c2)
-9.  [Write a program to find the&#x2026;](#orgbd74ce0)
+1.  [Show the following lists in box notation:](#org822a677)
+2.  [Write a version of union that preserves the order of the elements in the original lists:](#orgc72d562)
+3.  [Define a function that takes a list and&#x2026;](#orgada6119)
+4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orgb97ea4c)
+5.  [Suppose the function `pos+` takes a list and&#x2026;](#orgfcdef27)
+6.  [After years of deliberation,&#x2026;](#orgc849859)
+7.  [Modify the program in Figure 3.6 to&#x2026;](#org44d3eca)
+8.  [Define a function that takes a list and prints it in dot notation:](#org838794e)
+9.  [Write a program to find the&#x2026;](#orgc9b3db4)
 
 
-<a id="org3ede903"></a>
+<a id="org822a677"></a>
 
 ## Show the following lists in box notation:
 
@@ -285,7 +285,7 @@
     <del>---</del>-&#x2014;+
 
 
-<a id="org56a2a19"></a>
+<a id="orgc72d562"></a>
 
 ## Write a version of union that preserves the order of the elements in the original lists:
 
@@ -293,7 +293,7 @@
       (reverse (remove-duplicates (reverse (append (copy-list l1) (copy-list l2))))))
 
 
-<a id="org2ceb985"></a>
+<a id="orgada6119"></a>
 
 ## Define a function that takes a list and&#x2026;
 
@@ -308,6 +308,7 @@ element to least common:
           (compr (car lst) 1 (cdr lst))
           lst))
     
+    ;; return compressed list
     (defun compr (elt n lst)
       (if (null lst)
           (list (cons elt n))
@@ -321,12 +322,14 @@ element to least common:
     
     ;;; sort
     
+    ;; item largest in list
     (defun new-compare (item lst)
       (if (null lst)
           t
           (if (>= (cdr item) (cdar lst))
               (new-compare item (cdr lst)))))
     
+    ;; return largest item
     (defun biggest (lst)
       (if (null (cdr lst))
           (car lst)
@@ -334,11 +337,13 @@ element to least common:
               (car lst)
               (biggest (cdr lst)))))
     
+    ;; return list except largest item
     (defun rest-big (lst)
       (if (= (cdr (car lst)) (cdr (biggest lst)))
           (cdr lst)
           (rest-big (append (cdr lst) (list (car lst))))))
     
+    ;; sorting
     (defun new-sort (lst)
       (if (null (cdr lst))
           lst
@@ -356,12 +361,12 @@ element to least common:
       (new-sort (compre lst)))
 
 
-<a id="orgcc2d8ca"></a>
+<a id="orgb97ea4c"></a>
 
 ## Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?
 
 
-<a id="org50f44b4"></a>
+<a id="orgfcdef27"></a>
 
 ## Suppose the function `pos+` takes a list and&#x2026;
 
@@ -369,26 +374,26 @@ Suppose the function pos+ takes a list and returns a list of each element
 plus its position:
 
 
-<a id="orgaa4a483"></a>
+<a id="orgc849859"></a>
 
 ## After years of deliberation,&#x2026;
 
 After years of deliberation, a government commission has decided that lists should be represented by using the cdr to point to the first element and the car to point to the rest of the list. Define the government versions of the following functions:
 
 
-<a id="orge2a665b"></a>
+<a id="org44d3eca"></a>
 
 ## Modify the program in Figure 3.6 to&#x2026;
 
 Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted lists.)
 
 
-<a id="org675a6c2"></a>
+<a id="org838794e"></a>
 
 ## Define a function that takes a list and prints it in dot notation:
 
 
-<a id="orgbd74ce0"></a>
+<a id="orgc9b3db4"></a>
 
 ## Write a program to find the&#x2026;
 

@@ -5,6 +5,7 @@
       (compr (car lst) 1 (cdr lst))
       lst))
 
+;; return compressed list
 (defun compr (elt n lst)
   (if (null lst)
       (list (cons elt n))
@@ -18,12 +19,14 @@
 
 ;;; sort
 
+;; item largest in list
 (defun new-compare (item lst)
   (if (null lst)
       t
       (if (>= (cdr item) (cdar lst))
           (new-compare item (cdr lst)))))
 
+;; return largest item
 (defun biggest (lst)
   (if (null (cdr lst))
       (car lst)
@@ -31,11 +34,13 @@
           (car lst)
           (biggest (cdr lst)))))
 
+;; return list except largest item
 (defun rest-big (lst)
   (if (= (cdr (car lst)) (cdr (biggest lst)))
       (cdr lst)
       (rest-big (append (cdr lst) (list (car lst))))))
 
+;; sorting
 (defun new-sort (lst)
   (if (null (cdr lst))
       lst
