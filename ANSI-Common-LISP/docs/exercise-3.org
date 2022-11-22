@@ -55,13 +55,7 @@ Define a function that takes a list and returns a list indicating the
 number of times each (eql) element appears, sorted from most common
 element to least common:
 
-#+begin_src lisp
-  (defun occur (lst)
-    ())
-
-  (defun occurrences (lst)
-    (sort (occur lst) #'> :key #'cdr))
-#+end_src
+#+include: "../src/exercise-3-3.lisp" src lisp
 
 #+RESULTS:
 : OCCURRENCES
