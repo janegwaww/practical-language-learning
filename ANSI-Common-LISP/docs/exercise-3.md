@@ -2,18 +2,18 @@
 
 # exercises 3
 
-1.  [Show the following lists in box notation:](#org1a00cac)
-2.  [Write a version of union that preserves the order of the elements in the original lists:](#org96484ef)
-3.  [Define a function that takes a list and&#x2026;](#org81254b2)
-4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orga99f72f)
-5.  [Suppose the function `pos+` takes a list and&#x2026;](#org5814397)
-6.  [After years of deliberation,&#x2026;](#orge23c467)
-7.  [Modify the program in Figure 3.6 to&#x2026;](#org8003f93)
-8.  [Define a function that takes a list and prints it in dot notation:](#org04ec8d6)
-9.  [Write a program to find the&#x2026;](#org794d2a4)
+1.  [Show the following lists in box notation:](#org180d9b6)
+2.  [Write a version of union that preserves the order of the elements in the original lists:](#orgccaa9d3)
+3.  [Define a function that takes a list and&#x2026;](#org24a96fe)
+4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orgc8bbef4)
+5.  [Suppose the function `pos+` takes a list and&#x2026;](#orgd1f6e95)
+6.  [After years of deliberation,&#x2026;](#org69ccbdd)
+7.  [Modify the program in Figure 3.6 to&#x2026;](#orgfd2b648)
+8.  [Define a function that takes a list and prints it in dot notation:](#org9853ff7)
+9.  [Write a program to find the&#x2026;](#orgfa29896)
 
 
-<a id="org1a00cac"></a>
+<a id="org180d9b6"></a>
 
 ## Show the following lists in box notation:
 
@@ -285,7 +285,7 @@
     <del>---</del>-&#x2014;+
 
 
-<a id="org96484ef"></a>
+<a id="orgccaa9d3"></a>
 
 ## Write a version of union that preserves the order of the elements in the original lists:
 
@@ -293,7 +293,7 @@
       (reverse (remove-duplicates (reverse (append (copy-list l1) (copy-list l2))))))
 
 
-<a id="org81254b2"></a>
+<a id="org24a96fe"></a>
 
 ## Define a function that takes a list and&#x2026;
 
@@ -361,14 +361,14 @@ element to least common:
       (new-sort (compre lst)))
 
 
-<a id="orga99f72f"></a>
+<a id="orgc8bbef4"></a>
 
 ## Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?
 
 Because two lists is different object, they allocates two pointers.
 
 
-<a id="org5814397"></a>
+<a id="orgd1f6e95"></a>
 
 ## Suppose the function `pos+` takes a list and&#x2026;
 
@@ -411,7 +411,7 @@ Define this function using (a)recursion, (b)iteration, (c)mapcar.
                 lst)))
 
 
-<a id="orge23c467"></a>
+<a id="org69ccbdd"></a>
 
 ## After years of deliberation,&#x2026;
 
@@ -463,7 +463,7 @@ After years of deliberation, a government commission has decided that lists shou
               (new-member elt (new-car lst )))))
 
 
-<a id="org8003f93"></a>
+<a id="orgfd2b648"></a>
 
 ## Modify the program in Figure 3.6 to&#x2026;
 
@@ -486,7 +486,7 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
                       (compr (cons next 1) (cdr 1st)))))))
 
 
-<a id="org04ec8d6"></a>
+<a id="org9853ff7"></a>
 
 ## Define a function that takes a list and prints it in dot notation:
 
@@ -500,14 +500,24 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
     (showdots '(1 2 3))
 
 
-<a id="org794d2a4"></a>
+<a id="orgfa29896"></a>
 
 ## Write a program to find the&#x2026;
 
 Write a program to find the `longest` finite path through a network represented as in Section 3.15. The network may contain cycles.
 
     (defun longest-path (start end net)
-      (bfs end (list (list start)) net))
+      (find-longest (bfs end (list (list start)) net)))
+    
+    (defun find-longest (lst)
+      (find-longest-item (car lst) (cdr lst)))
+    
+    (defun find-longest-item (item lst)
+      (if (null lst)
+          item
+          (if (>= (length item) (length (car lst)))
+              (find-longest-item item (cdr lst))
+              (find-longest-item (car lst) (cdr lst)))))
     
     (defun bfs (end queue net)
       (if (null queue)
@@ -515,7 +525,11 @@ Write a program to find the `longest` finite path through a network represented 
           (let ((path (car queue)))
             (let ((node (car path)))
               (if (eql node end)
-                  (reverse path)
+                  (cons (reverse path)
+                        (bfs end
+                             (append (cdr queue)
+                                     (new-paths path node net))
+                             net))
                   (bfs end
                        (append (cdr queue)
                                (new-paths path node net))
