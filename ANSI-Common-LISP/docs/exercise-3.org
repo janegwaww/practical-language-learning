@@ -82,11 +82,27 @@ Define this function using (a)recursion, (b)iteration, (c)mapcar.
 
 After years of deliberation, a government commission has decided that lists should be represented by using the cdr to point to the first element and the car to point to the rest of the list. Define the government versions of the following functions:
 
+
+
 ** Modify the program in Figure 3.6 to...
 
 Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted lists.)
 
 ** Define a function that takes a list and prints it in dot notation:
+
+#+begin_src lisp
+  ;;> (showdots '(a b c))
+  ;;(A . (B . (C . NIL)))
+  ;;NIL
+  (defun showdots (lst)
+    (do ((str lst (cdr str)))
+        ((null str) (format t "nil)"))
+      (format t "(~a . " (car str))))
+  (showdots '(1 2 3))
+#+end_src
+
+#+RESULTS:
+: NIL
 
 ** Write a program to find the...
 
