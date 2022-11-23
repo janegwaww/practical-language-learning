@@ -2,18 +2,18 @@
 
 # exercises 3
 
-1.  [Show the following lists in box notation:](#org9b2b30e)
-2.  [Write a version of union that preserves the order of the elements in the original lists:](#org0330797)
-3.  [Define a function that takes a list and&#x2026;](#org9022b1b)
-4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orge9297d5)
-5.  [Suppose the function `pos+` takes a list and&#x2026;](#orgb79f621)
-6.  [After years of deliberation,&#x2026;](#orgb6119d8)
-7.  [Modify the program in Figure 3.6 to&#x2026;](#orgd286e03)
-8.  [Define a function that takes a list and prints it in dot notation:](#orge80f796)
-9.  [Write a program to find the&#x2026;](#orgf5107ef)
+1.  [Show the following lists in box notation:](#org1a00cac)
+2.  [Write a version of union that preserves the order of the elements in the original lists:](#org96484ef)
+3.  [Define a function that takes a list and&#x2026;](#org81254b2)
+4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orga99f72f)
+5.  [Suppose the function `pos+` takes a list and&#x2026;](#org5814397)
+6.  [After years of deliberation,&#x2026;](#orge23c467)
+7.  [Modify the program in Figure 3.6 to&#x2026;](#org8003f93)
+8.  [Define a function that takes a list and prints it in dot notation:](#org04ec8d6)
+9.  [Write a program to find the&#x2026;](#org794d2a4)
 
 
-<a id="org9b2b30e"></a>
+<a id="org1a00cac"></a>
 
 ## Show the following lists in box notation:
 
@@ -285,7 +285,7 @@
     <del>---</del>-&#x2014;+
 
 
-<a id="org0330797"></a>
+<a id="org96484ef"></a>
 
 ## Write a version of union that preserves the order of the elements in the original lists:
 
@@ -293,7 +293,7 @@
       (reverse (remove-duplicates (reverse (append (copy-list l1) (copy-list l2))))))
 
 
-<a id="org9022b1b"></a>
+<a id="org81254b2"></a>
 
 ## Define a function that takes a list and&#x2026;
 
@@ -361,14 +361,14 @@ element to least common:
       (new-sort (compre lst)))
 
 
-<a id="orge9297d5"></a>
+<a id="orga99f72f"></a>
 
 ## Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?
 
 Because two lists is different object, they allocates two pointers.
 
 
-<a id="orgb79f621"></a>
+<a id="org5814397"></a>
 
 ## Suppose the function `pos+` takes a list and&#x2026;
 
@@ -411,7 +411,7 @@ Define this function using (a)recursion, (b)iteration, (c)mapcar.
                 lst)))
 
 
-<a id="orgb6119d8"></a>
+<a id="orge23c467"></a>
 
 ## After years of deliberation,&#x2026;
 
@@ -463,7 +463,7 @@ After years of deliberation, a government commission has decided that lists shou
               (new-member elt (new-car lst )))))
 
 
-<a id="orgd286e03"></a>
+<a id="org8003f93"></a>
 
 ## Modify the program in Figure 3.6 to&#x2026;
 
@@ -486,7 +486,7 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
                       (compr (cons next 1) (cdr 1st)))))))
 
 
-<a id="orge80f796"></a>
+<a id="org04ec8d6"></a>
 
 ## Define a function that takes a list and prints it in dot notation:
 
@@ -500,9 +500,29 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
     (showdots '(1 2 3))
 
 
-<a id="orgf5107ef"></a>
+<a id="org794d2a4"></a>
 
 ## Write a program to find the&#x2026;
 
 Write a program to find the `longest` finite path through a network represented as in Section 3.15. The network may contain cycles.
+
+    (defun longest-path (start end net)
+      (bfs end (list (list start)) net))
+    
+    (defun bfs (end queue net)
+      (if (null queue)
+          nil
+          (let ((path (car queue)))
+            (let ((node (car path)))
+              (if (eql node end)
+                  (reverse path)
+                  (bfs end
+                       (append (cdr queue)
+                               (new-paths path node net))
+                       net))))))
+    
+    (defun new-paths (path node net)
+      (mapcar #'(lambda (n)
+                  (cons n path))
+              (cdr (assoc node net))))
 

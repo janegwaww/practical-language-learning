@@ -109,3 +109,5 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
 ** Write a program to find the...
 
 Write a program to find the ~longest~ finite path through a network represented as in Section 3.15. The network may contain cycles.
+
+#+include: "../src/exercise-3-9.lisp" src lisp
