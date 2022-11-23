@@ -82,7 +82,7 @@ Define this function using (a)recursion, (b)iteration, (c)mapcar.
 
 After years of deliberation, a government commission has decided that lists should be represented by using the cdr to point to the first element and the car to point to the rest of the list. Define the government versions of the following functions:
 
-
+#+include: "../src/exercise-3-6.lisp" src lisp
 
 ** Modify the program in Figure 3.6 to...
 

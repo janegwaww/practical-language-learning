@@ -2,18 +2,18 @@
 
 # exercises 3
 
-1.  [Show the following lists in box notation:](#orga7655ae)
-2.  [Write a version of union that preserves the order of the elements in the original lists:](#org6e80e92)
-3.  [Define a function that takes a list and&#x2026;](#orga35cb32)
-4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#org2fc1101)
-5.  [Suppose the function `pos+` takes a list and&#x2026;](#orgf824c46)
-6.  [After years of deliberation,&#x2026;](#org7bbc5fd)
-7.  [Modify the program in Figure 3.6 to&#x2026;](#org8cc9846)
-8.  [Define a function that takes a list and prints it in dot notation:](#org181c692)
-9.  [Write a program to find the&#x2026;](#org6208b77)
+1.  [Show the following lists in box notation:](#org9b2b30e)
+2.  [Write a version of union that preserves the order of the elements in the original lists:](#org0330797)
+3.  [Define a function that takes a list and&#x2026;](#org9022b1b)
+4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#orge9297d5)
+5.  [Suppose the function `pos+` takes a list and&#x2026;](#orgb79f621)
+6.  [After years of deliberation,&#x2026;](#orgb6119d8)
+7.  [Modify the program in Figure 3.6 to&#x2026;](#orgd286e03)
+8.  [Define a function that takes a list and prints it in dot notation:](#orge80f796)
+9.  [Write a program to find the&#x2026;](#orgf5107ef)
 
 
-<a id="orga7655ae"></a>
+<a id="org9b2b30e"></a>
 
 ## Show the following lists in box notation:
 
@@ -285,7 +285,7 @@
     <del>---</del>-&#x2014;+
 
 
-<a id="org6e80e92"></a>
+<a id="org0330797"></a>
 
 ## Write a version of union that preserves the order of the elements in the original lists:
 
@@ -293,7 +293,7 @@
       (reverse (remove-duplicates (reverse (append (copy-list l1) (copy-list l2))))))
 
 
-<a id="orga35cb32"></a>
+<a id="org9022b1b"></a>
 
 ## Define a function that takes a list and&#x2026;
 
@@ -361,14 +361,14 @@ element to least common:
       (new-sort (compre lst)))
 
 
-<a id="org2fc1101"></a>
+<a id="orge9297d5"></a>
 
 ## Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?
 
 Because two lists is different object, they allocates two pointers.
 
 
-<a id="orgf824c46"></a>
+<a id="orgb79f621"></a>
 
 ## Suppose the function `pos+` takes a list and&#x2026;
 
@@ -411,14 +411,59 @@ Define this function using (a)recursion, (b)iteration, (c)mapcar.
                 lst)))
 
 
-<a id="org7bbc5fd"></a>
+<a id="orgb6119d8"></a>
 
 ## After years of deliberation,&#x2026;
 
 After years of deliberation, a government commission has decided that lists should be represented by using the cdr to point to the first element and the car to point to the rest of the list. Define the government versions of the following functions:
 
+    ;;; a) cons
+    
+    (defun new-cons (l r)
+      (lambda (x)
+        (if (= x 1)
+            r
+            l)))
+    
+    ;; car
+    (defun new-car (fn)
+      (funcall fn 1))
+    
+    ;; cdr
+    (defun new-cdr (fn)
+      (funcall fn 2))
+    
+    ;;; b) list
+    
+    (defun new-list (&rest params)
+      (if (consp params)
+          (get-list params)
+          params))
+    
+    (defun get-list (lst)
+      (if (null lst)
+          nil
+          (new-cons (car lst)
+                    (get-list (cdr lst)))))
+    
+    ;;; c) length
+    
+    (defun new-length (lst)
+      (if (null lst)
+          0
+          (+ 1 (new-length (new-car lst)))))
+    
+    ;;; d) member
+    
+    (defun new-member (elt lst)
+      (if (null lst)
+          nil
+          (if (eql elt (new-cdr lst))
+              t
+              (new-member elt (new-car lst )))))
 
-<a id="org8cc9846"></a>
+
+<a id="orgd286e03"></a>
 
 ## Modify the program in Figure 3.6 to&#x2026;
 
@@ -441,7 +486,7 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
                       (compr (cons next 1) (cdr 1st)))))))
 
 
-<a id="org181c692"></a>
+<a id="orge80f796"></a>
 
 ## Define a function that takes a list and prints it in dot notation:
 
@@ -455,7 +500,7 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
     (showdots '(1 2 3))
 
 
-<a id="org6208b77"></a>
+<a id="orgf5107ef"></a>
 
 ## Write a program to find the&#x2026;
 
