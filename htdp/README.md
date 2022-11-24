@@ -10,4 +10,5 @@ From <a href="https://htdp.org/2021-5-4/Book/index.html">How to Design Programs,
 
 -   [rd](docs/rd.md)
 -   [abstracting-with-lambda](docs/abstracting-with-lambda.md)
+-   [abstractions](docs/abstractions.md)
 
