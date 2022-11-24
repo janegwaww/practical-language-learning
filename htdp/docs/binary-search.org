@@ -1,0 +1,5 @@
+#+options: toc:nil
+
+* binary-search
+
+#+include: "../src/binary-search.rkt" src lisp
