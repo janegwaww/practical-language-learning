@@ -5,7 +5,7 @@
 
 #+toc: headlines local
 
-** Define a function to take a square array
+** Define a function to take a square array...
 
 Define a function to take a square array (an array whose dimensions
 are (n n)) and rotate it 90° clockwise:
@@ -24,7 +24,7 @@ You'll need array-dimensions (page 361).
 
 #+end_src
 
-** Define a structure to represent a tree
+** Define a structure to represent a tree...
 
 Define a structure to represent a tree where each node contains some
 data and has up to three children. Define
