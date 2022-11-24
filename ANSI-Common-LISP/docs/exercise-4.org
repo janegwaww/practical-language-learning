@@ -1,5 +1,5 @@
 #+startup: showall
-#+options: nil
+#+options: toc:nil
 
 * exercise-4
 

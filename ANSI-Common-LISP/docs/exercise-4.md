@@ -1,29 +1,16 @@
 
-# Table of Contents
-
-1.  [exercise-4](#orgfa039a6)
-    1.  [Define a function to take a square array](#orga081bed)
-    2.  [Read the description of reduce on page 368, then use it to define:](#org46d781c)
-    3.  [Define a structure to represent a tree](#org650b2ea)
-    4.  [Define a function that takes a BST and&#x2026;](#org3b0f990)
-    5.  [Define `bst-adjoin`. This function&#x2026;](#orga355b37)
-    6.  [The contents of any hash table can be&#x2026;](#org5f8988d)
-
-
-
-<a id="orgfa039a6"></a>
 
 # exercise-4
 
-1.  [Define a function to take a square array](#orga081bed)
-2.  [Read the description of reduce on page 368, then use it to define:](#org46d781c)
-3.  [Define a structure to represent a tree](#org650b2ea)
-4.  [Define a function that takes a BST and&#x2026;](#org3b0f990)
-5.  [Define `bst-adjoin`. This function&#x2026;](#orga355b37)
-6.  [The contents of any hash table can be&#x2026;](#org5f8988d)
+1.  [Define a function to take a square array](#orga291735)
+2.  [Read the description of reduce on page 368, then use it to define:](#org9a0af5d)
+3.  [Define a structure to represent a tree](#org80cfd4e)
+4.  [Define a function that takes a BST and&#x2026;](#org45ead66)
+5.  [Define `bst-adjoin`. This function&#x2026;](#org6d63484)
+6.  [The contents of any hash table can be&#x2026;](#orgbf532d1)
 
 
-<a id="orga081bed"></a>
+<a id="orga291735"></a>
 
 ## Define a function to take a square array
 
@@ -36,7 +23,7 @@ are (n n)) and rotate it 90° clockwise:
 You'll need array-dimensions (page 361).
 
 
-<a id="org46d781c"></a>
+<a id="org9a0af5d"></a>
 
 ## Read the description of reduce on page 368, then use it to define:
 
@@ -45,7 +32,7 @@ You'll need array-dimensions (page 361).
     ;; b) reverse(for lists)
 
 
-<a id="org650b2ea"></a>
+<a id="org80cfd4e"></a>
 
 ## Define a structure to represent a tree
 
@@ -57,7 +44,7 @@ data and has up to three children. Define
     ;; b) a function that takes an object and such a tree, and returns true if the object is eql to the data field of one of the nodes
 
 
-<a id="org3b0f990"></a>
+<a id="org45ead66"></a>
 
 ## Define a function that takes a BST and&#x2026;
 
@@ -65,14 +52,14 @@ Define a function that takes a BST and returns a list of its elements
 ordered from greatest to least.
 
 
-<a id="orga355b37"></a>
+<a id="org6d63484"></a>
 
 ## Define `bst-adjoin`. This function&#x2026;
 
 Define `bst-adjoin`. This function should take the same arguments as `bst-insert`, but should only insert the object if there is nothing `eql` to it in the tree.
 
 
-<a id="org5f8988d"></a>
+<a id="orgbf532d1"></a>
 
 ## The contents of any hash table can be&#x2026;
 
