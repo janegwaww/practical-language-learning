@@ -15,6 +15,8 @@ are (n n)) and rotate it 90° clockwise:
 #+end_src
 You'll need array-dimensions (page 361).
 
+#+include: "../src/exercise-4-1.lisp" src lisp
+
 ** Read the description of reduce on page 368, then use it to define:
 
 #+begin_src lisp
