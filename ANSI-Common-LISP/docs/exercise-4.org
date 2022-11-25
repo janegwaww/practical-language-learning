@@ -19,12 +19,7 @@ You'll need array-dimensions (page 361).
 
 ** Read the description of reduce on page 368, then use it to define:
 
-#+begin_src lisp
-  ;; a) copy-list
-
-  ;; b) reverse(for lists)
-
-#+end_src
+#+include: "../src/exercise-4-2.lisp" src lisp
 
 ** Define a structure to represent a tree...
 
