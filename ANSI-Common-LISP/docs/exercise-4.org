@@ -26,12 +26,7 @@ You'll need array-dimensions (page 361).
 Define a structure to represent a tree where each node contains some
 data and has up to three children. Define
 
-#+begin_src lisp
-  ;; a) a function to copy such a tree (so that no node in the copy is eql to a node in the original)
-
-  ;; b) a function that takes an object and such a tree, and returns true if the object is eql to the data field of one of the nodes
-
-#+end_src
+#+include: "../src/exercise-4-3.lisp" src lisp
 
 ** Define a function that takes a BST and...
 
