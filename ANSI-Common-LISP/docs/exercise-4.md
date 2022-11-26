@@ -2,15 +2,15 @@
 
 # exercise-4
 
-1.  [Define a function to take a square array&#x2026;](#org843520a)
-2.  [Read the description of reduce on page 368, then use it to define:](#org6e656ac)
-3.  [Define a structure to represent a tree&#x2026;](#orga84227f)
-4.  [Define a function that takes a BST and&#x2026;](#org1c7ff8f)
-5.  [Define `bst-adjoin`. This function&#x2026;](#org6dcb0c5)
-6.  [The contents of any hash table can be&#x2026;](#org484c2b1)
+1.  [Define a function to take a square array&#x2026;](#orgb9a72bf)
+2.  [Read the description of reduce on page 368, then use it to define:](#org294a1fb)
+3.  [Define a structure to represent a tree&#x2026;](#org21a490a)
+4.  [Define a function that takes a BST and&#x2026;](#org3c60554)
+5.  [Define `bst-adjoin`. This function&#x2026;](#org82ed54e)
+6.  [The contents of any hash table can be&#x2026;](#orgf4fb76e)
 
 
-<a id="org843520a"></a>
+<a id="orgb9a72bf"></a>
 
 ## Define a function to take a square array&#x2026;
 
@@ -40,7 +40,7 @@ You'll need array-dimensions (page 361).
     (quarter-turn #2A((a b) (c d)))
 
 
-<a id="org6e656ac"></a>
+<a id="org294a1fb"></a>
 
 ## Read the description of reduce on page 368, then use it to define:
 
@@ -66,7 +66,7 @@ You'll need array-dimensions (page 361).
                    lst)))
 
 
-<a id="orga84227f"></a>
+<a id="org21a490a"></a>
 
 ## Define a structure to represent a tree&#x2026;
 
@@ -101,82 +101,15 @@ data and has up to three children. Define
                  (tre-member obj (node-r tre)))))))
 
 
-<a id="org1c7ff8f"></a>
+<a id="org3c60554"></a>
 
 ## Define a function that takes a BST and&#x2026;
 
 Define a function that takes a BST and returns a list of its elements
 ordered from greatest to least.
 
-    ;;; previesly on BST
-    ;;; code from chapter-4
-    
-    (defstruct (nod (:print-function
-                     (lambda (n s d)
-                       (format s "#<~A>" (nod-elt n)))))
-      elt (l nil) (r nil))
-    
-    (defun bst-max (bst)
-      (and bst
-           (or (bst-max (nod-r bst)) bst)))
-    
-    (defun bst-insert (obj bst <)
-      (if (null bst)
-          (make-nod :elt obj)
-          (let ((elt (nod-elt bst)))
-            (if (eql obj elt)
-                bst
-                (if (funcall < obj elt)
-                    (make-nod
-                     :elt elt
-                     :l (bst-insert obj (nod-l bst) <)
-                     :r (nod-r bst))
-                    (make-nod
-                     :elt elt
-                     :r (bst-insert obj (nod-r bst) <)
-                     :l (nod-l bst)))))))
-    
-    (defun rperc (bst)
-      (make-nod :elt (nod-elt (nod-r bst))
-                :l (nod-l bst)
-                :r (percolate (nod-r bst))))
-    (defun lperc (bst)
-      (make-nod :elt (nod-elt (nod-l bst))
-                :l (percolate (nod-l bst))
-                :r (nod-r bst)))
-    
-    (defun percolate (bst)
-      (cond ((null (nod-l bst))
-             (if (null (nod-r bst))
-                 nil
-                 (rperc bst)))
-            ((null (nod-r bst)) (lperc bst))
-            (t (if (zerop (random 2))
-                   (lperc bst)
-                   (rperc bst)))))
-    
-    (defun bst-remove (obj bst <)
-      (if (null bst)
-          nil
-          (let ((elt (nod-elt bst)))
-            (if (eql obj elt)
-                (percolate bst)
-                (if (funcall < obj elt)
-                    (make-nod
-                     :elt elt
-                     :l (bst-remove obj (nod-l bst) <)
-                     :r (nod-r bst))
-                    (make-nod
-                     :elt elt
-                     :r (bst-remove obj (nod-r bst) <)
-                     :l (nod-l bst)))))))
-    
-    (defparameter nums
-      (let ((num nil))
-        (dolist (x '(5 8 4 2 1 9 6 7 3))
-          (setf num (bst-insert x num #'<)))
-        num))
-    
+BST: [Example: Binary Search Trees](chapter-4-7.md)
+
     ;;; ordered bst
     
     (defun order-bst (bst)
@@ -189,14 +122,32 @@ ordered from greatest to least.
     ;; ==> (9 8 6 7 5 4 2 3 1)
 
 
-<a id="org6dcb0c5"></a>
+<a id="org82ed54e"></a>
 
 ## Define `bst-adjoin`. This function&#x2026;
 
 Define `bst-adjoin`. This function should take the same arguments as `bst-insert`, but should only insert the object if there is nothing `eql` to it in the tree.
 
+BST: [Example: Binary Search Trees](chapter-4-7.md)
 
-<a id="org484c2b1"></a>
+    (defun bst-adjoin (obj bst >)
+      (if (null bst)
+          (make-nod :elt obj)
+          (let ((elt (nod-elt bst)))
+            (if (eql obj elt)
+                bst
+                (if (funcall < obj elt)
+                    (make-nod
+                     :elt elt
+                     :l ()
+                     :r (nod-r bst))
+                    (make-nod
+                     :elt elt
+                     :l (nod-l bst)
+                     :r ()))))))
+
+
+<a id="orgf4fb76e"></a>
 
 ## The contents of any hash table can be&#x2026;
 
