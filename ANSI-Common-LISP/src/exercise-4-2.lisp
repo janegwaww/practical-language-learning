@@ -5,8 +5,7 @@
         #'(lambda (k v)
             (if (listp k)
                 (append k (list v))
-                (list k v))
-            )
+                (list k v)))
         lst)
        ))
 

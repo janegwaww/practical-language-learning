@@ -2,15 +2,15 @@
 
 # exercise-4
 
-1.  [Define a function to take a square array&#x2026;](#org114e0bc)
-2.  [Read the description of reduce on page 368, then use it to define:](#org83bf48a)
-3.  [Define a structure to represent a tree&#x2026;](#org6bc21be)
-4.  [Define a function that takes a BST and&#x2026;](#orgc87ba5f)
-5.  [Define `bst-adjoin`. This function&#x2026;](#org39eb409)
-6.  [The contents of any hash table can be&#x2026;](#org02802c9)
+1.  [Define a function to take a square array&#x2026;](#org342cece)
+2.  [Read the description of reduce on page 368, then use it to define:](#org495ae5c)
+3.  [Define a structure to represent a tree&#x2026;](#org8388437)
+4.  [Define a function that takes a BST and&#x2026;](#org70872a7)
+5.  [Define `bst-adjoin`. This function&#x2026;](#orgebdabbe)
+6.  [The contents of any hash table can be&#x2026;](#orgd46791f)
 
 
-<a id="org114e0bc"></a>
+<a id="org342cece"></a>
 
 ## Define a function to take a square array&#x2026;
 
@@ -40,7 +40,7 @@ You'll need array-dimensions (page 361).
     (quarter-turn #2A((a b) (c d)))
 
 
-<a id="org83bf48a"></a>
+<a id="org495ae5c"></a>
 
 ## Read the description of reduce on page 368, then use it to define:
 
@@ -51,8 +51,7 @@ You'll need array-dimensions (page 361).
             #'(lambda (k v)
                 (if (listp k)
                     (append k (list v))
-                    (list k v))
-                )
+                    (list k v)))
             lst)
            ))
     
@@ -66,7 +65,7 @@ You'll need array-dimensions (page 361).
                    lst)))
 
 
-<a id="org6bc21be"></a>
+<a id="org8388437"></a>
 
 ## Define a structure to represent a tree&#x2026;
 
@@ -101,7 +100,7 @@ data and has up to three children. Define
                  (tre-member obj (node-r tre)))))))
 
 
-<a id="orgc87ba5f"></a>
+<a id="org70872a7"></a>
 
 ## Define a function that takes a BST and&#x2026;
 
@@ -122,7 +121,7 @@ BST: [Example: Binary Search Trees](chapter-4-7.md)
     ;; ==> (9 8 6 7 5 4 2 3 1)
 
 
-<a id="org39eb409"></a>
+<a id="orgebdabbe"></a>
 
 ## Define `bst-adjoin`. This function&#x2026;
 
@@ -150,7 +149,7 @@ BST: [Example: Binary Search Trees](chapter-4-7.md)
                          :r (bst-insert obj (nod-r bst) <))))))))
 
 
-<a id="org02802c9"></a>
+<a id="orgd46791f"></a>
 
 ## The contents of any hash table can be&#x2026;
 
