@@ -31,6 +31,15 @@
   (and bst
        (or (bst-min (nod-l bst)) bst)))
 
+(defun bst-find (obj bst <)
+  (if (null bst)
+      nil
+      (let ((elt (nod-elt bst)))
+        (if (eql obj elt)
+            bst
+            (if (funcall < obj elt)
+                (bst-find obj (nod-l bst) <)
+                (bst-find obj (nod-r bst) <))))))
 
 (defun bst-remove (obj bst <)
   (if (null bst)

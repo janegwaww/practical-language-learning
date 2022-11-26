@@ -2,15 +2,15 @@
 
 # exercise-4
 
-1.  [Define a function to take a square array&#x2026;](#orgb9a72bf)
-2.  [Read the description of reduce on page 368, then use it to define:](#org294a1fb)
-3.  [Define a structure to represent a tree&#x2026;](#org21a490a)
-4.  [Define a function that takes a BST and&#x2026;](#org3c60554)
-5.  [Define `bst-adjoin`. This function&#x2026;](#org82ed54e)
-6.  [The contents of any hash table can be&#x2026;](#orgf4fb76e)
+1.  [Define a function to take a square array&#x2026;](#orga8449e9)
+2.  [Read the description of reduce on page 368, then use it to define:](#org7c78248)
+3.  [Define a structure to represent a tree&#x2026;](#orga10ae42)
+4.  [Define a function that takes a BST and&#x2026;](#org3e70358)
+5.  [Define `bst-adjoin`. This function&#x2026;](#org9c75f17)
+6.  [The contents of any hash table can be&#x2026;](#orgdce58df)
 
 
-<a id="orgb9a72bf"></a>
+<a id="orga8449e9"></a>
 
 ## Define a function to take a square array&#x2026;
 
@@ -40,7 +40,7 @@ You'll need array-dimensions (page 361).
     (quarter-turn #2A((a b) (c d)))
 
 
-<a id="org294a1fb"></a>
+<a id="org7c78248"></a>
 
 ## Read the description of reduce on page 368, then use it to define:
 
@@ -66,7 +66,7 @@ You'll need array-dimensions (page 361).
                    lst)))
 
 
-<a id="org21a490a"></a>
+<a id="orga10ae42"></a>
 
 ## Define a structure to represent a tree&#x2026;
 
@@ -101,7 +101,7 @@ data and has up to three children. Define
                  (tre-member obj (node-r tre)))))))
 
 
-<a id="org3c60554"></a>
+<a id="org3e70358"></a>
 
 ## Define a function that takes a BST and&#x2026;
 
@@ -122,7 +122,7 @@ BST: [Example: Binary Search Trees](chapter-4-7.md)
     ;; ==> (9 8 6 7 5 4 2 3 1)
 
 
-<a id="org82ed54e"></a>
+<a id="org9c75f17"></a>
 
 ## Define `bst-adjoin`. This function&#x2026;
 
@@ -130,24 +130,27 @@ Define `bst-adjoin`. This function should take the same arguments as `bst-insert
 
 BST: [Example: Binary Search Trees](chapter-4-7.md)
 
-    (defun bst-adjoin (obj bst >)
+    (defun bst-adjoin (obj bst <)
       (if (null bst)
           (make-nod :elt obj)
-          (let ((elt (nod-elt bst)))
+          (let ((elt (nod-elt bst))
+                (ext (bst-find obj bst <)))
             (if (eql obj elt)
                 bst
-                (if (funcall < obj elt)
-                    (make-nod
-                     :elt elt
-                     :l ()
-                     :r (nod-r bst))
-                    (make-nod
-                     :elt elt
-                     :l (nod-l bst)
-                     :r ()))))))
+                (if (eql obj (nod-elt ext))
+                    bst
+                    (if (funcall < obj elt)
+                        (make-nod
+                         :elt elt
+                         :l (bst-insert obj (nod-l bst) <)
+                         :r (nod-r bst))
+                        (make-nod
+                         :elt elt
+                         :l (nod-l bst)
+                         :r (bst-insert obj (nod-r bst) <))))))))
 
 
-<a id="orgf4fb76e"></a>
+<a id="orgdce58df"></a>
 
 ## The contents of any hash table can be&#x2026;
 
