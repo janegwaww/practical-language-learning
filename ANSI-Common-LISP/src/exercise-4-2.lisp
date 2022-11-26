@@ -6,8 +6,7 @@
             (if (listp k)
                 (append k (list v))
                 (list k v)))
-        lst)
-       ))
+        lst)))
 
 ;; b) reverse(for lists)
 (defun new-reverse (lst)
