@@ -2,15 +2,15 @@
 
 # exercise-4
 
-1.  [Define a function to take a square array&#x2026;](#orga8449e9)
-2.  [Read the description of reduce on page 368, then use it to define:](#org7c78248)
-3.  [Define a structure to represent a tree&#x2026;](#orga10ae42)
-4.  [Define a function that takes a BST and&#x2026;](#org3e70358)
-5.  [Define `bst-adjoin`. This function&#x2026;](#org9c75f17)
-6.  [The contents of any hash table can be&#x2026;](#orgdce58df)
+1.  [Define a function to take a square array&#x2026;](#org114e0bc)
+2.  [Read the description of reduce on page 368, then use it to define:](#org83bf48a)
+3.  [Define a structure to represent a tree&#x2026;](#org6bc21be)
+4.  [Define a function that takes a BST and&#x2026;](#orgc87ba5f)
+5.  [Define `bst-adjoin`. This function&#x2026;](#org39eb409)
+6.  [The contents of any hash table can be&#x2026;](#org02802c9)
 
 
-<a id="orga8449e9"></a>
+<a id="org114e0bc"></a>
 
 ## Define a function to take a square array&#x2026;
 
@@ -40,7 +40,7 @@ You'll need array-dimensions (page 361).
     (quarter-turn #2A((a b) (c d)))
 
 
-<a id="org7c78248"></a>
+<a id="org83bf48a"></a>
 
 ## Read the description of reduce on page 368, then use it to define:
 
@@ -66,7 +66,7 @@ You'll need array-dimensions (page 361).
                    lst)))
 
 
-<a id="orga10ae42"></a>
+<a id="org6bc21be"></a>
 
 ## Define a structure to represent a tree&#x2026;
 
@@ -101,7 +101,7 @@ data and has up to three children. Define
                  (tre-member obj (node-r tre)))))))
 
 
-<a id="org3e70358"></a>
+<a id="orgc87ba5f"></a>
 
 ## Define a function that takes a BST and&#x2026;
 
@@ -122,7 +122,7 @@ BST: [Example: Binary Search Trees](chapter-4-7.md)
     ;; ==> (9 8 6 7 5 4 2 3 1)
 
 
-<a id="org9c75f17"></a>
+<a id="org39eb409"></a>
 
 ## Define `bst-adjoin`. This function&#x2026;
 
@@ -150,13 +150,34 @@ BST: [Example: Binary Search Trees](chapter-4-7.md)
                          :r (bst-insert obj (nod-r bst) <))))))))
 
 
-<a id="orgdce58df"></a>
+<a id="org02802c9"></a>
 
 ## The contents of any hash table can be&#x2026;
 
-he contents of any hash table can be described by an assoc-list whose elements are `(k . v)`, for each key-value pair in the hash table. Define a function that
+The contents of any hash table can be described by an assoc-list whose elements are `(k . v)`, for each key-value pair in the hash table. Define a function that
 
     ;; (a) takes an assoc-list and returns a corresponding hash table
+    (defun corr-ht (assl)
+      (let ((ht (make-hash-table)))
+        (create-ht assl ht)))
     
+    (defun create-ht (lst ht)
+      (if (null lst)
+          ht
+          (let* ((elt (car lst))
+                 (k (car elt))
+                 (v (cdr elt)))
+            (if (consp elt)
+             (and (setf (gethash k ht) v)
+                 (create-ht (cdr lst) ht))
+             (create-ht (cdr lst) ht)))))
     ;; (b) takes a hash table and returns a corresponding assoc-list
+    (defun corr-assoc (ht)
+      (if (hash-table-p ht)
+       (let ((ass '()))
+         (maphash
+          #'(lambdda (k v)
+                     (push (cons k v) ass))
+          ht)
+         ass)))
 

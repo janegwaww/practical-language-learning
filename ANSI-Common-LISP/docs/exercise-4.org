@@ -47,11 +47,34 @@ BST: [[file:chapter-4-7.org::*Example: Binary Search Trees][Example: Binary Sear
 
 ** The contents of any hash table can be...
 
-he contents of any hash table can be described by an assoc-list whose elements are ~(k . v)~, for each key-value pair in the hash table. Define a function that
+The contents of any hash table can be described by an assoc-list whose elements are ~(k . v)~, for each key-value pair in the hash table. Define a function that
 
 #+begin_src lisp
   ;; (a) takes an assoc-list and returns a corresponding hash table
+  (defun corr-ht (assl)
+    (let ((ht (make-hash-table)))
+      (create-ht assl ht)))
 
+  (defun create-ht (lst ht)
+    (if (null lst)
+        ht
+        (let* ((elt (car lst))
+               (k (car elt))
+               (v (cdr elt)))
+          (if (consp elt)
+           (and (setf (gethash k ht) v)
+               (create-ht (cdr lst) ht))
+           (create-ht (cdr lst) ht)))))
   ;; (b) takes a hash table and returns a corresponding assoc-list
-
+  (defun corr-assoc (ht)
+    (if (hash-table-p ht)
+     (let ((ass '()))
+       (maphash
+        #'(lambdda (k v)
+                   (push (cons k v) ass))
+        ht)
+       ass)))
 #+end_src
+
+#+RESULTS:
+: CORR-ASSOC
