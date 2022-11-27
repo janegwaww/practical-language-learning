@@ -1,0 +1,57 @@
+#+options: toc:nil
+
+* exercise 5
+
+#+toc: headlines local
+
+** Translate the following expressions...
+
+1.Translate the following expressions into equivalent expressions that don't use let or let*, and don't cause the same expression to be evaluated twice.
+
+** Rewrite mystery (page 29) to use ~cond~.
+
+** Define a function that returns the...
+
+3.Define a function that returns the square of its argument, and which does not compute the square if the argument is a positive integer less than or equal to 5.
+
+** Rewrite ~num-month~ (Figure 5.1) to use ~case~ instead of ~svref~.
+
+** Define iterative and recursive versions...
+
+5.Define iterative and recursive versions of a function that takes an object ~x~ and vector ~v~, and returns a list of all the objects that immediately precede ~x~ in ~v~:
+
+#+begin_src lisp
+  ;;> (precedes #\a "abracadabra")
+  ;;(#\c #\d # \ r)
+#+end_src
+
+** Define iterative and recursive versions...
+
+6.Define iterative and recursive versions of a function that takes an object and a list, and returns a new list in which the object appears between each pair of elements in the original list:
+
+#+begin_src lisp
+  ;; > (intersperse '- '(a b e d))
+  ;; (A - B - C - D)
+#+end_src
+
+** Define a function that takes...
+
+7.Define a function that takes a list of numbers and returns true if the
+difference between each successive pair of them is 1, using
+
+(a) recursion
+(b) ~do~
+(c) ~mapc~ and ~return~
+
+** Define a single recursive function...
+
+8.Define a single recursive function that returns, as two values, the maximum and minimum elements of a vector.
+
+** The program in Figure 3.12 continues...
+
+9.The program in Figure 3.12 continues to search as the first complete
+path works its way through the queue. In broad searches this would be
+a problem.
+
+(a) Using ~catch~ and ~throw~, modify the program to return the first complete path as soon as it is discovered.
+(b) Rewrite the program to do the same thing without using ~catch~ and ~throw~.
