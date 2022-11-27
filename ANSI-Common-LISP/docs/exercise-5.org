@@ -8,6 +8,27 @@
 
 1.Translate the following expressions into equivalent expressions that don't use let or let*, and don't cause the same expression to be evaluated twice.
 
+#+begin_src lisp
+  ;; a)
+  (let ((x (car y)))
+    (cons x x))
+  ;; equivalent with a)
+  ((lambda (x)
+     (cons x x))
+   (car y))
+
+  ;; b)
+  (let* ((w (car x))
+         (y (+ w z)))
+    (cons w y))
+  ;; equilvalent with b)
+  ((lambda (w)
+     ((lambda (y)
+       (cons w y))
+      (+ w z)))
+   (car x))
+#+end_src
+
 ** Rewrite mystery (page 29) to use ~cond~.
 
 ** Define a function that returns the...
