@@ -108,7 +108,7 @@
                 (push (svref vr (+ n 1)) ls))))
            ls))
         (t "unknown type")))
-    (defparameter vec #(e a b r a c a d a b r a))
+  (defparameter vec #(e a b r a c a d a b r a))
   (ite-precedes 'a vec)
 #+end_src
 

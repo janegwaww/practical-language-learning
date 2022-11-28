@@ -2,18 +2,18 @@
 
 # exercise 5
 
-1.  [Translate the following expressions&#x2026;](#org53f8c46)
-2.  [Rewrite mystery (page 29) to use `cond`.](#org8e91060)
-3.  [Define a function that returns the&#x2026;](#org4a0bbb6)
-4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#orgbd65aec)
-5.  [Define iterative and recursive versions&#x2026;](#orgc277505)
-6.  [Define iterative and recursive versions&#x2026;](#org3dfa42b)
-7.  [Define a function that takes&#x2026;](#org05db0b1)
-8.  [Define a single recursive function&#x2026;](#org42a0b24)
-9.  [The program in Figure 3.12 continues&#x2026;](#org3481a21)
+1.  [Translate the following expressions&#x2026;](#orgea5c4a4)
+2.  [Rewrite mystery (page 29) to use `cond`.](#orgf4702c0)
+3.  [Define a function that returns the&#x2026;](#orgf596746)
+4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#orgf5e5b51)
+5.  [Define iterative and recursive versions&#x2026;](#org8753b5e)
+6.  [Define iterative and recursive versions&#x2026;](#org5bf463b)
+7.  [Define a function that takes&#x2026;](#orgbd3892b)
+8.  [Define a single recursive function&#x2026;](#org83d70df)
+9.  [The program in Figure 3.12 continues&#x2026;](#org051361e)
 
 
-<a id="org53f8c46"></a>
+<a id="orgea5c4a4"></a>
 
 ## Translate the following expressions&#x2026;
 
@@ -39,7 +39,7 @@
      (car x))
 
 
-<a id="org8e91060"></a>
+<a id="orgf4702c0"></a>
 
 ## Rewrite mystery (page 29) to use `cond`.
 
@@ -61,7 +61,7 @@
           (and z (+ z 1))))))
 
 
-<a id="org4a0bbb6"></a>
+<a id="orgf596746"></a>
 
 ## Define a function that returns the&#x2026;
 
@@ -73,7 +73,7 @@
         (t (* x x))))
 
 
-<a id="orgbd65aec"></a>
+<a id="orgf5e5b51"></a>
 
 ## Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.
 
@@ -88,7 +88,7 @@
            (t 0))))
 
 
-<a id="orgc277505"></a>
+<a id="org8753b5e"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -110,7 +110,7 @@
                   (push (svref vr (+ n 1)) ls))))
              ls))
           (t "unknown type")))
-      (defparameter vec #(e a b r a c a d a b r a))
+    (defparameter vec #(e a b r a c a d a b r a))
     (ite-precedes 'a vec)
 
     ;; recursion
@@ -127,7 +127,7 @@
     (rec-precedes 'a vec)
 
 
-<a id="org3dfa42b"></a>
+<a id="org5bf463b"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -137,7 +137,7 @@
     ;; (A - B - C - D)
 
 
-<a id="org05db0b1"></a>
+<a id="orgbd3892b"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -149,14 +149,14 @@ difference between each successive pair of them is 1, using
 (c) `mapc` and `return`
 
 
-<a id="org42a0b24"></a>
+<a id="org83d70df"></a>
 
 ## Define a single recursive function&#x2026;
 
 8.Define a single recursive function that returns, as two values, the maximum and minimum elements of a vector.
 
 
-<a id="org3481a21"></a>
+<a id="org051361e"></a>
 
 ## The program in Figure 3.12 continues&#x2026;
 
