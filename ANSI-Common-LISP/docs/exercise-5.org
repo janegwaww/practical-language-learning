@@ -62,7 +62,29 @@
 
 3.Define a function that returns the square of its argument, and which does not compute the square if the argument is a positive integer less than or equal to 5.
 
+#+begin_src lisp
+  (defun square-over-5 (x)
+    (cond
+      ((and (> x 0) (<= x 5)) nil)
+      (t (* x x))))
+#+end_src
+
+#+RESULTS:
+: SQUARE-OVER-5
+
 ** Rewrite ~num-month~ (Figure 5.1) to use ~case~ instead of ~svref~.
+
+#+begin_src lisp
+  (defun new-month-num (m y)
+    (+ (case m
+         (1 0) (2 31) (3 59) (4 90)
+         (5 120) (6 151) (7 181) (8 212)
+         (9 243) (10 273) (11 304) (12 334)
+         (otherwise "unknown month"))
+       (cond
+         ((and (> m 2) (leap? y)) 1)
+         (t 0))))
+#+end_src
 
 ** Define iterative and recursive versions...
 
