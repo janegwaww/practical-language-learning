@@ -141,13 +141,19 @@
 7.Define a function that takes a list of numbers and returns true if the
 difference between each successive pair of them is 1, using
 
-(a) recursion
-(b) ~do~
-(c) ~mapc~ and ~return~
+#+include: "../src/exercise-5-7.lisp" src lisp
 
 ** Define a single recursive function...
 
 8.Define a single recursive function that returns, as two values, the maximum and minimum elements of a vector.
+
+#+begin_src lisp
+    (defun max-min-vec (vec)
+      (values (reduce #'max vec) (reduce #'min vec)))
+#+end_src
+
+#+RESULTS:
+: MAX-MIN-VEC
 
 ** The program in Figure 3.12 continues...
 
