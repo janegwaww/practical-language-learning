@@ -109,7 +109,7 @@
            ls))
         (t "unknown type")))
     (defparameter vec #(e a b r a c a d a b r a))
-    (ite-precedes 'a vec)
+  (ite-precedes 'a vec)
 #+end_src
 
 #+begin_src lisp
@@ -124,7 +124,7 @@
               (cons (svref v (- n 1))
                     (rec-precedes-item x v (- n 1)))
               (rec-precedes-item x v (- n 1)))))
-    (rec-precedes 'a vec)
+  (rec-precedes 'a vec)
 #+end_src
 
 #+RESULTS:
