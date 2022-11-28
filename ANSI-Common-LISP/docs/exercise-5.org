@@ -89,11 +89,30 @@
 ** Define iterative and recursive versions...
 
 5.Define iterative and recursive versions of a function that takes an object ~x~ and vector ~v~, and returns a list of all the objects that immediately precede ~x~ in ~v~:
-
 #+begin_src lisp
   ;;> (precedes #\a "abracadabra")
-  ;;(#\c #\d # \ r)
+  ;;(#\c #\d # \r)
 #+end_src
+
+#+begin_src lisp
+  (defun ite-precedes (x v)
+    (cond
+      ((vectorp v)
+       (let ((vr (reverse v))
+             (ls '()))
+         (do ((n 0 (+ n 1)))
+             ((> n (- (length v) 2)) nil)
+           (cond
+             ((eql (svref vr n) x)
+              (push (svref vr (+ n 1)) ls))))
+         ls))
+      (t "unknown type")))
+  (defparameter vec #(e a b r a c a d a b r a))
+  ;; (ite-precedes #\a vec)
+#+end_src
+
+#+RESULTS:
+: VEC
 
 ** Define iterative and recursive versions...
 
