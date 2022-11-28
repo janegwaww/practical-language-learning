@@ -31,6 +31,33 @@
 
 ** Rewrite mystery (page 29) to use ~cond~.
 
+#+begin_src lisp
+  ;; origin(page29)
+  (defun mystery (x y)
+    (if (null y)
+        nil
+        (if (eql (car y) x)
+            0
+            (let ((z (mystery x (cdr y))))
+              (and z (+ z 1))))))
+#+end_src
+
+#+RESULTS:
+: MYSTERY
+
+#+begin_src lisp
+  ;; rewrite with cond
+  (defun mystery-cond (x y)
+    (cond
+      ((null y) nil)
+      ((eql (car y) x) 0)
+      (t (let ((z (mystery x (cdr y))))
+        (and z (+ z 1))))))
+#+end_src
+
+#+RESULTS:
+: MYSTERY-COND
+
 ** Define a function that returns the...
 
 3.Define a function that returns the square of its argument, and which does not compute the square if the argument is a positive integer less than or equal to 5.

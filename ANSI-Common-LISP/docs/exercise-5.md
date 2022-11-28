@@ -2,18 +2,18 @@
 
 # exercise 5
 
-1.  [Translate the following expressions&#x2026;](#org5f7b1a1)
-2.  [Rewrite mystery (page 29) to use `cond`.](#org3321f4f)
-3.  [Define a function that returns the&#x2026;](#orge886987)
-4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#org77c764a)
-5.  [Define iterative and recursive versions&#x2026;](#org4830d0d)
-6.  [Define iterative and recursive versions&#x2026;](#org22267cf)
-7.  [Define a function that takes&#x2026;](#org77975aa)
-8.  [Define a single recursive function&#x2026;](#org514971c)
-9.  [The program in Figure 3.12 continues&#x2026;](#org7f97677)
+1.  [Translate the following expressions&#x2026;](#org63b4db4)
+2.  [Rewrite mystery (page 29) to use `cond`.](#org42bbaeb)
+3.  [Define a function that returns the&#x2026;](#orgb986b21)
+4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#org442a50c)
+5.  [Define iterative and recursive versions&#x2026;](#org4ada175)
+6.  [Define iterative and recursive versions&#x2026;](#org5d888a9)
+7.  [Define a function that takes&#x2026;](#org093f821)
+8.  [Define a single recursive function&#x2026;](#orga9e4ca6)
+9.  [The program in Figure 3.12 continues&#x2026;](#org4fc5744)
 
 
-<a id="org5f7b1a1"></a>
+<a id="org63b4db4"></a>
 
 ## Translate the following expressions&#x2026;
 
@@ -39,24 +39,41 @@
      (car x))
 
 
-<a id="org3321f4f"></a>
+<a id="org42bbaeb"></a>
 
 ## Rewrite mystery (page 29) to use `cond`.
 
+    ;; origin(page29)
+    (defun mystery (x y)
+      (if (null y)
+          nil
+          (if (eql (car y) x)
+              0
+              (let ((z (mystery x (cdr y))))
+                (and z (+ z 1))))))
 
-<a id="orge886987"></a>
+    ;; rewrite with cond
+    (defun mystery-cond (x y)
+      (cond
+        ((null y) nil)
+        ((eql (car y) x) 0)
+        (t (let ((z (mystery x (cdr y))))
+          (and z (+ z 1))))))
+
+
+<a id="orgb986b21"></a>
 
 ## Define a function that returns the&#x2026;
 
 3.Define a function that returns the square of its argument, and which does not compute the square if the argument is a positive integer less than or equal to 5.
 
 
-<a id="org77c764a"></a>
+<a id="org442a50c"></a>
 
 ## Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.
 
 
-<a id="org4830d0d"></a>
+<a id="org4ada175"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -66,7 +83,7 @@
     ;;(#\c #\d # \ r)
 
 
-<a id="org22267cf"></a>
+<a id="org5d888a9"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -76,7 +93,7 @@
     ;; (A - B - C - D)
 
 
-<a id="org77975aa"></a>
+<a id="org093f821"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -88,14 +105,14 @@ difference between each successive pair of them is 1, using
 (c) `mapc` and `return`
 
 
-<a id="org514971c"></a>
+<a id="orga9e4ca6"></a>
 
 ## Define a single recursive function&#x2026;
 
 8.Define a single recursive function that returns, as two values, the maximum and minimum elements of a vector.
 
 
-<a id="org7f97677"></a>
+<a id="org4fc5744"></a>
 
 ## The program in Figure 3.12 continues&#x2026;
 
