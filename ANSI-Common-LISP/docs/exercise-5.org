@@ -111,8 +111,22 @@
   ;; (ite-precedes #\a vec)
 #+end_src
 
+#+begin_src lisp
+  (defun rec-precedes (x v)
+    (let ((n (- (length v) 1))
+          (vr (reverse v)))
+      (rec-precedes-item x v n)))
+  (defun rec-precedes-item (x v n)
+    (if (= n 0)
+        nil
+        (if (eql (svref v n) x)
+            (cons (svref v (- n 1))
+                  (rec-precedes-item x v (- n 1)))
+            (rec-precedes-item x v (- n 1)))))
+#+end_src
+
 #+RESULTS:
-: VEC
+: REC-PRECEDES-ITEM
 
 ** Define iterative and recursive versions...
 
@@ -122,6 +136,8 @@
   ;; > (intersperse '- '(a b e d))
   ;; (A - B - C - D)
 #+end_src
+
+
 
 ** Define a function that takes...
 
