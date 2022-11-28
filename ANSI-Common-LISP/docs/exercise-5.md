@@ -2,18 +2,18 @@
 
 # exercise 5
 
-1.  [Translate the following expressions&#x2026;](#org6efb6b6)
-2.  [Rewrite mystery (page 29) to use `cond`.](#org16290c4)
-3.  [Define a function that returns the&#x2026;](#orge9844be)
-4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#org9633bad)
-5.  [Define iterative and recursive versions&#x2026;](#org78323c4)
-6.  [Define iterative and recursive versions&#x2026;](#orgdb5aefd)
-7.  [Define a function that takes&#x2026;](#orga28152b)
-8.  [Define a single recursive function&#x2026;](#org80f4c7c)
-9.  [The program in Figure 3.12 continues&#x2026;](#org0440d2c)
+1.  [Translate the following expressions&#x2026;](#orge14e90a)
+2.  [Rewrite mystery (page 29) to use `cond`.](#org3d9720d)
+3.  [Define a function that returns the&#x2026;](#orgdc3cc38)
+4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#org94e2da5)
+5.  [Define iterative and recursive versions&#x2026;](#org83071fe)
+6.  [Define iterative and recursive versions&#x2026;](#orgd8a76eb)
+7.  [Define a function that takes&#x2026;](#org4dd9c26)
+8.  [Define a single recursive function&#x2026;](#orgbdb9c3e)
+9.  [The program in Figure 3.12 continues&#x2026;](#org4d95765)
 
 
-<a id="org6efb6b6"></a>
+<a id="orge14e90a"></a>
 
 ## Translate the following expressions&#x2026;
 
@@ -39,7 +39,7 @@
      (car x))
 
 
-<a id="org16290c4"></a>
+<a id="org3d9720d"></a>
 
 ## Rewrite mystery (page 29) to use `cond`.
 
@@ -61,7 +61,7 @@
           (and z (+ z 1))))))
 
 
-<a id="orge9844be"></a>
+<a id="orgdc3cc38"></a>
 
 ## Define a function that returns the&#x2026;
 
@@ -73,7 +73,7 @@
         (t (* x x))))
 
 
-<a id="org9633bad"></a>
+<a id="org94e2da5"></a>
 
 ## Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.
 
@@ -88,7 +88,7 @@
            (t 0))))
 
 
-<a id="org78323c4"></a>
+<a id="org83071fe"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -97,35 +97,37 @@
     ;;> (precedes #\a "abracadabra")
     ;;(#\c #\d # \r)
 
+    ;; iteration
     (defun ite-precedes (x v)
-      (cond
-        ((vectorp v)
-         (let ((vr (reverse v))
-               (ls '()))
-           (do ((n 0 (+ n 1)))
-               ((> n (- (length v) 2)) nil)
-             (cond
-               ((eql (svref vr n) x)
-                (push (svref vr (+ n 1)) ls))))
-           ls))
-        (t "unknown type")))
-    (defparameter vec #(e a b r a c a d a b r a))
-    ;; (ite-precedes #\a vec)
+        (cond
+          ((vectorp v)
+           (let ((vr (reverse v))
+                 (ls '()))
+             (do ((n 0 (+ n 1)))
+                 ((> n (- (length v) 2)) nil)
+               (cond
+                 ((eql (svref vr n) x)
+                  (push (svref vr (+ n 1)) ls))))
+             ls))
+          (t "unknown type")))
+      (defparameter vec #(e a b r a c a d a b r a))
+      (ite-precedes 'a vec)
 
+    ;; recursion
     (defun rec-precedes (x v)
-      (let ((n (- (length v) 1))
-            (vr (reverse v)))
-        (rec-precedes-item x v n)))
-    (defun rec-precedes-item (x v n)
-      (if (= n 0)
-          nil
-          (if (eql (svref v n) x)
-              (cons (svref v (- n 1))
-                    (rec-precedes-item x v (- n 1)))
-              (rec-precedes-item x v (- n 1)))))
+        (let ((n (- (length v) 1)))
+          (rec-precedes-item x v n)))
+      (defun rec-precedes-item (x v n)
+        (if (= n 0)
+            nil
+            (if (eql (svref v n) x)
+                (cons (svref v (- n 1))
+                      (rec-precedes-item x v (- n 1)))
+                (rec-precedes-item x v (- n 1)))))
+      (rec-precedes 'a vec)
 
 
-<a id="orgdb5aefd"></a>
+<a id="orgd8a76eb"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -135,7 +137,7 @@
     ;; (A - B - C - D)
 
 
-<a id="orga28152b"></a>
+<a id="org4dd9c26"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -147,14 +149,14 @@ difference between each successive pair of them is 1, using
 (c) `mapc` and `return`
 
 
-<a id="org80f4c7c"></a>
+<a id="orgbdb9c3e"></a>
 
 ## Define a single recursive function&#x2026;
 
 8.Define a single recursive function that returns, as two values, the maximum and minimum elements of a vector.
 
 
-<a id="org0440d2c"></a>
+<a id="org4d95765"></a>
 
 ## The program in Figure 3.12 continues&#x2026;
 

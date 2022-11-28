@@ -95,38 +95,40 @@
 #+end_src
 
 #+begin_src lisp
+  ;; iteration
   (defun ite-precedes (x v)
-    (cond
-      ((vectorp v)
-       (let ((vr (reverse v))
-             (ls '()))
-         (do ((n 0 (+ n 1)))
-             ((> n (- (length v) 2)) nil)
-           (cond
-             ((eql (svref vr n) x)
-              (push (svref vr (+ n 1)) ls))))
-         ls))
-      (t "unknown type")))
-  (defparameter vec #(e a b r a c a d a b r a))
-  ;; (ite-precedes #\a vec)
+      (cond
+        ((vectorp v)
+         (let ((vr (reverse v))
+               (ls '()))
+           (do ((n 0 (+ n 1)))
+               ((> n (- (length v) 2)) nil)
+             (cond
+               ((eql (svref vr n) x)
+                (push (svref vr (+ n 1)) ls))))
+           ls))
+        (t "unknown type")))
+    (defparameter vec #(e a b r a c a d a b r a))
+    (ite-precedes 'a vec)
 #+end_src
 
 #+begin_src lisp
+  ;; recursion
   (defun rec-precedes (x v)
-    (let ((n (- (length v) 1))
-          (vr (reverse v)))
-      (rec-precedes-item x v n)))
-  (defun rec-precedes-item (x v n)
-    (if (= n 0)
-        nil
-        (if (eql (svref v n) x)
-            (cons (svref v (- n 1))
-                  (rec-precedes-item x v (- n 1)))
-            (rec-precedes-item x v (- n 1)))))
+      (let ((n (- (length v) 1)))
+        (rec-precedes-item x v n)))
+    (defun rec-precedes-item (x v n)
+      (if (= n 0)
+          nil
+          (if (eql (svref v n) x)
+              (cons (svref v (- n 1))
+                    (rec-precedes-item x v (- n 1)))
+              (rec-precedes-item x v (- n 1)))))
+    (rec-precedes 'a vec)
 #+end_src
 
 #+RESULTS:
-: REC-PRECEDES-ITEM
+| R | D | C | R | E |
 
 ** Define iterative and recursive versions...
 
