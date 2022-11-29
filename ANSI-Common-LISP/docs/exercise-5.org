@@ -161,6 +161,8 @@ difference between each successive pair of them is 1, using
 
 (a) Using ~catch~ and ~throw~, modify the program to return the first complete path as soon as it is discovered.
 
+#+include: "../src/exercise-5-9.lisp" src lisp
 
-
+#+begin_comment
 (b) Rewrite the program to do the same thing without using ~catch~ and ~throw~.
+#+end_comment

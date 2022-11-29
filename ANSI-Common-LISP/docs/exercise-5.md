@@ -2,18 +2,18 @@
 
 # exercise 5
 
-1.  [Translate the following expressions&#x2026;](#orgec9b938)
-2.  [Rewrite mystery (page 29) to use `cond`.](#org0d92f4e)
-3.  [Define a function that returns the&#x2026;](#orgf091341)
-4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#org4aea7ce)
-5.  [Define iterative and recursive versions&#x2026;](#org1d03ba1)
-6.  [Define iterative and recursive versions&#x2026;](#org3897ac9)
-7.  [Define a function that takes&#x2026;](#org8c586cf)
-8.  [Define a single recursive function&#x2026;](#org1dac387)
-9.  [The program in Figure 3.12 continues&#x2026;](#orgb1cb50e)
+1.  [Translate the following expressions&#x2026;](#orgfda2cea)
+2.  [Rewrite mystery (page 29) to use `cond`.](#orgbc6c903)
+3.  [Define a function that returns the&#x2026;](#org6b95261)
+4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#org8ab8604)
+5.  [Define iterative and recursive versions&#x2026;](#org8cea0d0)
+6.  [Define iterative and recursive versions&#x2026;](#org71644a8)
+7.  [Define a function that takes&#x2026;](#org19044bf)
+8.  [Define a single recursive function&#x2026;](#orgf695d3d)
+9.  [The program in Figure 3.12 continues&#x2026;](#org9b41149)
 
 
-<a id="orgec9b938"></a>
+<a id="orgfda2cea"></a>
 
 ## Translate the following expressions&#x2026;
 
@@ -39,7 +39,7 @@
      (car x))
 
 
-<a id="org0d92f4e"></a>
+<a id="orgbc6c903"></a>
 
 ## Rewrite mystery (page 29) to use `cond`.
 
@@ -61,7 +61,7 @@
           (and z (+ z 1))))))
 
 
-<a id="orgf091341"></a>
+<a id="org6b95261"></a>
 
 ## Define a function that returns the&#x2026;
 
@@ -73,7 +73,7 @@
         (t (* x x))))
 
 
-<a id="org4aea7ce"></a>
+<a id="org8ab8604"></a>
 
 ## Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.
 
@@ -88,7 +88,7 @@
            (t 0))))
 
 
-<a id="org1d03ba1"></a>
+<a id="org8cea0d0"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -127,7 +127,7 @@
     (rec-precedes 'a vec)
 
 
-<a id="org3897ac9"></a>
+<a id="org71644a8"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -157,7 +157,7 @@
                        (rec-intersperse elt (cdr lst)))))))
 
 
-<a id="org8c586cf"></a>
+<a id="org19044bf"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -190,7 +190,7 @@ difference between each successive pair of them is 1, using
          lst (cdr lst))))
 
 
-<a id="org1dac387"></a>
+<a id="orgf695d3d"></a>
 
 ## Define a single recursive function&#x2026;
 
@@ -200,7 +200,7 @@ difference between each successive pair of them is 1, using
       (values (reduce #'max vec) (reduce #'min vec)))
 
 
-<a id="orgb1cb50e"></a>
+<a id="org9b41149"></a>
 
 ## The program in Figure 3.12 continues&#x2026;
 
@@ -208,5 +208,48 @@ difference between each successive pair of them is 1, using
 
 (a) Using `catch` and `throw`, modify the program to return the first complete path as soon as it is discovered.
 
-(b) Rewrite the program to do the same thing without using `catch` and `throw`.
+    ;; use catch and throw
+    (defun shortest-path (start end net)
+      (catch 'found
+        (bfs end (list (list start)) net)))
+    
+    (defun bfs (end queue net)
+      (if (null queue)
+          nil
+          (let ((path (car queue)))
+            (let ((node (car path)))
+              (if (eql node end)
+                  (throw 'found (reverse path))
+                  (bfs end
+                       (append (cdr queue)
+                               (new-paths path node net))
+                       net))))))
+    
+    (defun new-paths (path node net)
+      (mapcar #'(lambda (n)
+                  (cons n path))
+              (cdr (assoc node net))))
+    
+    ;;; (shortest-path 'a 'd '(( a b c) (b c) (c d)))
+    
+    ;; not use catch and throw
+    (defun shortest-path (start end net)
+      (bfs end (list (list start)) net))
+    
+    (defun bfs (end queue net)
+      (if (null queue)
+          nil
+          (let ((path (car queue)))
+            (let ((node (car path)))
+              (if (eql node end)
+                  (reverse path)
+                  (bfs end
+                       (append (cdr queue)
+                               (new-paths path node net))
+                       net))))))
+    
+    (defun new-paths (path node net)
+      (mapcar #'(lambda (n)
+                  (cons n path))
+              (cdr (assoc node net))))
 
