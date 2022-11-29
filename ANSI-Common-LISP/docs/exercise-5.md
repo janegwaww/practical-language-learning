@@ -2,18 +2,18 @@
 
 # exercise 5
 
-1.  [Translate the following expressions&#x2026;](#orgfcbc23f)
-2.  [Rewrite mystery (page 29) to use `cond`.](#org211ba1b)
-3.  [Define a function that returns the&#x2026;](#org8ca7dfd)
-4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#orgfabad62)
-5.  [Define iterative and recursive versions&#x2026;](#org9026b85)
-6.  [Define iterative and recursive versions&#x2026;](#org67ef5e7)
-7.  [Define a function that takes&#x2026;](#org7b21e77)
-8.  [Define a single recursive function&#x2026;](#org414c692)
-9.  [The program in Figure 3.12 continues&#x2026;](#org99a0d34)
+1.  [Translate the following expressions&#x2026;](#orgec9b938)
+2.  [Rewrite mystery (page 29) to use `cond`.](#org0d92f4e)
+3.  [Define a function that returns the&#x2026;](#orgf091341)
+4.  [Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.](#org4aea7ce)
+5.  [Define iterative and recursive versions&#x2026;](#org1d03ba1)
+6.  [Define iterative and recursive versions&#x2026;](#org3897ac9)
+7.  [Define a function that takes&#x2026;](#org8c586cf)
+8.  [Define a single recursive function&#x2026;](#org1dac387)
+9.  [The program in Figure 3.12 continues&#x2026;](#orgb1cb50e)
 
 
-<a id="orgfcbc23f"></a>
+<a id="orgec9b938"></a>
 
 ## Translate the following expressions&#x2026;
 
@@ -39,7 +39,7 @@
      (car x))
 
 
-<a id="org211ba1b"></a>
+<a id="org0d92f4e"></a>
 
 ## Rewrite mystery (page 29) to use `cond`.
 
@@ -61,7 +61,7 @@
           (and z (+ z 1))))))
 
 
-<a id="org8ca7dfd"></a>
+<a id="orgf091341"></a>
 
 ## Define a function that returns the&#x2026;
 
@@ -73,7 +73,7 @@
         (t (* x x))))
 
 
-<a id="orgfabad62"></a>
+<a id="org4aea7ce"></a>
 
 ## Rewrite `num-month` (Figure 5.1) to use `case` instead of `svref`.
 
@@ -88,7 +88,7 @@
            (t 0))))
 
 
-<a id="org9026b85"></a>
+<a id="org1d03ba1"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -127,7 +127,7 @@
     (rec-precedes 'a vec)
 
 
-<a id="org67ef5e7"></a>
+<a id="org3897ac9"></a>
 
 ## Define iterative and recursive versions&#x2026;
 
@@ -157,7 +157,7 @@
                        (rec-intersperse elt (cdr lst)))))))
 
 
-<a id="org7b21e77"></a>
+<a id="org8c586cf"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -166,23 +166,31 @@ difference between each successive pair of them is 1, using
 
     ;; (a) recursion
     (defun rec-pair-succ (lst)
-      t)
+      (let ((o (car lst)))
+        (dolist (x (cdr lst) t)
+          (if (= 1 (abs (- o x)))
+              (setf o x)
+              (return-from rec-pair-succ nil)))))
     
     ;; (b) ~do~
     (defun do-pair-succ (lst)
-      t)
+      (do* ((elt (cdr lst) (cdr elt))
+            (o (car lst) (car elt)))
+           ((null lst) t)
+        (if (/= (abs (- o (car elt))) 1)
+            (return-from do-pair-succ nil))))
     
     ;; (c) ~mapc~ and ~return~
     (defun mapc-pair-succ (lst)
       (block nil
         (mapc
          #'(lambda (x y)
-             (if (/= 1 (- y x))
+             (if (/= 1 (abs (- y x)))
                  (return nil)))
-         lst lst)))
+         lst (cdr lst))))
 
 
-<a id="org414c692"></a>
+<a id="org1dac387"></a>
 
 ## Define a single recursive function&#x2026;
 
@@ -192,14 +200,13 @@ difference between each successive pair of them is 1, using
       (values (reduce #'max vec) (reduce #'min vec)))
 
 
-<a id="org99a0d34"></a>
+<a id="orgb1cb50e"></a>
 
 ## The program in Figure 3.12 continues&#x2026;
 
-9.The program in Figure 3.12 continues to search as the first complete
-path works its way through the queue. In broad searches this would be
-a problem.
+9.The program in Figure 3.12 continues to search as the first complete path works its way through the queue. In broad searches this would be a problem.
 
 (a) Using `catch` and `throw`, modify the program to return the first complete path as soon as it is discovered.
+
 (b) Rewrite the program to do the same thing without using `catch` and `throw`.
 

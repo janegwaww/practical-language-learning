@@ -1,16 +1,24 @@
 ;; (a) recursion
 (defun rec-pair-succ (lst)
-  t)
+  (let ((o (car lst)))
+    (dolist (x (cdr lst) t)
+      (if (= 1 (abs (- o x)))
+          (setf o x)
+          (return-from rec-pair-succ nil)))))
 
 ;; (b) ~do~
 (defun do-pair-succ (lst)
-  t)
+  (do* ((elt (cdr lst) (cdr elt))
+        (o (car lst) (car elt)))
+       ((null lst) t)
+    (if (/= (abs (- o (car elt))) 1)
+        (return-from do-pair-succ nil))))
 
 ;; (c) ~mapc~ and ~return~
 (defun mapc-pair-succ (lst)
   (block nil
     (mapc
      #'(lambda (x y)
-         (if (/= 1 (- y x))
+         (if (/= 1 (abs (- y x)))
              (return nil)))
-     lst lst)))
+     lst (cdr lst))))
