@@ -98,13 +98,24 @@ number of arguments passed to it.
 
 7.Define a function that takes one argument, a number, and returns true if it is greater than the argument passed to the function the last time it was called. The function should return ~nil~ the first time it is called.
 
-
+#+include: "../src/exercise-6-7.lisp" src lisp
 
 ** Suppose ~expensive~ is a function...
 
 8.uppose ~expensive~ is a function of one argument, an integer between 0 and 100 inclusive, that returns the result of a time-consuming com-putation. Define a function ~frugal~ that returns the same answer, but only calls ~expensive~ when given an argument it has not seen before.
 
+#+include: "../src/exercise-6-8.lisp" src lisp
+
 ** Define a function like ~apply~,...
 
 9.Define a function like ~apply~, but where any number printed out before
 it returns will be printed, by default, in octal(base 8)
+
+#+begin_src lisp
+  (defun print-octal (num)
+    (let ((*print-base* 8))
+      (princ num)))
+#+end_src
+
+#+RESULTS:
+: PRINT-OCTAL

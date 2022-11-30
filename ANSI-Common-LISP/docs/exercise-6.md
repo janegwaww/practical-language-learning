@@ -2,18 +2,18 @@
 
 # exercise-6
 
-1.  [Define a version of tokens&#x2026;](#org319dcde)
-2.  [Define a version of `bin-searc`&#x2026;](#orga3755e2)
-3.  [Define a function that takes&#x2026;](#org7833178)
-4.  [Modify `most` (page 105) to return,&#x2026;](#org0b7508f)
-5.  [Define `remove-if` (no keywords) in terms of `filter` (page 105).](#orge226475)
-6.  [Define a function that takes&#x2026;](#orgc15e9da)
-7.  [Define a function that takes one&#x2026;](#org1750ded)
-8.  [Suppose `expensive` is a function&#x2026;](#org8744297)
-9.  [Define a function like `apply`,&#x2026;](#org4f2148f)
+1.  [Define a version of tokens&#x2026;](#orgfd33e3f)
+2.  [Define a version of `bin-searc`&#x2026;](#org3ada75a)
+3.  [Define a function that takes&#x2026;](#org70273b0)
+4.  [Modify `most` (page 105) to return,&#x2026;](#org26cb60f)
+5.  [Define `remove-if` (no keywords) in terms of `filter` (page 105).](#org25a477c)
+6.  [Define a function that takes&#x2026;](#org3fa71ab)
+7.  [Define a function that takes one&#x2026;](#org8218b6c)
+8.  [Suppose `expensive` is a function&#x2026;](#org14cd0cb)
+9.  [Define a function like `apply`,&#x2026;](#org537cdf8)
 
 
-<a id="org319dcde"></a>
+<a id="orgfd33e3f"></a>
 
 ## Define a version of tokens&#x2026;
 
@@ -37,7 +37,7 @@
             nil)))
 
 
-<a id="orga3755e2"></a>
+<a id="org3ada75a"></a>
 
 ## Define a version of `bin-searc`&#x2026;
 
@@ -65,7 +65,7 @@
     (bin-search #(0 1 2 3 4 5 6 7 8 9) :key 3)
 
 
-<a id="org7833178"></a>
+<a id="org70273b0"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -76,7 +76,7 @@ number of arguments passed to it.
       (length body))
 
 
-<a id="org0b7508f"></a>
+<a id="org26cb60f"></a>
 
 ## Modify `most` (page 105) to return,&#x2026;
 
@@ -95,7 +95,7 @@ number of arguments passed to it.
     (new-most #'length '((a b) (a b c) (a)))
 
 
-<a id="orge226475"></a>
+<a id="org25a477c"></a>
 
 ## Define `remove-if` (no keywords) in terms of `filter` (page 105).
 
@@ -111,7 +111,7 @@ number of arguments passed to it.
                       lst))
 
 
-<a id="orgc15e9da"></a>
+<a id="org3fa71ab"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -124,24 +124,39 @@ number of arguments passed to it.
             (setf mx num))))
 
 
-<a id="org1750ded"></a>
+<a id="org8218b6c"></a>
 
 ## Define a function that takes one&#x2026;
 
 7.Define a function that takes one argument, a number, and returns true if it is greater than the argument passed to the function the last time it was called. The function should return `nil` the first time it is called.
 
+    (let ((pre 0))
+      (defun greater-than-last (num)
+        (prog1 (and pre (> num pre))
+          (setf pre num))))
 
-<a id="org8744297"></a>
+
+<a id="org14cd0cb"></a>
 
 ## Suppose `expensive` is a function&#x2026;
 
 8.uppose `expensive` is a function of one argument, an integer between 0 and 100 inclusive, that returns the result of a time-consuming com-putation. Define a function `frugal` that returns the same answer, but only calls `expensive` when given an argument it has not seen before.
 
+    ;; not code
+    (defun frugal (arg)
+      (if (member arg store)
+          (svref store arg)
+          (expensive arg)))
 
-<a id="org4f2148f"></a>
+
+<a id="org537cdf8"></a>
 
 ## Define a function like `apply`,&#x2026;
 
 9.Define a function like `apply`, but where any number printed out before
 it returns will be printed, by default, in octal(base 8)
+
+    (defun print-octal (num)
+      (let ((*print-base* 8))
+        (princ num)))
 
