@@ -2,18 +2,18 @@
 
 # exercise-6
 
-1.  [Define a version of tokens&#x2026;](#orgc227a0d)
-2.  [Define a version of `bin-searc`&#x2026;](#org7704f57)
-3.  [Define a function that takes&#x2026;](#orgb90120f)
-4.  [Modify `most` (page 105) to return,&#x2026;](#orgcec33fc)
-5.  [Define `remove-if` (no keywords) in terms of `filter` (page 105).](#org1e9286c)
-6.  [Define a function that takes&#x2026;](#orgd12867c)
-7.  [Define a function that takes one&#x2026;](#org516fa33)
-8.  [Suppose `expensive` is a function&#x2026;](#orgd4a6956)
-9.  [Define a function like `apply`,&#x2026;](#org9f83bd7)
+1.  [Define a version of tokens&#x2026;](#org227079d)
+2.  [Define a version of `bin-searc`&#x2026;](#org266ce59)
+3.  [Define a function that takes&#x2026;](#orga6c0b74)
+4.  [Modify `most` (page 105) to return,&#x2026;](#org4f3813b)
+5.  [Define `remove-if` (no keywords) in terms of `filter` (page 105).](#org2e27eec)
+6.  [Define a function that takes&#x2026;](#orge8519f3)
+7.  [Define a function that takes one&#x2026;](#org1eaca37)
+8.  [Suppose `expensive` is a function&#x2026;](#org3f1fe19)
+9.  [Define a function like `apply`,&#x2026;](#orga3bf266)
 
 
-<a id="orgc227a0d"></a>
+<a id="org227079d"></a>
 
 ## Define a version of tokens&#x2026;
 
@@ -37,55 +37,76 @@
             nil)))
 
 
-<a id="org7704f57"></a>
+<a id="org266ce59"></a>
 
 ## Define a version of `bin-searc`&#x2026;
 
 2.Define a version of `bin-search` (page 60) that takes `:key`, `:test`, `:start`, and `:end` arguments with the usual meanings and defaults.
 
+    (defun bin-search
+      (vec &key (key 0) (test #'finder) (start 0) (end (- (length vec) 1)))
+      (funcall #'finder key vec start end))
+    
+    (defun finder (obj vec start end)
+      (let ((range (- end start)))
+        (if (zerop range)
+            (if (eql obj (aref vec start))
+                obj
+                nil)
+            (let ((mid (+ start (round (/ range 2)))))
+              (let ((obj2 (aref vec mid)))
+                (if (< obj obj2)
+                    (finder (obj vec start (- mid 1))
+                            (if (> obj obj2)
+                                (finder obj vec (+ mid 1) end)
+                                obj))))))))
 
-<a id="orgb90120f"></a>
+
+<a id="orga6c0b74"></a>
 
 ## Define a function that takes&#x2026;
 
 3.Define a function that takes any number of arguments and returns the
 number of arguments passed to it.
 
+    (defun num-of-args (&rest body)
+      (length body))
 
-<a id="orgcec33fc"></a>
+
+<a id="org4f3813b"></a>
 
 ## Modify `most` (page 105) to return,&#x2026;
 
 4.Modify `most` (page 105) to return, as two values, the two highest-scoring elements of a list.
 
 
-<a id="org1e9286c"></a>
+<a id="org2e27eec"></a>
 
 ## Define `remove-if` (no keywords) in terms of `filter` (page 105).
 
 
-<a id="orgd12867c"></a>
+<a id="orge8519f3"></a>
 
 ## Define a function that takes&#x2026;
 
 6.Define a function that takes one argument, a number, and returns the greatest argument passed to it so far.
 
 
-<a id="org516fa33"></a>
+<a id="org1eaca37"></a>
 
 ## Define a function that takes one&#x2026;
 
 7.Define a function that takes one argument, a number, and returns true if it is greater than the argument passed to the function the last time it was called. The function should return `nil` the first time it is called.
 
 
-<a id="orgd4a6956"></a>
+<a id="org3f1fe19"></a>
 
 ## Suppose `expensive` is a function&#x2026;
 
 8.uppose `expensive` is a function of one argument, an integer between 0 and 100 inclusive, that returns the result of a time-consuming com-putation. Define a function `frugal` that returns the same answer, but only calls `expensive` when given an argument it has not seen before.
 
 
-<a id="org9f83bd7"></a>
+<a id="orga3bf266"></a>
 
 ## Define a function like `apply`,&#x2026;
 

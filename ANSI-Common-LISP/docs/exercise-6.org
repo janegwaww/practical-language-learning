@@ -34,16 +34,47 @@
 
 2.Define a version of ~bin-search~ (page 60) that takes ~:key~, ~:test~, ~:start~, and ~:end~ arguments with the usual meanings and defaults.
 
+#+begin_src lisp
+  (defun bin-search
+    (vec &key (key 0) (test #'finder) (start 0) (end (- (length vec) 1)))
+    (funcall #'finder key vec start end))
 
+  (defun finder (obj vec start end)
+    (let ((range (- end start)))
+      (if (zerop range)
+          (if (eql obj (aref vec start))
+              obj
+              nil)
+          (let ((mid (+ start (round (/ range 2)))))
+            (let ((obj2 (aref vec mid)))
+              (if (< obj obj2)
+                  (finder (obj vec start (- mid 1))
+                          (if (> obj obj2)
+                              (finder obj vec (+ mid 1) end)
+                              obj))))))))
+#+end_src
+
+#+RESULTS:
+: FINDER
 
 ** Define a function that takes...
 
 3.Define a function that takes any number of arguments and returns the
 number of arguments passed to it.
 
+#+begin_src lisp
+  (defun num-of-args (&rest body)
+    (length body))
+#+end_src
+
+#+RESULTS:
+: NUM-OF-ARGS
+
 ** Modify ~most~ (page 105) to return,...
 
 4.Modify ~most~ (page 105) to return, as two values, the two highest-scoring elements of a list.
+
+
 
 ** Define ~remove-if~ (no keywords) in terms of ~filter~ (page 105).
 
