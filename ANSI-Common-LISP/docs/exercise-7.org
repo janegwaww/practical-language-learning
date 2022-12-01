@@ -1,0 +1,29 @@
+#+options: toc:nil
+
+* exercise-7
+
+#+toc: headlines local
+
+** Define a function that takes...
+
+1.Define a function that takes a filename and returns a list of strings representing each line in the file.
+
+** Define a function that takes...
+
+2.Define a function that takes a filename and returns a list of the expres-sions in the file.
+
+** Suppose that in some format...
+
+3.Suppose that in some format for text files, comments are indicated by ~a%~ character. Everything from this character to the end of the line is ignored. Define a function that takes two filenames, and writes to the second file a copy of the first, minus comments.
+
+** Define a function that takes...
+
+4.Define a function that takes a two-dimensional array of floats and displays it in neat columns. Each element should be printed with two digits after the decimal point, in a field 10 characters wide. (Assume all will fit.) You will need ~array-dimensions~ (page 361).
+
+** Modify ~stream-subst~ to allow...
+
+5.Modify ~stream-subst~ to allow wildcards in the pattern. If the character + occurs in ~old~, it should match any input character.
+
+** Modify ~stream-subst~ so that...
+
+6.Modify ~stream-subst~ so that the pattern can include an element that matches any digit character, an element that matches any alphanumeric character, or an element that matches any character. The pattern must also be able to match any specific input character. (Hint: ~old~ can no longer be a string.)
