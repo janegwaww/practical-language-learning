@@ -1,0 +1,5 @@
+(a
+b
+c)
+(format nil "~a" 123)
+(open file)

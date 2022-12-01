@@ -14,7 +14,16 @@
 
 2.Define a function that takes a filename and returns a list of the expres-sions in the file.
 
+#+begin_src lisp
+  (defun print-list-exp (filename)
+    (with-open-file (stream filename :direction :input)
+      (loop for s = (read stream nil)
+            while s do (format t "~a~%" s))))
+  ;; (print-list-exp "./myfile-s")
+#+end_src
 
+#+RESULTS:
+: PRINT-LIST-EXP
 
 ** Suppose that in some format...
 
