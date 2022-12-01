@@ -29,6 +29,8 @@
 
 3.Suppose that in some format for text files, comments are indicated by ~a%~ character. Everything from this character to the end of the line is ignored. Define a function that takes two filenames, and writes to the second file a copy of the first, minus comments.
 
+#+include: "../src/exercise-7-3.lisp" src lisp
+
 ** Define a function that takes...
 
 4.Define a function that takes a two-dimensional array of floats and displays it in neat columns. Each element should be printed with two digits after the decimal point, in a field 10 characters wide. (Assume all will fit.) You will need ~array-dimensions~ (page 361).
