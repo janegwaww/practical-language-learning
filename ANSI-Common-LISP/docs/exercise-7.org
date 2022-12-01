@@ -8,9 +8,13 @@
 
 1.Define a function that takes a filename and returns a list of strings representing each line in the file.
 
+#+include: "../src/exercise-7-1.lisp" src lisp
+
 ** Define a function that takes...
 
 2.Define a function that takes a filename and returns a list of the expres-sions in the file.
+
+
 
 ** Suppose that in some format...
 
