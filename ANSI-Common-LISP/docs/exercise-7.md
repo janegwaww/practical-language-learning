@@ -2,15 +2,15 @@
 
 # exercise-7
 
-1.  [Define a function that takes&#x2026;](#orgbfbaf6c)
-2.  [Define a function that takes&#x2026;](#org27ab800)
-3.  [Suppose that in some format&#x2026;](#orge21da8b)
-4.  [Define a function that takes&#x2026;](#orgbab3cb9)
-5.  [Modify `stream-subst` to allow&#x2026;](#org03d9431)
-6.  [Modify `stream-subst` so that&#x2026;](#org38d20b0)
+1.  [Define a function that takes&#x2026;](#orge53ed3f)
+2.  [Define a function that takes&#x2026;](#orgc02833b)
+3.  [Suppose that in some format&#x2026;](#orge81477b)
+4.  [Define a function that takes&#x2026;](#org51840b4)
+5.  [Modify `stream-subst` to allow&#x2026;](#org60ba940)
+6.  [Modify `stream-subst` so that&#x2026;](#orgfe9a6ee)
 
 
-<a id="orgbfbaf6c"></a>
+<a id="orge53ed3f"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -24,7 +24,7 @@
     ;; (print-list-string "./myfile")
 
 
-<a id="org27ab800"></a>
+<a id="orgc02833b"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -37,7 +37,7 @@
     ;; (print-list-exp "./myfile-s")
 
 
-<a id="orge21da8b"></a>
+<a id="orge81477b"></a>
 
 ## Suppose that in some format&#x2026;
 
@@ -56,7 +56,7 @@
     (remove-comments "./myfile-c" "./myfile-c-c")
 
 
-<a id="orgbab3cb9"></a>
+<a id="org51840b4"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -73,7 +73,7 @@
     ;; (array-column #2a((1 2) (3 4)))
 
 
-<a id="org03d9431"></a>
+<a id="org60ba940"></a>
 
 ## Modify `stream-subst` to allow&#x2026;
 
@@ -109,7 +109,7 @@
         (buf-flush buf out)))
 
 
-<a id="org38d20b0"></a>
+<a id="orgfe9a6ee"></a>
 
 ## Modify `stream-subst` so that&#x2026;
 
@@ -124,7 +124,7 @@
                 (or (setf from-buf (buf-next buf))
                     (read-char in nil :eof))))
             ((eql c :eof))
-          (cond ((char= c (char old pos))
+          (cond ((compare-char c (char old pos))
                  (incf pos)
                  (cond ((= pos len)   ;3
                         (princ new out)
@@ -144,4 +144,14 @@
                  (buf-reset buf)
                  (setf pos 0))))
         (buf-flush buf out)))
+    
+    (defun compare-char (ch old &key fn)
+      (or
+       (char= ch old)
+       (and (char= old #\%)
+            (numberp ch))
+       (and (char= old #\$)
+            (alpha-char-p ch))
+       (char= ch #\*)
+       (and fn (fn ch old))))
 

@@ -7,7 +7,7 @@
             (or (setf from-buf (buf-next buf))
                 (read-char in nil :eof))))
         ((eql c :eof))
-      (cond ((char= c (char old pos))
+      (cond ((compare-char c (char old pos))
              (incf pos)
              (cond ((= pos len)   ;3
                     (princ new out)
@@ -27,3 +27,13 @@
              (buf-reset buf)
              (setf pos 0))))
     (buf-flush buf out)))
+
+(defun compare-char (ch old &key fn)
+  (or
+   (char= ch old)
+   (and (char= old #\%)
+        (numberp ch))
+   (and (char= old #\$)
+        (alpha-char-p ch))
+   (char= ch #\*)
+   (and fn (fn ch old))))
