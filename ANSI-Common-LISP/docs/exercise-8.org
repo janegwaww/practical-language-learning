@@ -6,6 +6,8 @@
 
 ** Is it possible for two symbols to have the same name but not be ~eql~?
 
+
+
 ** Estimate the difference between...
 
 2.Estimate the difference between the amount of memory used to represent the string "FOO" and the amount used to represent the symbol ~foo~.
@@ -20,8 +22,8 @@
 
 ** Write a program that can...
 
-5.Write a program that can verify whether or not a quote was produced by Henley (Section 8.8).
+5.Write a program that can verify whether or not a quote was produced by Henley ([[file:section-8-8.org::*section 8.8][section 8.8]]).
 
 ** Write a version of Henley that...
 
-6.Write a version of Henley that can take a word and generate a sentence with that word in the middle of it.
+6.Write a version of Henley that can take a word and generate a sentence with that word in the middle of it([[file:section-8-8.org::*section 8.8][section 8.8]]).
