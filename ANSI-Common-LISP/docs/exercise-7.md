@@ -2,15 +2,15 @@
 
 # exercise-7
 
-1.  [Define a function that takes&#x2026;](#orge1f8d43)
-2.  [Define a function that takes&#x2026;](#org0481b0d)
-3.  [Suppose that in some format&#x2026;](#org9584c44)
-4.  [Define a function that takes&#x2026;](#org68d03bb)
-5.  [Modify `stream-subst` to allow&#x2026;](#org6c17911)
-6.  [Modify `stream-subst` so that&#x2026;](#orga5f5334)
+1.  [Define a function that takes&#x2026;](#org706907a)
+2.  [Define a function that takes&#x2026;](#orgb4d04ff)
+3.  [Suppose that in some format&#x2026;](#org72c1b37)
+4.  [Define a function that takes&#x2026;](#org7b6d5f6)
+5.  [Modify `stream-subst` to allow&#x2026;](#org3cf39ad)
+6.  [Modify `stream-subst` so that&#x2026;](#org27187fb)
 
 
-<a id="orge1f8d43"></a>
+<a id="org706907a"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -24,7 +24,7 @@
     ;; (print-list-string "./myfile")
 
 
-<a id="org0481b0d"></a>
+<a id="orgb4d04ff"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -37,7 +37,7 @@
     ;; (print-list-exp "./myfile-s")
 
 
-<a id="org9584c44"></a>
+<a id="org72c1b37"></a>
 
 ## Suppose that in some format&#x2026;
 
@@ -56,7 +56,7 @@
     (remove-comments "./myfile-c" "./myfile-c-c")
 
 
-<a id="org68d03bb"></a>
+<a id="org7b6d5f6"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -73,16 +73,76 @@
     ;; (array-column #2a((1 2) (3 4)))
 
 
-<a id="org6c17911"></a>
+<a id="org3cf39ad"></a>
 
 ## Modify `stream-subst` to allow&#x2026;
 
-5.Modify `stream-subst` to allow wildcards in the pattern. If the character + occurs in `old`, it should match any input character.
+5.Modify `stream-subst` to allow wildcards in the pattern. If the character + occurs in `old`, it should match any input character.(`stream-subst` in [7.4 Example: String Substitution](chapter-7-4.md))
+
+    (defun stream-subst ()
+      (let* ((pos 0)
+             (len (length old))
+             (buf (new-buf len))
+             (from-buf nil))
+        (do ((c (read-char in nil :eof)
+                (or (setf from-buf (buf-next buf))
+                    (read-char in nil :eof))))
+            ((eql c :eof))
+          (cond ((char= c (char old pos))
+                 (incf pos)
+                 (cond ((= pos len)   ;3
+                        (princ new out)
+                        (setf pos 0)
+                        (buf-clear buf))
+                       ((not from-buf)  ;2
+                        (buf-insert c buf))))
+                ((zerop pos)   ;1
+                 (princ c out)
+                 (when from-buf
+                   (buf-pop buf)
+                   (buf-reset buf)))
+                (t    ;4
+                 (unless from-buf
+                   (buf-insert c buf))
+                 (princ (buf-pop buf) out)
+                 (buf-reset buf)
+                 (setf pos 0))))
+        (buf-flush buf out)))
 
 
-<a id="orga5f5334"></a>
+<a id="org27187fb"></a>
 
 ## Modify `stream-subst` so that&#x2026;
 
-6.Modify `stream-subst` so that the pattern can include an element that matches any digit character, an element that matches any alphanumeric character, or an element that matches any character. The pattern must also be able to match any specific input character. (Hint: `old` can no longer be a string.)
+6.Modify `stream-subst` so that the pattern can include an element that matches any digit character, an element that matches any alphanumeric character, or an element that matches any character. The pattern must also be able to match any specific input character. (Hint: `old` can no longer be a string.)(`stream-subst` in [7.4 Example: String Substitution](chapter-7-4.md))
+
+    (defun stream-subst ()
+      (let* ((pos 0)
+             (len (length old))
+             (buf (new-buf len))
+             (from-buf nil))
+        (do ((c (read-char in nil :eof)
+                (or (setf from-buf (buf-next buf))
+                    (read-char in nil :eof))))
+            ((eql c :eof))
+          (cond ((char= c (char old pos))
+                 (incf pos)
+                 (cond ((= pos len)   ;3
+                        (princ new out)
+                        (setf pos 0)
+                        (buf-clear buf))
+                       ((not from-buf)  ;2
+                        (buf-insert c buf))))
+                ((zerop pos)   ;1
+                 (princ c out)
+                 (when from-buf
+                   (buf-pop buf)
+                   (buf-reset buf)))
+                (t    ;4
+                 (unless from-buf
+                   (buf-insert c buf))
+                 (princ (buf-pop buf) out)
+                 (buf-reset buf)
+                 (setf pos 0))))
+        (buf-flush buf out)))
 
