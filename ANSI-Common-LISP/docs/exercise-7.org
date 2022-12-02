@@ -35,6 +35,8 @@
 
 4.Define a function that takes a two-dimensional array of floats and displays it in neat columns. Each element should be printed with two digits after the decimal point, in a field 10 characters wide. (Assume all will fit.) You will need ~array-dimensions~ (page 361).
 
+#+include: "../src/exercise-7-4.lisp" src lisp
+
 ** Modify ~stream-subst~ to allow...
 
 5.Modify ~stream-subst~ to allow wildcards in the pattern. If the character + occurs in ~old~, it should match any input character.

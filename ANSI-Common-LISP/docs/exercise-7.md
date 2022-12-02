@@ -2,15 +2,15 @@
 
 # exercise-7
 
-1.  [Define a function that takes&#x2026;](#org4469a74)
-2.  [Define a function that takes&#x2026;](#orgaf6349c)
-3.  [Suppose that in some format&#x2026;](#org48dc1b9)
-4.  [Define a function that takes&#x2026;](#org3d3fdbb)
-5.  [Modify `stream-subst` to allow&#x2026;](#orga9158f1)
-6.  [Modify `stream-subst` so that&#x2026;](#org73cd31c)
+1.  [Define a function that takes&#x2026;](#orge1f8d43)
+2.  [Define a function that takes&#x2026;](#org0481b0d)
+3.  [Suppose that in some format&#x2026;](#org9584c44)
+4.  [Define a function that takes&#x2026;](#org68d03bb)
+5.  [Modify `stream-subst` to allow&#x2026;](#org6c17911)
+6.  [Modify `stream-subst` so that&#x2026;](#orga5f5334)
 
 
-<a id="org4469a74"></a>
+<a id="orge1f8d43"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -24,7 +24,7 @@
     ;; (print-list-string "./myfile")
 
 
-<a id="orgaf6349c"></a>
+<a id="org0481b0d"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -37,7 +37,7 @@
     ;; (print-list-exp "./myfile-s")
 
 
-<a id="org48dc1b9"></a>
+<a id="org9584c44"></a>
 
 ## Suppose that in some format&#x2026;
 
@@ -56,21 +56,31 @@
     (remove-comments "./myfile-c" "./myfile-c-c")
 
 
-<a id="org3d3fdbb"></a>
+<a id="org68d03bb"></a>
 
 ## Define a function that takes&#x2026;
 
 4.Define a function that takes a two-dimensional array of floats and displays it in neat columns. Each element should be printed with two digits after the decimal point, in a field 10 characters wide. (Assume all will fit.) You will need `array-dimensions` (page 361).
 
+    (defun array-column (arr)
+      (let ((dim (array-dimensions arr)))
+        (do ((i (- (first dim) 1) (- i 1)))
+            ((< i 0))
+          (do ((j (- (second dim) 1) (- j 1)))
+              ((< j 0))
+            (format t "~10,2,0,'*,' F~%" (aref arr i j))))))
+    
+    ;; (array-column #2a((1 2) (3 4)))
 
-<a id="orga9158f1"></a>
+
+<a id="org6c17911"></a>
 
 ## Modify `stream-subst` to allow&#x2026;
 
 5.Modify `stream-subst` to allow wildcards in the pattern. If the character + occurs in `old`, it should match any input character.
 
 
-<a id="org73cd31c"></a>
+<a id="orga5f5334"></a>
 
 ## Modify `stream-subst` so that&#x2026;
 
