@@ -1,0 +1,5 @@
+#+options: toc:nil
+
+* 7.4 Example: String Substitution
+
+#+include: "../src/chapter-7-4.lisp" src lisp
