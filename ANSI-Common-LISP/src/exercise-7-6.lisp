@@ -1,4 +1,4 @@
-(defun stream-subst ()
+(defun stream-subst (old new in out)
   (let* ((pos 0)
          (len (length old))
          (buf (new-buf len))

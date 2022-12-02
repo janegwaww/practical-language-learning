@@ -74,3 +74,5 @@
              (buf-reset buf)
              (setf pos 0))))
     (buf-flush buf out)))
+
+;; (file-subst " th" " z" "ch7-4-test1" "ch7-4-test2")

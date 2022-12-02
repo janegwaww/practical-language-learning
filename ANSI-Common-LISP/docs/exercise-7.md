@@ -2,15 +2,15 @@
 
 # exercise-7
 
-1.  [Define a function that takes&#x2026;](#org706907a)
-2.  [Define a function that takes&#x2026;](#orgb4d04ff)
-3.  [Suppose that in some format&#x2026;](#org72c1b37)
-4.  [Define a function that takes&#x2026;](#org7b6d5f6)
-5.  [Modify `stream-subst` to allow&#x2026;](#org3cf39ad)
-6.  [Modify `stream-subst` so that&#x2026;](#org27187fb)
+1.  [Define a function that takes&#x2026;](#orgbfbaf6c)
+2.  [Define a function that takes&#x2026;](#org27ab800)
+3.  [Suppose that in some format&#x2026;](#orge21da8b)
+4.  [Define a function that takes&#x2026;](#orgbab3cb9)
+5.  [Modify `stream-subst` to allow&#x2026;](#org03d9431)
+6.  [Modify `stream-subst` so that&#x2026;](#org38d20b0)
 
 
-<a id="org706907a"></a>
+<a id="orgbfbaf6c"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -24,7 +24,7 @@
     ;; (print-list-string "./myfile")
 
 
-<a id="orgb4d04ff"></a>
+<a id="org27ab800"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -37,7 +37,7 @@
     ;; (print-list-exp "./myfile-s")
 
 
-<a id="org72c1b37"></a>
+<a id="orge21da8b"></a>
 
 ## Suppose that in some format&#x2026;
 
@@ -56,7 +56,7 @@
     (remove-comments "./myfile-c" "./myfile-c-c")
 
 
-<a id="org7b6d5f6"></a>
+<a id="orgbab3cb9"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -73,13 +73,13 @@
     ;; (array-column #2a((1 2) (3 4)))
 
 
-<a id="org3cf39ad"></a>
+<a id="org03d9431"></a>
 
 ## Modify `stream-subst` to allow&#x2026;
 
 5.Modify `stream-subst` to allow wildcards in the pattern. If the character + occurs in `old`, it should match any input character.(`stream-subst` in [7.4 Example: String Substitution](chapter-7-4.md))
 
-    (defun stream-subst ()
+    (defun stream-subst (old new in out)
       (let* ((pos 0)
              (len (length old))
              (buf (new-buf len))
@@ -88,8 +88,7 @@
                 (or (setf from-buf (buf-next buf))
                     (read-char in nil :eof))))
             ((eql c :eof))
-          (cond ((char= c (char old pos))
-                 (incf pos)
+          (cond ((or (char= c #\*) (char= c (char old pos))) (incf pos)
                  (cond ((= pos len)   ;3
                         (princ new out)
                         (setf pos 0)
@@ -110,13 +109,13 @@
         (buf-flush buf out)))
 
 
-<a id="org27187fb"></a>
+<a id="org38d20b0"></a>
 
 ## Modify `stream-subst` so that&#x2026;
 
 6.Modify `stream-subst` so that the pattern can include an element that matches any digit character, an element that matches any alphanumeric character, or an element that matches any character. The pattern must also be able to match any specific input character. (Hint: `old` can no longer be a string.)(`stream-subst` in [7.4 Example: String Substitution](chapter-7-4.md))
 
-    (defun stream-subst ()
+    (defun stream-subst (old new in out)
       (let* ((pos 0)
              (len (length old))
              (buf (new-buf len))

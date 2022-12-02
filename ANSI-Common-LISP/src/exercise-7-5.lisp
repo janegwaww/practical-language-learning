@@ -1,4 +1,4 @@
-(defun stream-subst ()
+(defun stream-subst (old new in out)
   (let* ((pos 0)
          (len (length old))
          (buf (new-buf len))
@@ -7,8 +7,7 @@
             (or (setf from-buf (buf-next buf))
                 (read-char in nil :eof))))
         ((eql c :eof))
-      (cond ((char= c (char old pos))
-             (incf pos)
+      (cond ((or (char= c #\*) (char= c (char old pos))) (incf pos)
              (cond ((= pos len)   ;3
                     (princ new out)
                     (setf pos 0)
