@@ -6,23 +6,41 @@
 
 ** Is it possible for two symbols to have the same name but not be ~eql~?
 
-
+YES, symbol is substantial object just like list, two symbol have same may point to defferent objects.
 
 ** Estimate the difference between...
 
 2.Estimate the difference between the amount of memory used to represent the string "FOO" and the amount used to represent the symbol ~foo~.
 
+- "FOO" just a string, store as ASCII code in memory in current package in lisp.
+- and ~foo~ is symbol, is a object, maybe refer to function, variable, property list, or name.
+
 ** The call to ~defpackage~ on page 137...
 
 3.The call to ~defpackage~ on page 137 used only strings as arguments. We could have used symbols instead. Why might this have been dangerous?
 
+symbol is accessed in current package, not global accessible.
+
 ** Add the code necessary to make...
 
-4.Add the code necessary to make the code in Figure 7.1 be in a package named "RING", and that in Figure 7.2 be in a package named "FILE". The existing code should remain unchanged.
+4.Add the code necessary to make the code in Figure 7.1 be in a package named "RING", and that in Figure 7.2 be in a package named "FILE". The existing code should remain unchanged.([[file:chapter-7-4.org::*7.4 Example: String Substitution][7.4 Example: String Substitution]])
+
+#+begin_src lisp
+  (defpackage :com.string-substitution.ring
+    (:use :common-lisp)
+    (:export
+     :new-buf :buf-insert :buf-pop :buf-next :buf-reset :buf-clear :buf-flush))
+
+  (defpackage :com.string-substitution.file
+    (:use :common-lisp :com.string-substitution.ring)
+    (:export :file-subst))
+#+end_src
 
 ** Write a program that can...
 
 5.Write a program that can verify whether or not a quote was produced by Henley ([[file:section-8-8.org::*section 8.8][section 8.8]]).
+
+
 
 ** Write a version of Henley that...
 
