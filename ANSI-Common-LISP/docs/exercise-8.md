@@ -2,22 +2,22 @@
 
 # exercise-8
 
-1.  [Is it possible for two symbols to have the same name but not be `eql`?](#org7c468ee)
-2.  [Estimate the difference between&#x2026;](#org02bd9b6)
-3.  [The call to `defpackage` on page 137&#x2026;](#orgaae8e12)
-4.  [Add the code necessary to make&#x2026;](#orgef7dc33)
-5.  [Write a program that can&#x2026;](#org75c0022)
-6.  [Write a version of Henley that&#x2026;](#orged49ac1)
+1.  [Is it possible for two symbols to have the same name but not be `eql`?](#org612b173)
+2.  [Estimate the difference between&#x2026;](#org632dc82)
+3.  [The call to `defpackage` on page 137&#x2026;](#org1742db1)
+4.  [Add the code necessary to make&#x2026;](#org5f306af)
+5.  [Write a program that can&#x2026;](#org1f80acb)
+6.  [Write a version of Henley that&#x2026;](#org0d6dd82)
 
 
-<a id="org7c468ee"></a>
+<a id="org612b173"></a>
 
 ## Is it possible for two symbols to have the same name but not be `eql`?
 
 YES, symbol is substantial object just like list, two symbol have same may point to defferent objects.
 
 
-<a id="org02bd9b6"></a>
+<a id="org632dc82"></a>
 
 ## Estimate the difference between&#x2026;
 
@@ -27,7 +27,7 @@ YES, symbol is substantial object just like list, two symbol have same may point
 -   and `foo` is symbol, is a object, maybe refer to function, variable, property list, or name.
 
 
-<a id="orgaae8e12"></a>
+<a id="org1742db1"></a>
 
 ## The call to `defpackage` on page 137&#x2026;
 
@@ -36,7 +36,7 @@ YES, symbol is substantial object just like list, two symbol have same may point
 symbol is accessed in current package, not global accessible.
 
 
-<a id="orgef7dc33"></a>
+<a id="org5f306af"></a>
 
 ## Add the code necessary to make&#x2026;
 
@@ -52,16 +52,27 @@ symbol is accessed in current package, not global accessible.
       (:export :file-subst))
 
 
-<a id="org75c0022"></a>
+<a id="org1f80acb"></a>
 
 ## Write a program that can&#x2026;
 
 5.Write a program that can verify whether or not a quote was produced by Henley ([section 8.8](section-8-8.md)).
 
+    (defun henley-text-p (text)
+      (and (hash-table-p text)
+           (random-next text)))
 
-<a id="orged49ac1"></a>
+
+<a id="org0d6dd82"></a>
 
 ## Write a version of Henley that&#x2026;
 
 6.Write a version of Henley that can take a word and generate a sentence with that word in the middle of it([section 8.8](section-8-8.md)).
+
+    (defun generate-middle-text (prev)
+      (let* ((choices (gethash prev *words*))
+             (i (/ (reduce #'+ choices :key #'cdr) 2)))
+        (dolist (pair choices)
+          (if (minusp (decf i (cdr pair)))
+              (return (car pair))))))
 

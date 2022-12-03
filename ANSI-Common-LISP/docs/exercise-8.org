@@ -40,8 +40,21 @@ symbol is accessed in current package, not global accessible.
 
 5.Write a program that can verify whether or not a quote was produced by Henley ([[file:section-8-8.org::*section 8.8][section 8.8]]).
 
-
+#+begin_src lisp
+  (defun henley-text-p (text)
+    (and (hash-table-p text)
+         (random-next text)))
+#+end_src
 
 ** Write a version of Henley that...
 
 6.Write a version of Henley that can take a word and generate a sentence with that word in the middle of it([[file:section-8-8.org::*section 8.8][section 8.8]]).
+
+#+begin_src lisp
+  (defun generate-middle-text (prev)
+    (let* ((choices (gethash prev *words*))
+           (i (/ (reduce #'+ choices :key #'cdr) 2)))
+      (dolist (pair choices)
+        (if (minusp (decf i (cdr pair)))
+            (return (car pair))))))
+#+end_src
