@@ -32,7 +32,7 @@ Write a program to simulate such a contest. Do your results suggest that the com
 
 ** /Horner's method/ is a trick for...
 
-6. /Horner's method/ is a trick for evaluating polynomials efficiently. To find ~ax^3+bx^2+cx+d~ you evaluate ~x(x(ax+b)+c)+d~. Define a function that takes one or more arguments—the value of x followed by ~n~ reals representing the coefficients of an (n - l)th-degree polynomial—and calculates the value of the polynomial by /Horner's method/.
+6 /Horner's method/ is a trick for evaluating polynomials efficiently. To find ~ax^3+bx^2+cx+d~ you evaluate ~x(x(ax+b)+c)+d~. Define a function that takes one or more arguments—the value of x followed by ~n~ reals representing the coefficients of an (n - l)th-degree polynomial—and calculates the value of the polynomial by /Horner's method/.
 
 ** How many bits would you estimate...
 
