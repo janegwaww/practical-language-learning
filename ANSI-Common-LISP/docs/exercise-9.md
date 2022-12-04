@@ -2,17 +2,17 @@
 
 # exercise-9
 
-1.  [Define a function that takes&#x2026;](#orgf3a7017)
-2.  [Define a function that takes&#x2026;](#orga4a3fd8)
-3.  [A faraway planet is inhabited&#x2026;](#orgcd794aa)
-4.  [Define a function that takes 8&#x2026;](#orgb7c106d)
-5.  [Suppose `f` is a function of one&#x2026;](#orgce3a4ee)
-6.  [*Horner's method* is a trick for&#x2026;](#org4578ca2)
-7.  [How many bits would you estimate&#x2026;](#orgb1ff9cf)
-8.  [How many distinct types of float does your implementation provide?](#org5da6b9f)
+1.  [Define a function that takes&#x2026;](#org6b700d4)
+2.  [Define a function that takes&#x2026;](#orgfce2278)
+3.  [A faraway planet is inhabited&#x2026;](#org0d6b3bb)
+4.  [Define a function that takes 8&#x2026;](#orgd3c5e45)
+5.  [Suppose `f` is a function of one&#x2026;](#org61c427f)
+6.  [*Horner's method* is a trick for&#x2026;](#org6873bda)
+7.  [How many bits would you estimate&#x2026;](#org75cde1d)
+8.  [How many distinct types of float does your implementation provide?](#org679ad7f)
 
 
-<a id="orgf3a7017"></a>
+<a id="org6b700d4"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -24,7 +24,7 @@
           (and (<= (car lst) (cadr lst)) (non-decrease (cdr lst)))))
 
 
-<a id="orga4a3fd8"></a>
+<a id="orgfce2278"></a>
 
 ## Define a function that takes&#x2026;
 
@@ -39,7 +39,7 @@
             (cons x (total-centss y (cdr lst))))))
 
 
-<a id="orgcd794aa"></a>
+<a id="org0d6b3bb"></a>
 
 ## TODO A faraway planet is inhabited&#x2026;
 
@@ -121,7 +121,7 @@
 Write a program to simulate such a contest. Do your results suggest that the committee is, in fact, choosing the ten best singers each year?
 
 
-<a id="orgb7c106d"></a>
+<a id="orgd3c5e45"></a>
 
 ## Define a function that takes 8&#x2026;
 
@@ -153,28 +153,37 @@ Write a program to simulate such a contest. Do your results suggest that the com
     ;; (intersect-line '(1 . 4) '(3 . 2) '(2 . 2) '(4 . 4))
 
 
-<a id="orgce3a4ee"></a>
+<a id="org61c427f"></a>
 
-## Suppose `f` is a function of one&#x2026;
+## TODO Suppose `f` is a function of one&#x2026;
 
 5.Suppose `f` is a function of one (real) argument, and that `min` and `max` are nonzero reals with different signs such that `f` has a root (returns zero) for one argument i such that `min` < i < `max`. Define a function that takes four arguments, `f`, `min`, `max`, and `epsilon`, and returns an approximation of i accurate to within plus or minus `epsilon`.
 
+    (defun approximat-root (fn min max eps)
+      ())
+    
+    ;; (approximat-root #'+ -2 2 .5)
 
-<a id="org4578ca2"></a>
 
-## *Horner's method* is a trick for&#x2026;
+<a id="org6873bda"></a>
+
+## TODO *Horner's method* is a trick for&#x2026;
 
 6 *Horner's method* is a trick for evaluating polynomials efficiently. To find `ax^3+bx^2+cx+d` you evaluate `x(x(ax+b)+c)+d`. Define a function that takes one or more arguments—the value of x followed by `n` reals representing the coefficients of an (n - l)th-degree polynomial—and calculates the value of the polynomial by *Horner's method*.
 
 
-<a id="orgb1ff9cf"></a>
+<a id="org75cde1d"></a>
 
 ## How many bits would you estimate&#x2026;
 
 7.How many bits would you estimate your implementation uses to represent fixnums?
 
+    (values most-positive-fixnum most-negative-fixnum)
 
-<a id="org5da6b9f"></a>
+
+<a id="org679ad7f"></a>
 
 ## How many distinct types of float does your implementation provide?
+
+Four types: short-float, single-float, double-float, long-float
 

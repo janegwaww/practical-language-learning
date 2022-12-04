@@ -51,11 +51,13 @@ Write a program to simulate such a contest. Do your results suggest that the com
 
 #+include: "../src/exercise-9-4.lisp" src lisp
 
-** Suppose ~f~ is a function of one...
+** TODO Suppose ~f~ is a function of one...
 
 5.Suppose ~f~ is a function of one (real) argument, and that ~min~ and ~max~ are nonzero reals with different signs such that ~f~ has a root (returns zero) for one argument i such that ~min~ < i < ~max~. Define a function that takes four arguments, ~f~, ~min~, ~max~, and ~epsilon~, and returns an approximation of i accurate to within plus or minus ~epsilon~.
 
-** /Horner's method/ is a trick for...
+#+include: "../src/exercise-9-5.lisp" src lisp
+
+** TODO /Horner's method/ is a trick for...
 
 6 /Horner's method/ is a trick for evaluating polynomials efficiently. To find ~ax^3+bx^2+cx+d~ you evaluate ~x(x(ax+b)+c)+d~. Define a function that takes one or more arguments—the value of x followed by ~n~ reals representing the coefficients of an (n - l)th-degree polynomial—and calculates the value of the polynomial by /Horner's method/.
 
@@ -63,4 +65,13 @@ Write a program to simulate such a contest. Do your results suggest that the com
 
 7.How many bits would you estimate your implementation uses to represent fixnums?
 
+#+begin_src lisp
+  (values most-positive-fixnum most-negative-fixnum)
+#+end_src
+
+#+RESULTS:
+: 4611686018427387903
+
 ** How many distinct types of float does your implementation provide?
+
+Four types: short-float, single-float, double-float, long-float
