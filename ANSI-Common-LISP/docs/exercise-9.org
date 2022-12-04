@@ -49,13 +49,7 @@ Write a program to simulate such a contest. Do your results suggest that the com
 
 4.Define a function that takes 8 reals representing the endpoints of two segments in 2-space, and returns either ~nil~ if the segments do not intersect, or two values representing the x- and y-coordinates of the intersection if they do.
 
-#+begin_src lisp
-  (defun intersect-line (l1 l2 r1 r2)
-    (let ((x '(0 . 0)))
-      (if ()
-          ())
-      x))
-#+end_src
+#+include: "../src/exercise-9-4.lisp" src lisp
 
 ** Suppose ~f~ is a function of one...
 
