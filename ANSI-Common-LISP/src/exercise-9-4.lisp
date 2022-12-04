@@ -20,3 +20,5 @@
            (cons (+ a (* lambdap (- c a)))
                  (+ b (* lambdap (- d  b)))))
           (t nil))))
+
+;; (intersect-line '(1 . 4) '(3 . 2) '(2 . 2) '(4 . 4))
