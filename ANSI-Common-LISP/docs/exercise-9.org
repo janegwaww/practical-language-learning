@@ -8,11 +8,34 @@
 
 1.Define a function that takes a list of reals and returns true iff they are in nondecreasing order.
 
+#+begin_src lisp
+  (defun non-decrease (lst)
+    (if (null (cdr lst))
+        t
+        (and (<= (car lst) (cadr lst)) (non-decrease (cdr lst)))))
+#+end_src
+
+#+RESULTS:
+: NON-DECREASE
+
 ** Define a function that takes...
 
 2.Define a function that takes an integer number of cents and returns four values showing how to make that number out of 25-, 10-, 5- and 1-cent pieces, using the smallest total number of coins.
 
-** A faraway planet is inhabited...
+#+begin_src lisp
+  (defun total-cents (cents)
+    (total-centss cents '(25 10 5 1)))
+  (defun total-centss (cents lst)
+    (if (null lst)
+        nil
+        (multiple-value-bind (x y) (floor cents (car lst))
+          (cons x (total-centss y (cdr lst))))))
+#+end_src
+
+#+RESULTS:
+: TOTAL-CENTSS
+
+** TODO A faraway planet is inhabited...
 
 3.A faraway planet is inhabited by two kinds of beings, wigglies and wobblies. Wigglies and wobblies are equally good at singing. Every year there is a great competition to chooses the ten best singers. Here are the results for the past ten years:
 
@@ -25,6 +48,14 @@ Write a program to simulate such a contest. Do your results suggest that the com
 ** Define a function that takes 8...
 
 4.Define a function that takes 8 reals representing the endpoints of two segments in 2-space, and returns either ~nil~ if the segments do not intersect, or two values representing the x- and y-coordinates of the intersection if they do.
+
+#+begin_src lisp
+  (defun intersect-line (l1 l2 r1 r2)
+    (let ((x '(0 . 0)))
+      (if ()
+          ())
+      x))
+#+end_src
 
 ** Suppose ~f~ is a function of one...
 
