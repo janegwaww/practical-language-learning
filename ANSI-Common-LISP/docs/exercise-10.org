@@ -23,6 +23,15 @@
 
 ** Define ~if~ in terms of ~cond~.
 
+#+begin_src lisp
+  (defun new-if (test then else)
+    (cond (test then)
+          (t else)))
+#+end_src
+
+#+RESULTS:
+: NEW-IF
+
 ** Define a macro that takes...
 
 3.Define a macro that takes a number n followed by one or more expressions, and returns the value of the nth expression:
