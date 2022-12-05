@@ -8,6 +8,19 @@
 
 1.If ~x~ is ~a~, ~y~ is ~b~, and ~z~ is ~(c d)~, write backquoted expressions containing only variables that yield each of the following:
 
+1) ((C D) A Z)
+   #+begin_src lisp
+     `(,z ,x z)
+   #+end_src
+2) (X B C D)
+   #+begin_src lisp
+     `(x ,y ,@z)
+   #+end_src
+3) ((C D A) Z)
+   #+begin_src lisp
+     `((,@z ,x) z)
+   #+end_src
+
 ** Define ~if~ in terms of ~cond~.
 
 ** Define a macro that takes...
