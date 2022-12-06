@@ -54,6 +54,8 @@
 
 5.Define a macro ~n-of~ that takes a number ~n~ and an expression, and returns a list of ~n~ successive values returned by the expression:
 
+#+include: "../src/exercise-10-5.lisp" src lisp
+
 ** Define a macro that takes...
 
 6.Define a macro that takes a list of variables and a body of code, and ensures that the variables revert to their original values after the body of code is evaluated.
