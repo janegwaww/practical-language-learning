@@ -2,17 +2,17 @@
 
 # exercise-10
 
-1.  [If `x` is `a`, `y` is `b`, and `z` is `(c d)`,&#x2026;](#org8b80ab6)
-2.  [Define `if` in terms of `cond`.](#orgb9c71b7)
-3.  [Define a macro that takes&#x2026;](#org3502ef1)
-4.  [Define `ntimes` (page 167) to&#x2026;](#org8df6fe6)
-5.  [Define a macro `n-of` that takes&#x2026;](#orga1809f4)
-6.  [Define a macro that takes&#x2026;](#orgf9eda17)
-7.  [What's wrong with the following definition of push?](#org25b48ef)
-8.  [Define a macro that doubles its argument:](#org1d3c9d7)
+1.  [If `x` is `a`, `y` is `b`, and `z` is `(c d)`,&#x2026;](#orgd74f6d2)
+2.  [Define `if` in terms of `cond`.](#org8d38686)
+3.  [Define a macro that takes&#x2026;](#org0386112)
+4.  [Define `ntimes` (page 167) to&#x2026;](#orgdd49b5f)
+5.  [Define a macro `n-of` that takes&#x2026;](#org79e8462)
+6.  [Define a macro that takes&#x2026;](#orgf7dabb8)
+7.  [What's wrong with the following definition of push?](#org84c9b60)
+8.  [Define a macro that doubles its argument:](#org938beee)
 
 
-<a id="org8b80ab6"></a>
+<a id="orgd74f6d2"></a>
 
 ## If `x` is `a`, `y` is `b`, and `z` is `(c d)`,&#x2026;
 
@@ -29,7 +29,7 @@
         `((,@z ,x) z)
 
 
-<a id="orgb9c71b7"></a>
+<a id="org8d38686"></a>
 
 ## Define `if` in terms of `cond`.
 
@@ -38,7 +38,7 @@
             (t else)))
 
 
-<a id="org3502ef1"></a>
+<a id="org0386112"></a>
 
 ## Define a macro that takes&#x2026;
 
@@ -49,33 +49,43 @@
     ;;===> 3
 
     (defmacro nth-expr (n &rest body)
-      (let ((nt (gensym)))
-        `(let ((,nt ,(1- n)))
-           (nth ,nt ,body))))
+      `(case ,n
+         ,@(let ((key -1))
+             (mapcar #'(lambda (obj)
+                         `(,(incf key) ,obj))
+                     body))))
 
 
-<a id="org8df6fe6"></a>
+<a id="orgdd49b5f"></a>
 
 ## Define `ntimes` (page 167) to&#x2026;
 
 4.Define `ntimes` (page 167) to expand into a (local) recursive function instead of a `do`.
 
+    (defmacro ntimes (n &rest body)
+      (let ((g (gensym))
+            (h (gensym)))
+        `(let ((,h ,n))
+           (do ((,g 0 (+ ,g 1)))
+               ((>= ,g ,h))
+             ,@body))))
 
-<a id="orga1809f4"></a>
+
+<a id="org79e8462"></a>
 
 ## Define a macro `n-of` that takes&#x2026;
 
 5.Define a macro `n-of` that takes a number `n` and an expression, and returns a list of `n` successive values returned by the expression:
 
 
-<a id="orgf9eda17"></a>
+<a id="orgf7dabb8"></a>
 
 ## Define a macro that takes&#x2026;
 
 6.Define a macro that takes a list of variables and a body of code, and ensures that the variables revert to their original values after the body of code is evaluated.
 
 
-<a id="org25b48ef"></a>
+<a id="org84c9b60"></a>
 
 ## What's wrong with the following definition of push?
 
@@ -85,7 +95,7 @@
 Give an example of a call where it would not do the same thing as the real push.
 
 
-<a id="org1d3c9d7"></a>
+<a id="org938beee"></a>
 
 ## Define a macro that doubles its argument:
 
