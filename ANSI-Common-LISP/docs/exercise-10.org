@@ -56,9 +56,11 @@
 
 #+include: "../src/exercise-10-5.lisp" src lisp
 
-** Define a macro that takes...
+** TODO Define a macro that takes...
 
 6.Define a macro that takes a list of variables and a body of code, and ensures that the variables revert to their original values after the body of code is evaluated.
+
+#+include: "../src/exercise-10-5.lisp" src lisp
 
 ** What's wrong with the following definition of push?
 
@@ -69,4 +71,31 @@
 
 Give an example of a call where it would not do the same thing as the real push.
 
+#+begin_src lisp
+  (defmacro new-push (obj lst)
+    (let ((o (gensym)))
+      `(let ((,o ,obj))
+         (setf ,lst (cons ,o ,lst)))))
+#+end_src
+
+#+RESULTS:
+: NEW-PUSH
+
 ** Define a macro that doubles its argument:
+
+#+begin_src quote
+  > (let ((x 1)))
+      (double x)
+      x)
+  2
+#+end_src
+
+#+begin_src lisp
+  (defmacro double (x)
+    (let ((n (gensym)))
+      `(let ((,n ,x))
+         (* ,n 2))))
+#+end_src
+
+#+RESULTS:
+: DOUBLE
