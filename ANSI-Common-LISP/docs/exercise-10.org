@@ -50,9 +50,6 @@
 
 #+include: "../src/exercise-10-4.lisp" src lisp
 
-#+RESULTS:
-: NTIMES
-
 ** Define a macro ~n-of~ that takes...
 
 5.Define a macro ~n-of~ that takes a number ~n~ and an expression, and returns a list of ~n~ successive values returned by the expression:
