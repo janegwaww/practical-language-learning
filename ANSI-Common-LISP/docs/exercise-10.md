@@ -2,17 +2,17 @@
 
 # exercise-10
 
-1.  [If `x` is `a`, `y` is `b`, and `z` is `(c d)`,&#x2026;](#orgb8a3952)
-2.  [Define `if` in terms of `cond`.](#org0fabddc)
-3.  [Define a macro that takes&#x2026;](#orgd60f063)
-4.  [Define `ntimes` (page 167) to&#x2026;](#orgcde2974)
-5.  [Define a macro `n-of` that takes&#x2026;](#orgb2dfef9)
-6.  [Define a macro that takes&#x2026;](#org9ea9e88)
-7.  [What's wrong with the following definition of push?](#org66b4f54)
-8.  [Define a macro that doubles its argument:](#orge6cd2de)
+1.  [If `x` is `a`, `y` is `b`, and `z` is `(c d)`,&#x2026;](#orgec0d121)
+2.  [Define `if` in terms of `cond`.](#org6cfb9aa)
+3.  [Define a macro that takes&#x2026;](#orgba5108f)
+4.  [Define `ntimes` (page 167) to&#x2026;](#orgf89b6dc)
+5.  [Define a macro `n-of` that takes&#x2026;](#org6b13000)
+6.  [Define a macro that takes&#x2026;](#orgfbc4305)
+7.  [What's wrong with the following definition of push?](#org6212b02)
+8.  [Define a macro that doubles its argument:](#org9a6f48b)
 
 
-<a id="orgb8a3952"></a>
+<a id="orgec0d121"></a>
 
 ## If `x` is `a`, `y` is `b`, and `z` is `(c d)`,&#x2026;
 
@@ -29,7 +29,7 @@
         `((,@z ,x) z)
 
 
-<a id="org0fabddc"></a>
+<a id="org6cfb9aa"></a>
 
 ## Define `if` in terms of `cond`.
 
@@ -38,7 +38,7 @@
             (t else)))
 
 
-<a id="orgd60f063"></a>
+<a id="orgba5108f"></a>
 
 ## Define a macro that takes&#x2026;
 
@@ -56,7 +56,7 @@
                      body))))
 
 
-<a id="orgcde2974"></a>
+<a id="orgf89b6dc"></a>
 
 ## Define `ntimes` (page 167) to&#x2026;
 
@@ -82,7 +82,7 @@
              (nt ,g)))))
 
 
-<a id="orgb2dfef9"></a>
+<a id="org6b13000"></a>
 
 ## Define a macro `n-of` that takes&#x2026;
 
@@ -110,35 +110,17 @@
              (nof ,c ,e)))))
 
 
-<a id="org9ea9e88"></a>
+<a id="orgfbc4305"></a>
 
 ## TODO Define a macro that takes&#x2026;
 
 6.Define a macro that takes a list of variables and a body of code, and ensures that the variables revert to their original values after the body of code is evaluated.
 
-    ;; > (let ((i 0) (n 4))
-    ;;     (n-of n (incf i)))
-    ;; ==>( 1 2 3 4)
-    
-    (defun fun-n-of (n expr)
-      (if (<= n 0)
-          nil
-          (cons (+ n expr) (fun-n-of (decf n) expr))))
-    
-    (defmacro n-of (n expr)
-      (let ((c (gensym))
-            (e (gensym)))
-        `(let ((,c ,n)
-               (,e ,expr))
-           (labels ((nof (i ex)
-                      (if (<= i 0)
-                          nil
-                          (cons (+ i ,e)
-                                (nof (decf i) ex)))))
-             (nof ,c ,e)))))
+    (defmacro rev-ori (lst body)
+      ())
 
 
-<a id="org66b4f54"></a>
+<a id="org6212b02"></a>
 
 ## What's wrong with the following definition of push?
 
@@ -153,7 +135,7 @@ Give an example of a call where it would not do the same thing as the real push.
            (setf ,lst (cons ,o ,lst)))))
 
 
-<a id="orge6cd2de"></a>
+<a id="org9a6f48b"></a>
 
 ## Define a macro that doubles its argument:
 

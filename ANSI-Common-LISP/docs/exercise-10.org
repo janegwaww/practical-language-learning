@@ -60,7 +60,7 @@
 
 6.Define a macro that takes a list of variables and a body of code, and ensures that the variables revert to their original values after the body of code is evaluated.
 
-#+include: "../src/exercise-10-5.lisp" src lisp
+#+include: "../src/exercise-10-6.lisp" src lisp
 
 ** What's wrong with the following definition of push?
 
