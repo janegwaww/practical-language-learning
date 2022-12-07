@@ -6,16 +6,16 @@
 
 ** Define accessors, initforms...
 
-1.Define accessors, initforms, and initargs for the classes defined in
-Figure 11.2. Rewrite the associated code so that it no longer calls
+1.Define accessors, initforms, and initargs for the classes defined in Figure 11.2. Rewrite the associated code so that it no longer calls
 ~slot-value~.
 
 #+include: "../src/exercise-11-1.lisp" src lisp
 
 ** Rewrite the code in...
 
-2.Rewrite the code in Figure 9.5 so that spheres and points are classes,
-and ~intersect~ and normal are generic functions.
+2.Rewrite the code in Figure 9.5 so that spheres and points are classes, and ~intersect~ and normal are generic functions.([[file:section-9-8.org::*section-9-8 Example: Ray-Tracing][section-9-8 Example: Ray-Tracing]])
+
+#+include: "../src/exercise-11-2.lisp" src lisp
 
 ** Suppose that a number of classes are defined as follows:
 
