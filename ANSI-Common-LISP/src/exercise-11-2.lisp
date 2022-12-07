@@ -1,30 +1,27 @@
 (defclass point ()
-  ((x
-    :accessor x)
-   (y
-    :accessor y)
-   (z
-    :accessor z)))
+  ((x :accessor x)
+   (y :accessor y)
+   (z :accessor z)))
 
 (defclass surface ()
-  (color))
+  ((color
+    :initarg :color)))
 
 (defclass sphere (surface)
-  ((radius) (center)))
+  ((radius
+    :accessor sphere-radius
+    :initarg :radius
+    :initform 0)
+   (center
+    :accessor sphere-center
+    :initarg :center
+    :initform (make-instance 'point))))
 
-(defun defsphere (x y z r c)
-  (let ((s (make-sphere
-            :radius r
-            :center (make-point :x x :y y :z z)
-            :color c)))
-    (push s *world*)
-    s))
+(defgeneric intersect (sphere pt xr yr zr))
 
-(defun intersect (s pt xr yr zr)
-  (funcall (typecase s (sphere #'sphere-intersect))
-           s pt xr yr zr))
+(defgeneric normal (sphere pt))
 
-(defun sphere-intersect (s pt xr yr zr)
+(defmethod intersect ((s sphere) pt xr yr zr)
   (let* ((c (sphere-center s))
          (n (minroot (+ (sq xr) (sq yr) (sq zr))
                      (* 2 (+ (* (- (x pt) (x c)) xr)
@@ -35,15 +32,11 @@
                         (sq (- (z pt) (z c)))
                         (- (sq (sphere-radius s)))))))
     (if n
-        (make-point :x (+ (x pt) (* n xr))
-                    :y (+ (y pt) (* n yr))
-                    :z (+ (z pt) (* n zr))))))
+        (make-instance 'point :x (+ (x pt) (* n xr))
+                              :y (+ (y pt) (* n yr))
+                              :z (+ (z pt) (* n zr))))))
 
-(defun normal (s pt)
-  (funcall (typecase s (sphere #'sphere-normal))
-           s pt))
-
-(defun sphere-normal (s pt)
+(defmethod normal ((s sphere) pt)
   (let ((c (sphere-center s)))
     (unit-vector (- (x c) (x pt))
                  (- (y c) (y pt))

@@ -2,15 +2,15 @@
 
 # exercise-11
 
-1.  [Define accessors, initforms&#x2026;](#orgcc16fbd)
-2.  [Rewrite the code in&#x2026;](#org11e80d5)
-3.  [Suppose that a number of classes are defined as follows:](#orgb4ff3a5)
-4.  [Suppose that you already have the following functions:](#orgc61ba6a)
-5.  [Without changing the behavior&#x2026;](#org9f86a2a)
-6.  [Give an example of a problem&#x2026;](#org5d4d026)
+1.  [Define accessors, initforms&#x2026;](#orgc6c1590)
+2.  [Rewrite the code in&#x2026;](#orgd66a35b)
+3.  [Suppose that a number of classes are defined as follows:](#orgd1a8688)
+4.  [Suppose that you already have the following functions:](#org2f095cd)
+5.  [Without changing the behavior&#x2026;](#orga2448f7)
+6.  [Give an example of a problem&#x2026;](#org4bdf417)
 
 
-<a id="orgcc16fbd"></a>
+<a id="orgc6c1590"></a>
 
 ## Define accessors, initforms&#x2026;
 
@@ -45,39 +45,36 @@
       (area r))
 
 
-<a id="org11e80d5"></a>
+<a id="orgd66a35b"></a>
 
 ## Rewrite the code in&#x2026;
 
 2.Rewrite the code in Figure 9.5 so that spheres and points are classes, and `intersect` and normal are generic functions.([section-9-8 Example: Ray-Tracing](section-9-8.md))
 
     (defclass point ()
-      ((x
-        :accessor x)
-       (y
-        :accessor y)
-       (z
-        :accessor z)))
+      ((x :accessor x)
+       (y :accessor y)
+       (z :accessor z)))
     
     (defclass surface ()
-      (color))
+      ((color
+        :initarg :color)))
     
     (defclass sphere (surface)
-      ((radius) (center)))
+      ((radius
+        :accessor sphere-radius
+        :initarg :radius
+        :initform 0)
+       (center
+        :accessor sphere-center
+        :initarg :center
+        :initform (make-instance 'point))))
     
-    (defun defsphere (x y z r c)
-      (let ((s (make-sphere
-                :radius r
-                :center (make-point :x x :y y :z z)
-                :color c)))
-        (push s *world*)
-        s))
+    (defgeneric intersect (sphere pt xr yr zr))
     
-    (defun intersect (s pt xr yr zr)
-      (funcall (typecase s (sphere #'sphere-intersect))
-               s pt xr yr zr))
+    (defgeneric normal (sphere pt))
     
-    (defun sphere-intersect (s pt xr yr zr)
+    (defmethod intersect ((s sphere) pt xr yr zr)
       (let* ((c (sphere-center s))
              (n (minroot (+ (sq xr) (sq yr) (sq zr))
                          (* 2 (+ (* (- (x pt) (x c)) xr)
@@ -88,22 +85,18 @@
                             (sq (- (z pt) (z c)))
                             (- (sq (sphere-radius s)))))))
         (if n
-            (make-point :x (+ (x pt) (* n xr))
-                        :y (+ (y pt) (* n yr))
-                        :z (+ (z pt) (* n zr))))))
+            (make-instance 'point :x (+ (x pt) (* n xr))
+                                  :y (+ (y pt) (* n yr))
+                                  :z (+ (z pt) (* n zr))))))
     
-    (defun normal (s pt)
-      (funcall (typecase s (sphere #'sphere-normal))
-               s pt))
-    
-    (defun sphere-normal (s pt)
+    (defmethod normal ((s sphere) pt)
       (let ((c (sphere-center s)))
         (unit-vector (- (x c) (x pt))
                      (- (y c) (y pt))
                      (- (z c) (z pt)))))
 
 
-<a id="orgb4ff3a5"></a>
+<a id="orgd1a8688"></a>
 
 ## Suppose that a number of classes are defined as follows:
 
@@ -122,7 +115,7 @@ a.Draw the network representing the ancestors of `a`, and list the classes an in
 b.Do the same for b.
 
 
-<a id="orgc61ba6a"></a>
+<a id="org2f095cd"></a>
 
 ## Suppose that you already have the following functions:
 
@@ -135,14 +128,14 @@ b.Do the same for b.
 Using these functions (and not `compute-applicable-methods` or `find-method`), define a function `most-spec-app-meth` that takes a generic function and a list of the arguments with which it has been called, and returns the most specific applicable method, if any.
 
 
-<a id="org9f86a2a"></a>
+<a id="orga2448f7"></a>
 
 ## Without changing the behavior&#x2026;
 
 5.Without changing the behavior of the generic function `area` (Figure 11.2) in any other respect, arrange it so that a global counter gets incremented each time `area` is called.
 
 
-<a id="org5d4d026"></a>
+<a id="org4bdf417"></a>
 
 ## Give an example of a problem&#x2026;
 
