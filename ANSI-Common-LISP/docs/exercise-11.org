@@ -10,6 +10,8 @@
 Figure 11.2. Rewrite the associated code so that it no longer calls
 ~slot-value~.
 
+#+include: "../src/exercise-11-1.lisp" src lisp
+
 ** Rewrite the code in...
 
 2.Rewrite the code in Figure 9.5 so that spheres and points are classes,

@@ -2,15 +2,15 @@
 
 # exercise-11
 
-1.  [Define accessors, initforms&#x2026;](#org4bd9527)
-2.  [Rewrite the code in&#x2026;](#orgc940816)
-3.  [Suppose that a number of classes are defined as follows:](#org747ed77)
-4.  [Suppose that you already have the following functions:](#org7753d15)
-5.  [Without changing the behavior&#x2026;](#org67f874b)
-6.  [Give an example of a problem&#x2026;](#org02b51b8)
+1.  [Define accessors, initforms&#x2026;](#orgdce9e3f)
+2.  [Rewrite the code in&#x2026;](#org3308766)
+3.  [Suppose that a number of classes are defined as follows:](#orga966b57)
+4.  [Suppose that you already have the following functions:](#org924fcab)
+5.  [Without changing the behavior&#x2026;](#org8d48056)
+6.  [Give an example of a problem&#x2026;](#orgf83c83d)
 
 
-<a id="org4bd9527"></a>
+<a id="orgdce9e3f"></a>
 
 ## Define accessors, initforms&#x2026;
 
@@ -18,8 +18,35 @@
 Figure 11.2. Rewrite the associated code so that it no longer calls
 `slot-value`.
 
+    (defclass rectangle ()
+      ((height
+        :accessor rec-height
+        :initarg :height
+        :initform 0)
+       (width
+        :accessor rec-width
+        :initarg :width
+        :initform 0)))
+    
+    (defclass circle ()
+      ((radius
+        :accessor circle-radius
+        :initarg :radius
+        :initform 0)))
+    
+    (defmethod area ((x rectangle))
+      (* (rec-height x) (rec-width x)))
+    
+    (defmethod area ((x circle))
+      (* pi (expt (circle-radius x) 2)))
+    
+    (let ((r (make-instance 'rectangle)))
+      (setf (rec-height r) 2
+            (rec-width r) 3)
+      (area r))
 
-<a id="orgc940816"></a>
+
+<a id="org3308766"></a>
 
 ## Rewrite the code in&#x2026;
 
@@ -27,7 +54,7 @@ Figure 11.2. Rewrite the associated code so that it no longer calls
 and `intersect` and normal are generic functions.
 
 
-<a id="org747ed77"></a>
+<a id="orga966b57"></a>
 
 ## Suppose that a number of classes are defined as follows:
 
@@ -46,7 +73,7 @@ a.Draw the network representing the ancestors of `a`, and list the classes an in
 b.Do the same for b.
 
 
-<a id="org7753d15"></a>
+<a id="org924fcab"></a>
 
 ## Suppose that you already have the following functions:
 
@@ -59,14 +86,14 @@ b.Do the same for b.
 Using these functions (and not `compute-applicable-methods` or `find-method`), define a function `most-spec-app-meth` that takes a generic function and a list of the arguments with which it has been called, and returns the most specific applicable method, if any.
 
 
-<a id="org67f874b"></a>
+<a id="org8d48056"></a>
 
 ## Without changing the behavior&#x2026;
 
 5.Without changing the behavior of the generic function `area` (Figure 11.2) in any other respect, arrange it so that a global counter gets incremented each time `area` is called.
 
 
-<a id="org02b51b8"></a>
+<a id="orgf83c83d"></a>
 
 ## Give an example of a problem&#x2026;
 
