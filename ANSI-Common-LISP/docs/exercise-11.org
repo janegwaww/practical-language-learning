@@ -53,6 +53,13 @@ Using these functions (and not ~compute-applicable-methods~ or ~find-method~), d
 
 5.Without changing the behavior of the generic function ~area~ (Figure 11.2) in any other respect, arrange it so that a global counter gets incremented each time ~area~ is called.
 
+#+begin_src lisp
+  (defmethod area :before ((r rectangle))
+    (incf conter))
+  (defmethod area :before ((c circle))
+    (incf conter))
+#+end_src
+
 ** Give an example of a problem...
 
 6.Give an example of a problem that would be difficult to solve if only the first argument to a generic function could be specialized.

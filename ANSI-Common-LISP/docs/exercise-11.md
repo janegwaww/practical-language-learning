@@ -2,15 +2,15 @@
 
 # exercise-11
 
-1.  [Define accessors, initforms&#x2026;](#org2e591d4)
-2.  [Rewrite the code in&#x2026;](#org8049b89)
-3.  [Suppose that a number of classes are defined as follows:](#orgb8a9b4d)
-4.  [Suppose that you already have the following functions:](#org2fb6526)
-5.  [Without changing the behavior&#x2026;](#orgb9714e7)
-6.  [Give an example of a problem&#x2026;](#orgb327613)
+1.  [Define accessors, initforms&#x2026;](#org9b48caa)
+2.  [Rewrite the code in&#x2026;](#org1d4c78d)
+3.  [Suppose that a number of classes are defined as follows:](#org9bd90f1)
+4.  [Suppose that you already have the following functions:](#orgde05429)
+5.  [Without changing the behavior&#x2026;](#org2cbf4e8)
+6.  [Give an example of a problem&#x2026;](#org9601d33)
 
 
-<a id="org2e591d4"></a>
+<a id="org9b48caa"></a>
 
 ## Define accessors, initforms&#x2026;
 
@@ -45,7 +45,7 @@
       (area r))
 
 
-<a id="org8049b89"></a>
+<a id="org1d4c78d"></a>
 
 ## Rewrite the code in&#x2026;
 
@@ -96,7 +96,7 @@
                      (- (z c) (z pt)))))
 
 
-<a id="orgb8a9b4d"></a>
+<a id="org9bd90f1"></a>
 
 ## Suppose that a number of classes are defined as follows:
 
@@ -117,7 +117,7 @@ b.Do the same for b.
 [exercise-11-3](exercise-11-3.md)
 
 
-<a id="org2fb6526"></a>
+<a id="orgde05429"></a>
 
 ## Suppose that you already have the following functions:
 
@@ -141,14 +141,19 @@ Using these functions (and not `compute-applicable-methods` or `find-method`), d
                 (t s)))))))
 
 
-<a id="orgb9714e7"></a>
+<a id="org2cbf4e8"></a>
 
 ## Without changing the behavior&#x2026;
 
 5.Without changing the behavior of the generic function `area` (Figure 11.2) in any other respect, arrange it so that a global counter gets incremented each time `area` is called.
 
+    (defmethod area :before ((r rectangle))
+      (incf conter))
+    (defmethod area :before ((c circle))
+      (incf conter))
 
-<a id="orgb327613"></a>
+
+<a id="org9601d33"></a>
 
 ## Give an example of a problem&#x2026;
 
