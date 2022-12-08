@@ -1,0 +1,10 @@
+(defun most-spec-app-meth (gfun &rest obj)
+  (let ((pl (precedence obj))
+        (ml (methods gfun)))
+    (dolist (m ml)
+      (let ((sl (specialization m)))
+        (dolist (s sl)
+          (cond
+            ((member s pl) s)
+            ((eql x) x)
+            (t s)))))))

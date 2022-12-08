@@ -2,15 +2,15 @@
 
 # exercise-11
 
-1.  [Define accessors, initforms&#x2026;](#orgf1a56a2)
-2.  [Rewrite the code in&#x2026;](#orgfae1dab)
-3.  [Suppose that a number of classes are defined as follows:](#orgd71057f)
-4.  [Suppose that you already have the following functions:](#org479ce15)
-5.  [Without changing the behavior&#x2026;](#org7cd3ff6)
-6.  [Give an example of a problem&#x2026;](#orge451d79)
+1.  [Define accessors, initforms&#x2026;](#org2e591d4)
+2.  [Rewrite the code in&#x2026;](#org8049b89)
+3.  [Suppose that a number of classes are defined as follows:](#orgb8a9b4d)
+4.  [Suppose that you already have the following functions:](#org2fb6526)
+5.  [Without changing the behavior&#x2026;](#orgb9714e7)
+6.  [Give an example of a problem&#x2026;](#orgb327613)
 
 
-<a id="orgf1a56a2"></a>
+<a id="org2e591d4"></a>
 
 ## Define accessors, initforms&#x2026;
 
@@ -45,7 +45,7 @@
       (area r))
 
 
-<a id="orgfae1dab"></a>
+<a id="org8049b89"></a>
 
 ## Rewrite the code in&#x2026;
 
@@ -96,7 +96,7 @@
                      (- (z c) (z pt)))))
 
 
-<a id="orgd71057f"></a>
+<a id="orgb8a9b4d"></a>
 
 ## Suppose that a number of classes are defined as follows:
 
@@ -117,7 +117,7 @@ b.Do the same for b.
 [exercise-11-3](exercise-11-3.md)
 
 
-<a id="org479ce15"></a>
+<a id="org2fb6526"></a>
 
 ## Suppose that you already have the following functions:
 
@@ -129,15 +129,26 @@ b.Do the same for b.
 
 Using these functions (and not `compute-applicable-methods` or `find-method`), define a function `most-spec-app-meth` that takes a generic function and a list of the arguments with which it has been called, and returns the most specific applicable method, if any.
 
+    (defun most-spec-app-meth (gfun &rest obj)
+      (let ((pl (precedence obj))
+            (ml (methods gfun)))
+        (dolist (m ml)
+          (let ((sl (specialization m)))
+            (dolist (s sl)
+              (cond
+                ((member s pl) s)
+                ((eql x) x)
+                (t s)))))))
 
-<a id="org7cd3ff6"></a>
+
+<a id="orgb9714e7"></a>
 
 ## Without changing the behavior&#x2026;
 
 5.Without changing the behavior of the generic function `area` (Figure 11.2) in any other respect, arrange it so that a global counter gets incremented each time `area` is called.
 
 
-<a id="orge451d79"></a>
+<a id="orgb327613"></a>
 
 ## Give an example of a problem&#x2026;
 
