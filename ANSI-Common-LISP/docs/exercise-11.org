@@ -63,3 +63,5 @@ Using these functions (and not ~compute-applicable-methods~ or ~find-method~), d
 ** Give an example of a problem...
 
 6.Give an example of a problem that would be difficult to solve if only the first argument to a generic function could be specialized.
+
+like classes not inherited any superclasses

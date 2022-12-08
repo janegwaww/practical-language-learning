@@ -2,15 +2,15 @@
 
 # exercise-11
 
-1.  [Define accessors, initforms&#x2026;](#org9b48caa)
-2.  [Rewrite the code in&#x2026;](#org1d4c78d)
-3.  [Suppose that a number of classes are defined as follows:](#org9bd90f1)
-4.  [Suppose that you already have the following functions:](#orgde05429)
-5.  [Without changing the behavior&#x2026;](#org2cbf4e8)
-6.  [Give an example of a problem&#x2026;](#org9601d33)
+1.  [Define accessors, initforms&#x2026;](#orgade1046)
+2.  [Rewrite the code in&#x2026;](#org8740435)
+3.  [Suppose that a number of classes are defined as follows:](#org5585728)
+4.  [Suppose that you already have the following functions:](#org0df429c)
+5.  [Without changing the behavior&#x2026;](#org421c7fb)
+6.  [Give an example of a problem&#x2026;](#org1e358bb)
 
 
-<a id="org9b48caa"></a>
+<a id="orgade1046"></a>
 
 ## Define accessors, initforms&#x2026;
 
@@ -45,7 +45,7 @@
       (area r))
 
 
-<a id="org1d4c78d"></a>
+<a id="org8740435"></a>
 
 ## Rewrite the code in&#x2026;
 
@@ -96,7 +96,7 @@
                      (- (z c) (z pt)))))
 
 
-<a id="org9bd90f1"></a>
+<a id="org5585728"></a>
 
 ## Suppose that a number of classes are defined as follows:
 
@@ -117,7 +117,7 @@ b.Do the same for b.
 [exercise-11-3](exercise-11-3.md)
 
 
-<a id="orgde05429"></a>
+<a id="org0df429c"></a>
 
 ## Suppose that you already have the following functions:
 
@@ -141,7 +141,7 @@ Using these functions (and not `compute-applicable-methods` or `find-method`), d
                 (t s)))))))
 
 
-<a id="org2cbf4e8"></a>
+<a id="org421c7fb"></a>
 
 ## Without changing the behavior&#x2026;
 
@@ -153,9 +153,11 @@ Using these functions (and not `compute-applicable-methods` or `find-method`), d
       (incf conter))
 
 
-<a id="org9601d33"></a>
+<a id="org1e358bb"></a>
 
 ## Give an example of a problem&#x2026;
 
 6.Give an example of a problem that would be difficult to solve if only the first argument to a generic function could be specialized.
+
+like classes not inherited any superclasses
 
