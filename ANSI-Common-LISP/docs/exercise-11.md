@@ -2,15 +2,15 @@
 
 # exercise-11
 
-1.  [Define accessors, initforms&#x2026;](#orgc6c1590)
-2.  [Rewrite the code in&#x2026;](#orgd66a35b)
-3.  [Suppose that a number of classes are defined as follows:](#orgd1a8688)
-4.  [Suppose that you already have the following functions:](#org2f095cd)
-5.  [Without changing the behavior&#x2026;](#orga2448f7)
-6.  [Give an example of a problem&#x2026;](#org4bdf417)
+1.  [Define accessors, initforms&#x2026;](#orgf1a56a2)
+2.  [Rewrite the code in&#x2026;](#orgfae1dab)
+3.  [Suppose that a number of classes are defined as follows:](#orgd71057f)
+4.  [Suppose that you already have the following functions:](#org479ce15)
+5.  [Without changing the behavior&#x2026;](#org7cd3ff6)
+6.  [Give an example of a problem&#x2026;](#orge451d79)
 
 
-<a id="orgc6c1590"></a>
+<a id="orgf1a56a2"></a>
 
 ## Define accessors, initforms&#x2026;
 
@@ -45,7 +45,7 @@
       (area r))
 
 
-<a id="orgd66a35b"></a>
+<a id="orgfae1dab"></a>
 
 ## Rewrite the code in&#x2026;
 
@@ -96,7 +96,7 @@
                      (- (z c) (z pt)))))
 
 
-<a id="orgd1a8688"></a>
+<a id="orgd71057f"></a>
 
 ## Suppose that a number of classes are defined as follows:
 
@@ -114,8 +114,10 @@ a.Draw the network representing the ancestors of `a`, and list the classes an in
 
 b.Do the same for b.
 
+[exercise-11-3](exercise-11-3.md)
 
-<a id="org2f095cd"></a>
+
+<a id="org479ce15"></a>
 
 ## Suppose that you already have the following functions:
 
@@ -128,14 +130,14 @@ b.Do the same for b.
 Using these functions (and not `compute-applicable-methods` or `find-method`), define a function `most-spec-app-meth` that takes a generic function and a list of the arguments with which it has been called, and returns the most specific applicable method, if any.
 
 
-<a id="orga2448f7"></a>
+<a id="org7cd3ff6"></a>
 
 ## Without changing the behavior&#x2026;
 
 5.Without changing the behavior of the generic function `area` (Figure 11.2) in any other respect, arrange it so that a global counter gets incremented each time `area` is called.
 
 
-<a id="org4bdf417"></a>
+<a id="orge451d79"></a>
 
 ## Give an example of a problem&#x2026;
 

@@ -35,6 +35,8 @@ a.Draw the network representing the ancestors of ~a~, and list the classes an in
 
 b.Do the same for b.
 
+[[file:exercise-11-3.org::*exercise-11-3][exercise-11-3]]
+
 ** Suppose that you already have the following functions:
 
 ~precedence~: takes an object and returns its precedence list, a list of classes ordered from most specific to least specific.
@@ -44,6 +46,8 @@ b.Do the same for b.
 ~specializations~ : takes a method and returns a list of the specializations of the parameters. Each element of the returned list will be either a class, or a list of the form ~(eql x)~, or ~t~ (indicating that the parameter is unspecialized).
 
 Using these functions (and not ~compute-applicable-methods~ or ~find-method~), define a function ~most-spec-app-meth~ that takes a generic function and a list of the arguments with which it has been called, and returns the most specific applicable method, if any.
+
+
 
 ** Without changing the behavior...
 
