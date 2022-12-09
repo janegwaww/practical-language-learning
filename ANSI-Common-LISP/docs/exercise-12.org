@@ -115,7 +115,7 @@
     (push-queue obj q))
 #+end_src
 
-** efine a function that...
+** Define a function that...
 
 6.Define a function that takes an object and a possibly cdr-circular list, and returns true if the object is a member of the list.
 

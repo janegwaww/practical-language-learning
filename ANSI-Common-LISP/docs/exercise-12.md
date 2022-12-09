@@ -2,17 +2,17 @@
 
 # exercise-12
 
-1.  [Draw three different trees that&#x2026;](#org37dafc4)
-2.  [Assuming make-queue,&#x2026;](#orgfd966da)
-3.  [Define a function `copy-queue` that returns a copy of a queue.](#orgdb9fb6b)
-4.  [Define a function that&#x2026;](#org126f209)
-5.  [Define a function that&#x2026;](#org3756bff)
-6.  [efine a function that&#x2026;](#org0b6accd)
-7.  [Define a function that&#x2026;](#org10d2993)
-8.  [Define a function that&#x2026;](#org6d15569)
+1.  [Draw three different trees that&#x2026;](#org18822ad)
+2.  [Assuming make-queue,&#x2026;](#org4436098)
+3.  [Define a function `copy-queue` that returns a copy of a queue.](#org8f14ace)
+4.  [Define a function that&#x2026;](#org247a21e)
+5.  [Define a function that&#x2026;](#orgf989909)
+6.  [Define a function that&#x2026;](#org9d09ca4)
+7.  [Define a function that&#x2026;](#org62f6407)
+8.  [Define a function that&#x2026;](#org6d55dd8)
 
 
-<a id="org37dafc4"></a>
+<a id="org18822ad"></a>
 
 ## Draw three different trees that&#x2026;
 
@@ -25,7 +25,7 @@
     (vector '(a) '(a) '(a))
 
 
-<a id="orgfd966da"></a>
+<a id="org4436098"></a>
 
 ## Assuming make-queue,&#x2026;
 
@@ -146,7 +146,7 @@
 </table>
 
 
-<a id="orgdb9fb6b"></a>
+<a id="org8f14ace"></a>
 
 ## Define a function `copy-queue` that returns a copy of a queue.
 
@@ -158,7 +158,7 @@
                 (cdr q))))
 
 
-<a id="org126f209"></a>
+<a id="org247a21e"></a>
 
 ## Define a function that&#x2026;
 
@@ -168,7 +168,7 @@
       (setf (car q) (push obj (car q))))
 
 
-<a id="org3756bff"></a>
+<a id="orgf989909"></a>
 
 ## TODO Define a function that&#x2026;
 
@@ -178,9 +178,9 @@
       (push-queue obj q))
 
 
-<a id="org0b6accd"></a>
+<a id="org9d09ca4"></a>
 
-## efine a function that&#x2026;
+## Define a function that&#x2026;
 
 6.Define a function that takes an object and a possibly cdr-circular list, and returns true if the object is a member of the list.
 
@@ -190,7 +190,7 @@
           nil))
 
 
-<a id="org10d2993"></a>
+<a id="org62f6407"></a>
 
 ## Define a function that&#x2026;
 
@@ -202,7 +202,7 @@
         (eql (cdr c) c)))
 
 
-<a id="org6d15569"></a>
+<a id="org6d55dd8"></a>
 
 ## Define a function that&#x2026;
 
