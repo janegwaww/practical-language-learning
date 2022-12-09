@@ -25,9 +25,64 @@
 
 2.Assuming ~make-queue~, ~enqueue~, and ~dequeue~ are defined as in Figure 12.7, draw the queue in box-notation after each step:
 
+#+begin_src lisp
+  (defun make--queue () (cons nil nil))
 
+  (defun enqueue (obj q)
+    (if (null (car q))
+        (setf (cdr q) (setf (car q) (list obj)))
+        (setf (cdr (cdr q)) (list obj)
+              (cdr q) (cdr (cdr q))))
+    (car q))
+
+  (defun dequeue (q)
+    (pop (car q)))
+#+end_src
+
+#+RESULTS:
+: DEQUEUE
+
+#+begin_src lisp
+  ;;> (setf q (make-queue)) ==> (NIL)
+#+end_src
++---+---+
+|nil|nil|
++---+---+
+
+#+begin_src lisp
+  ;;> (enqueue 'a q) ==> (A)
+#+end_src
+     +---+---+
+     |   |   |
+     +-+-+-+-+
+       | +-+
+       | |
+     +-+-+---+
+     | a |nil|
+     +---+---+
+
+#+begin_src lisp
+  ;;> (enqueue 'b q) ==> (A B)
+#+end_src
++---+---+
+|   |   |
++-+-+-+-+
+  |   |
+  |   +---------+
++-+-+----+  +---+---+
+| a |    +--+ b |nil|
++---+----+  +---+---+
+
+#+begin_src lisp
+  ;;> (dequeue q) ==> A
+#+end_src
++---+
+| a |
++---+
 
 ** Define a function ~copy-queue~ that returns a copy of a queue.
+
+
 
 ** Define a function that...
 
