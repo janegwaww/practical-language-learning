@@ -143,3 +143,13 @@
 ** Define a function that...
 
 8.Define a function that returns true when its argument is a car-circular list.
+
+#+begin_src lisp
+  (defun car-circle-p (cc)
+    (and
+     (consp cc)
+     (eql (car cc) cc)))
+#+end_src
+
+#+RESULTS:
+: CAR-CIRCLE-P

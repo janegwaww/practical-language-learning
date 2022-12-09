@@ -2,17 +2,17 @@
 
 # exercise-12
 
-1.  [Draw three different trees that&#x2026;](#org18822ad)
-2.  [Assuming make-queue,&#x2026;](#org4436098)
-3.  [Define a function `copy-queue` that returns a copy of a queue.](#org8f14ace)
-4.  [Define a function that&#x2026;](#org247a21e)
-5.  [Define a function that&#x2026;](#orgf989909)
-6.  [Define a function that&#x2026;](#org9d09ca4)
-7.  [Define a function that&#x2026;](#org62f6407)
-8.  [Define a function that&#x2026;](#org6d55dd8)
+1.  [Draw three different trees that&#x2026;](#orgf7002b0)
+2.  [Assuming make-queue,&#x2026;](#orgf599ad5)
+3.  [Define a function `copy-queue` that returns a copy of a queue.](#orgbfd5bb9)
+4.  [Define a function that&#x2026;](#org142e60d)
+5.  [Define a function that&#x2026;](#org9c89c26)
+6.  [Define a function that&#x2026;](#org82c9e86)
+7.  [Define a function that&#x2026;](#org892b7dc)
+8.  [Define a function that&#x2026;](#org3d11e18)
 
 
-<a id="org18822ad"></a>
+<a id="orgf7002b0"></a>
 
 ## Draw three different trees that&#x2026;
 
@@ -25,7 +25,7 @@
     (vector '(a) '(a) '(a))
 
 
-<a id="org4436098"></a>
+<a id="orgf599ad5"></a>
 
 ## Assuming make-queue,&#x2026;
 
@@ -146,7 +146,7 @@
 </table>
 
 
-<a id="org8f14ace"></a>
+<a id="orgbfd5bb9"></a>
 
 ## Define a function `copy-queue` that returns a copy of a queue.
 
@@ -158,7 +158,7 @@
                 (cdr q))))
 
 
-<a id="org247a21e"></a>
+<a id="org142e60d"></a>
 
 ## Define a function that&#x2026;
 
@@ -168,7 +168,7 @@
       (setf (car q) (push obj (car q))))
 
 
-<a id="orgf989909"></a>
+<a id="org9c89c26"></a>
 
 ## TODO Define a function that&#x2026;
 
@@ -178,7 +178,7 @@
       (push-queue obj q))
 
 
-<a id="org9d09ca4"></a>
+<a id="org82c9e86"></a>
 
 ## Define a function that&#x2026;
 
@@ -190,7 +190,7 @@
           nil))
 
 
-<a id="org62f6407"></a>
+<a id="org892b7dc"></a>
 
 ## Define a function that&#x2026;
 
@@ -202,9 +202,14 @@
         (eql (cdr c) c)))
 
 
-<a id="org6d55dd8"></a>
+<a id="org3d11e18"></a>
 
 ## Define a function that&#x2026;
 
 8.Define a function that returns true when its argument is a car-circular list.
+
+    (defun car-circle-p (cc)
+      (and
+       (consp cc)
+       (eql (car cc) cc)))
 
