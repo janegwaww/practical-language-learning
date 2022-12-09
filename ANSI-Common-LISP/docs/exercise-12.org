@@ -98,6 +98,14 @@
 
 4.Define a function that takes an object and a queue, and puts the object on the /front/ of the queue.
 
+#+begin_src lisp
+  (defun push-queue (obj q)
+    (setf (car q) (push obj (car q))))
+#+end_src
+
+#+RESULTS:
+: PUSH-QUEUE
+
 ** Define a function that...
 
 5.Define a function that takes an object and a queue, and (destructively) moves the first (~eql~) instance of the object to the front of the queue.
