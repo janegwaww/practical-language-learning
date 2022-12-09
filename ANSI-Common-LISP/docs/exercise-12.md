@@ -2,17 +2,17 @@
 
 # exercise-12
 
-1.  [Draw three different trees that&#x2026;](#orgc0f5a80)
-2.  [Assuming make-queue,&#x2026;](#orge3ec9d1)
-3.  [Define a function `copy-queue` that returns a copy of a queue.](#orgf450259)
-4.  [Define a function that&#x2026;](#orgc18041b)
-5.  [Define a function that&#x2026;](#orgb3b78c4)
-6.  [efine a function that&#x2026;](#orgb9b9a48)
-7.  [Define a function that&#x2026;](#org0c4b412)
-8.  [Define a function that&#x2026;](#orgf85f73e)
+1.  [Draw three different trees that&#x2026;](#org37dafc4)
+2.  [Assuming make-queue,&#x2026;](#orgfd966da)
+3.  [Define a function `copy-queue` that returns a copy of a queue.](#orgdb9fb6b)
+4.  [Define a function that&#x2026;](#org126f209)
+5.  [Define a function that&#x2026;](#org3756bff)
+6.  [efine a function that&#x2026;](#org0b6accd)
+7.  [Define a function that&#x2026;](#org10d2993)
+8.  [Define a function that&#x2026;](#org6d15569)
 
 
-<a id="orgc0f5a80"></a>
+<a id="org37dafc4"></a>
 
 ## Draw three different trees that&#x2026;
 
@@ -25,7 +25,7 @@
     (vector '(a) '(a) '(a))
 
 
-<a id="orge3ec9d1"></a>
+<a id="orgfd966da"></a>
 
 ## Assuming make-queue,&#x2026;
 
@@ -146,7 +146,7 @@
 </table>
 
 
-<a id="orgf450259"></a>
+<a id="orgdb9fb6b"></a>
 
 ## Define a function `copy-queue` that returns a copy of a queue.
 
@@ -158,7 +158,7 @@
                 (cdr q))))
 
 
-<a id="orgc18041b"></a>
+<a id="org126f209"></a>
 
 ## Define a function that&#x2026;
 
@@ -168,28 +168,41 @@
       (setf (car q) (push obj (car q))))
 
 
-<a id="orgb3b78c4"></a>
+<a id="org3756bff"></a>
 
-## Define a function that&#x2026;
+## TODO Define a function that&#x2026;
 
 5.Define a function that takes an object and a queue, and (destructively) moves the first (`eql`) instance of the object to the front of the queue.
 
+    (defun push-first-queue (obj q)
+      (push-queue obj q))
 
-<a id="orgb9b9a48"></a>
+
+<a id="org0b6accd"></a>
 
 ## efine a function that&#x2026;
 
 6.Define a function that takes an object and a possibly cdr-circular list, and returns true if the object is a member of the list.
 
+    (defun cdr-circle-m (obj cc)
+      (if (cdr-circle-p cc)
+          (member obj cc)
+          nil))
 
-<a id="org0c4b412"></a>
+
+<a id="org10d2993"></a>
 
 ## Define a function that&#x2026;
 
 7.Define a function that returns true when its argument is a cdr-circular list.
 
+    (defun cdr-circle-p (c)
+      (and
+        (consp c)
+        (eql (cdr c) c)))
 
-<a id="orgf85f73e"></a>
+
+<a id="org6d15569"></a>
 
 ## Define a function that&#x2026;
 
