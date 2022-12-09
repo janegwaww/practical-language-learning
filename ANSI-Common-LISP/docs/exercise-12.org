@@ -8,9 +8,24 @@
 
 1.Draw three different trees that would print as ((A) (A) (A)). Write an expression that generates each.
 
+#+begin_src lisp
+  (cons (cons 'a nil) (cons (cons 'a nil) (cons (cons 'a nil) nil)))
+
+  (make-array '(3 1) :initial-element 'a)
+
+  (vector '(a) '(a) '(a))
+#+end_src
+
+#+RESULTS:
+| A |
+| A |
+| A |
+
 ** Assuming make-queue,...
 
 2.Assuming ~make-queue~, ~enqueue~, and ~dequeue~ are defined as in Figure 12.7, draw the queue in box-notation after each step:
+
+
 
 ** Define a function ~copy-queue~ that returns a copy of a queue.
 
