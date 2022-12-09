@@ -82,7 +82,17 @@
 
 ** Define a function ~copy-queue~ that returns a copy of a queue.
 
+#+begin_src lisp
+    (defun copy-queue (q)
+      (if (null (car q))
+          nil
+          (list (cons (car (car q))
+                      (copy-queue  (list (cdr (car q)) (cdr q))))
+                (cdr q))))
+#+end_src
 
+#+RESULTS:
+: COPY-QUEUE
 
 ** Define a function that...
 

@@ -2,17 +2,17 @@
 
 # exercise-12
 
-1.  [Draw three different trees that&#x2026;](#org22fd8b5)
-2.  [Assuming make-queue,&#x2026;](#orgd59f2a6)
-3.  [Define a function `copy-queue` that returns a copy of a queue.](#org88971d0)
-4.  [Define a function that&#x2026;](#org8e130a9)
-5.  [Define a function that&#x2026;](#orgd7ce0ef)
-6.  [efine a function that&#x2026;](#orgb84dd10)
-7.  [Define a function that&#x2026;](#org4103e46)
-8.  [Define a function that&#x2026;](#org8e8d369)
+1.  [Draw three different trees that&#x2026;](#org880db99)
+2.  [Assuming make-queue,&#x2026;](#orge3b4c28)
+3.  [Define a function `copy-queue` that returns a copy of a queue.](#org0e07fbc)
+4.  [Define a function that&#x2026;](#org4625127)
+5.  [Define a function that&#x2026;](#orgccc5d21)
+6.  [efine a function that&#x2026;](#org7e1f9ff)
+7.  [Define a function that&#x2026;](#org224ca71)
+8.  [Define a function that&#x2026;](#orgea69cd2)
 
 
-<a id="org22fd8b5"></a>
+<a id="org880db99"></a>
 
 ## Draw three different trees that&#x2026;
 
@@ -25,7 +25,7 @@
     (vector '(a) '(a) '(a))
 
 
-<a id="orgd59f2a6"></a>
+<a id="orge3b4c28"></a>
 
 ## Assuming make-queue,&#x2026;
 
@@ -146,40 +146,47 @@
 </table>
 
 
-<a id="org88971d0"></a>
+<a id="org0e07fbc"></a>
 
 ## Define a function `copy-queue` that returns a copy of a queue.
 
+    (defun copy-queue (q)
+      (if (null (car q))
+          nil
+          (list (cons (car (car q))
+                      (copy-queue  (list (cdr (car q)) (cdr q))))
+                (cdr q))))
 
-<a id="org8e130a9"></a>
+
+<a id="org4625127"></a>
 
 ## Define a function that&#x2026;
 
 4.Define a function that takes an object and a queue, and puts the object on the *front* of the queue.
 
 
-<a id="orgd7ce0ef"></a>
+<a id="orgccc5d21"></a>
 
 ## Define a function that&#x2026;
 
 5.Define a function that takes an object and a queue, and (destructively) moves the first (`eql`) instance of the object to the front of the queue.
 
 
-<a id="orgb84dd10"></a>
+<a id="org7e1f9ff"></a>
 
 ## efine a function that&#x2026;
 
 6.Define a function that takes an object and a possibly cdr-circular list, and returns true if the object is a member of the list.
 
 
-<a id="org4103e46"></a>
+<a id="org224ca71"></a>
 
 ## Define a function that&#x2026;
 
 7.Define a function that returns true when its argument is a cdr-circular list.
 
 
-<a id="org8e8d369"></a>
+<a id="orgea69cd2"></a>
 
 ## Define a function that&#x2026;
 
