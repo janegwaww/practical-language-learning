@@ -24,6 +24,29 @@
 ** Rewrite the following function...
 
 2.Rewrite the following function to be tail-recursive. How much faster is it when compiled?
+#+begin_src lisp
+  (defun foo (x)
+    (if (zerop x)
+        0
+        (+ 1 (foo (1- x)))))
+#+end_src
+
+#+RESULTS:
+: FOO
+
+#+begin_src lisp
+  (defun new-foo (x)
+    (labels ((tail (l a)
+               (if (zerop l)
+                   a
+                   (tail (1- l) (1+ a)))))
+      (tail x 0)))
+  (time (new-foo 10000))
+  (time (foo 10000))
+#+end_src
+
+#+RESULTS:
+: NEW-FOO
 
 ** Add declarations to the following programs....
 
