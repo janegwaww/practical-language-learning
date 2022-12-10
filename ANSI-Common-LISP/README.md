@@ -19,4 +19,5 @@ From <a href="http://www.paulgraham.com/acl.html">ANSI Common LISP</a> book exer
 -   [exercise-10](docs/exercise-10.md)
 -   [exercise-11](docs/exercise-11.md)
 -   [exercise-12](docs/exercise-12.md)
+-   [exercise-13](docs/exercise-13.md)
 

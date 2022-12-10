@@ -17,3 +17,4 @@ From [[http://www.paulgraham.com/acl.html][ANSI Common LISP]] book exercises.
 - [[file:docs/exercise-10.org::*exercise-10][exercise-10]]
 - [[file:docs/exercise-11.org::*exercise-11][exercise-11]]
 - [[file:docs/exercise-12.org::*exercise-12][exercise-12]]
+- [[file:docs/exercise-13.org::*exercise-13][exercise-13]]
