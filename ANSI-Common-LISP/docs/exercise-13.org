@@ -6,6 +6,21 @@
 
 ** Test whether your compiler observes inline declarations.
 
+#+begin_src lisp
+  (declaim (inline single?))
+
+  (defun single? (lst)
+    (and (consp lst) (null (cdr lst))))
+
+  (defun foo (x)
+    (single? (bar x)))
+
+  (macroexpand-1 'foo)
+#+end_src
+
+#+RESULTS:
+: FOO
+
 ** Rewrite the following function...
 
 2.Rewrite the following function to be tail-recursive. How much faster is it when compiled?
