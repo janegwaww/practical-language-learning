@@ -45,13 +45,18 @@
 #+begin_src lisp
   ;;> (setf q (make-queue)) ==> (NIL)
 #+end_src
+
+#+begin_src shell
 +---+---+
 |nil|nil|
 +---+---+
+#+end_src
 
 #+begin_src lisp
   ;;> (enqueue 'a q) ==> (A)
 #+end_src
+
+     #+begin_src shell
      +---+---+
      |   |   |
      +-+-+-+-+
@@ -60,10 +65,13 @@
      +-+-+---+
      | a |nil|
      +---+---+
+     #+end_src
 
 #+begin_src lisp
   ;;> (enqueue 'b q) ==> (A B)
 #+end_src
+
+#+begin_src shell
 +---+---+
 |   |   |
 +-+-+-+-+
@@ -72,13 +80,17 @@
 +-+-+----+  +---+---+
 | a |    +--+ b |nil|
 +---+----+  +---+---+
+#+end_src
 
 #+begin_src lisp
   ;;> (dequeue q) ==> A
 #+end_src
+
+#+begin_src shell
 +---+
 | a |
 +---+
+#+end_src
 
 ** Define a function ~copy-queue~ that returns a copy of a queue.
 

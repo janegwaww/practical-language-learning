@@ -2,290 +2,57 @@
 
 # exercises 3
 
-1.  [Show the following lists in box notation:](#org70c175d)
-2.  [Write a version of union that preserves the order of the elements in the original lists:](#orgba7b1a5)
-3.  [Define a function that takes a list and&#x2026;](#org1b27951)
-4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#org3e81aa3)
-5.  [Suppose the function `pos+` takes a list and&#x2026;](#org5b4c7f6)
-6.  [After years of deliberation,&#x2026;](#org94926e5)
-7.  [Modify the program in Figure 3.6 to&#x2026;](#orgbbd7bd5)
-8.  [Define a function that takes a list and prints it in dot notation:](#orgf693cd8)
-9.  [Write a program to find the&#x2026;](#orgab2e755)
+1.  [Show the following lists in box notation:](#org5fba1a2)
+2.  [Write a version of union that preserves the order of the elements in the original lists:](#org2e0d973)
+3.  [Define a function that takes a list and&#x2026;](#orgf30173f)
+4.  [Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?](#org2f9ec31)
+5.  [Suppose the function `pos+` takes a list and&#x2026;](#org2555a7f)
+6.  [After years of deliberation,&#x2026;](#orgb5a2beb)
+7.  [Modify the program in Figure 3.6 to&#x2026;](#org1e189b0)
+8.  [Define a function that takes a list and prints it in dot notation:](#org222ce4e)
+9.  [Write a program to find the&#x2026;](#org4be2675)
 
 
-<a id="org70c175d"></a>
+<a id="org5fba1a2"></a>
 
 ## Show the following lists in box notation:
 
 1.  `(a b (c d))`
     
-    > <del>-----</del>&#x2013;&#x2014;+      \\ <del>----</del>-&#x2014;+     \\ <del>----</del>&#x2013;&#x2014;+
-    > 
-    > <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    > 
-    > 
-    > <colgroup>
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > </colgroup>
-    > <tbody>
-    > <tr>
-    > <td class="org-left">a</td>
-    > <td class="org-left">&#xa0;</td>
-    > <td class="org-left">--&#x2013;&#x2014;X</td>
-    > <td class="org-left">b</td>
-    > <td class="org-left">&#xa0;</td>
-    > <td class="org-left">-&#x2013;&#x2014;X</td>
-    > <td class="org-left">&#xa0;</td>
-    > <td class="org-left">nil</td>
-    > </tr>
-    > </tbody>
-    > </table>
-    > 
-    > <del>-----</del>&#x2013;&#x2014;+      / <del>----</del>-&#x2014;+     / <del>--</del>-<del>-----</del>
-    > 
-    > <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    > 
-    > 
-    > <tbody>
-    > <tr>
-    > </tr>
-    > </tbody>
-    > </table>
-    > 
-    > <del>--</del>-<del>----</del>     \\ <del>----</del>-&#x2014;+
-    > 
-    > <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    > 
-    > 
-    > <colgroup>
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > 
-    > <col  class="org-left" />
-    > </colgroup>
-    > <tbody>
-    > <tr>
-    > <td class="org-left">c</td>
-    > <td class="org-left">+-&#x2013;&#x2014;X</td>
-    > <td class="org-left">d</td>
-    > <td class="org-left">nil</td>
-    > </tr>
-    > </tbody>
-    > </table>
-    > 
-    > <del>----</del>-&#x2014;+     / <del>----</del>-&#x2014;+
+        +-----+-----+      \ +----+----+     \ +----+-----+
+        |  a  |     |-------X|  b |    |------X|    | nil |
+        +-----+-----+      / +----+----+     / +--+-+-----+
+                                                  |
+                                               +--+-+----+     \ +----+----+
+                                               |  c |    +------X|  d | nil|
+                                               +----+----+     / +----+----+
 
 2.  `(a (b (c (d))))`
     
-    <del>-----</del>-&#x2014;+    \\ <del>----</del>-&#x2014;+    \\ <del>----</del>-&#x2014;+    \\ <del>----</del>-&#x2014;+       <del>----</del>-&#x2014;+       <del>----</del>-&#x2014;+      <del>----</del>-&#x2014;+
-    
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">a</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#x2013;&#x2014;X</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">nil</td>
-    <td class="org-left">+&#x2013;X</td>
-    <td class="org-left">b</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#x2013;&#x2014;X</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">nil</td>
-    <td class="org-left"><del>---</del>  c</td>
-    <td class="org-left"><del>-------</del></td>
-    <td class="org-left">nil</td>
-    <td class="org-left"><del>--</del> d</td>
-    <td class="org-left">nil</td>
-    </tr>
-    </tbody>
-    </table>
-    
-    <del>-----</del>-&#x2014;+    / <del>--</del>-<del>----</del>  | / <del>----</del>-&#x2014;+    / <del>--</del>-<del>----</del>   |   <del>----</del>-&#x2014;+       <del>--</del>-<del>----</del>   |  <del>----</del>-&#x2014;+
-    
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">&#xa0;</td>
-    </tr>
-    </tbody>
-    </table>
-    
-    <del>---------</del>                       <del>----------</del>                        <del>----------</del>
+        +-----+----+    \ +----+----+    \ +----+----+    \ +----+----+       +----+----+       +----+----+      +----+----+
+        |  a  |    |-----X|    |nil |  +--X|  b |    |-----X|    |nil |   +---+  c |    +-------+    |nil |   +--+ d  |nil |
+        +-----+----+    / +--+-+----+  | / +----+----+    / +--+-+----+   |   +----+----+       +--+-+----+   |  +----+----+
+                             |         |                       |          |                        |          |
+                             +---------+                       +----------+                        +----------+
+
 3.  `(((a b) c) d)`
     
-    <del>----</del>-&#x2014;+       \\ <del>----</del>-&#x2014;+  /     <del>----</del>-&#x2014;+   \\ <del>----</del>-&#x2014;+  /    <del>----</del>-&#x2014;+     \\  <del>----</del>-&#x2014;+
-    
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">a</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">---&#x2013;&#x2014;X</td>
-    <td class="org-left">b</td>
-    <td class="org-left">nil</td>
-    <td class="org-left">-X-&#x2013;&#x2014;+</td>
-    <td class="org-left">+-&#x2014;X</td>
-    <td class="org-left">c</td>
-    <td class="org-left">nil</td>
-    <td class="org-left">-X&#x2013;&#x2014;+</td>
-    <td class="org-left">+-&#x2013;&#x2014;X</td>
-    <td class="org-left">d</td>
-    <td class="org-left">nil</td>
-    </tr>
-    </tbody>
-    </table>
-    
-    <del>----</del>-&#x2014;+       / <del>----</del>-&#x2014;+  \\     <del>----</del>-&#x2014;+   / <del>----</del>-&#x2014;+  \\    <del>----</del>-&#x2014;+     /  <del>----</del>-&#x2014;+
+        +----+----+       \ +----+----+  /     +----+----+   \ +----+----+  /    +----+----+     \  +----+----+
+        |  a |    |--------X| b  |nil |-X------+    |    +----X|  c |nil |-X-----+    |    +------X |  d | nil|
+        +----+----+       / +----+----+  \     +----+----+   / +----+----+  \    +----+----+     /  +----+----+
 
 4.  `(a (b . c) . d)`
     
-    <del>----</del>-&#x2014;+     \\ <del>---</del>-&#x2014;+
-    
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <colgroup>
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    
-    <col  class="org-left" />
-    </colgroup>
-    <tbody>
-    <tr>
-    <td class="org-left">a</td>
-    <td class="org-left">+-&#x2013;&#x2014;X</td>
-    <td class="org-left">&#xa0;</td>
-    <td class="org-left">d</td>
-    </tr>
-    </tbody>
-    </table>
-    
-    <del>----</del>-&#x2014;+     / <del>-</del>-<del>--</del>-+
-    
-    <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
-    
-    
-    <tbody>
-    <tr>
-    </tr>
-    </tbody>
-    
-    
-    <tr>
-    <td class="org-left"><del>---</del>-&#x2014;+</td>
-    </tr>
-    </tbody>
-    </table>
-    
-    <del>-</del> b |  c |
-    
-    <del>---</del>-&#x2014;+
+        +----+----+     \ +---+----+
+        |  a |    +------X|   |  d |
+        +----+----+     / +-+-+--+-+
+                            |
+                            | +---+----+
+                            +-+ b |  c |
+                              +---+----+
 
 
-<a id="orgba7b1a5"></a>
+<a id="org2e0d973"></a>
 
 ## Write a version of union that preserves the order of the elements in the original lists:
 
@@ -293,7 +60,7 @@
       (reverse (remove-duplicates (reverse (append (copy-list l1) (copy-list l2))))))
 
 
-<a id="org1b27951"></a>
+<a id="orgf30173f"></a>
 
 ## Define a function that takes a list and&#x2026;
 
@@ -361,14 +128,14 @@ element to least common:
       (new-sort (compre lst)))
 
 
-<a id="org3e81aa3"></a>
+<a id="org2f9ec31"></a>
 
 ## Why does `(member ' ( a ) ' ( ( a ) ( b ) ) )` return nil?
 
 Because two lists is different object, they allocates two pointers.
 
 
-<a id="org5b4c7f6"></a>
+<a id="org2555a7f"></a>
 
 ## Suppose the function `pos+` takes a list and&#x2026;
 
@@ -411,7 +178,7 @@ Define this function using (a)recursion, (b)iteration, (c)mapcar.
                 lst)))
 
 
-<a id="org94926e5"></a>
+<a id="orgb5a2beb"></a>
 
 ## After years of deliberation,&#x2026;
 
@@ -463,7 +230,7 @@ After years of deliberation, a government commission has decided that lists shou
               (new-member elt (new-car lst )))))
 
 
-<a id="orgbbd7bd5"></a>
+<a id="org1e189b0"></a>
 
 ## Modify the program in Figure 3.6 to&#x2026;
 
@@ -486,7 +253,7 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
                       (compr (cons next 1) (cdr 1st)))))))
 
 
-<a id="orgf693cd8"></a>
+<a id="org222ce4e"></a>
 
 ## Define a function that takes a list and prints it in dot notation:
 
@@ -500,7 +267,7 @@ Modify the program in Figure 3.6 to use fewer cons cells. (Hint: Use dotted list
     (showdots '(1 2 3))
 
 
-<a id="orgab2e755"></a>
+<a id="org4be2675"></a>
 
 ## Write a program to find the&#x2026;
 
