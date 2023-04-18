@@ -18,6 +18,10 @@ Learning Lisp programming language material.
 
 ** [[file:learncpp_quiz/README.md][learn-cpp-quiz]]
 
+* haskell-beginners-exercises
+
+** [[file:haskell-beginners-exercises/README.md][readme]]
+
 * License
 
 [[file:LICENSE][BSD-2-Clause license]]
