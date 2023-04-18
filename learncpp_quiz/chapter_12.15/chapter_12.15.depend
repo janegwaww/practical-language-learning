@@ -1,0 +1,25 @@
+# depslib dependency file v1.0
+1645690732 source:/home/dipper/WorkSpace/C++/chapter_12.15/main.cpp
+	"Point3d.h"
+	"Vector3d.h"
+	<iostream>
+
+1645690714 /home/dipper/WorkSpace/C++/chapter_12.15/Point3d.h
+
+1645688972 /home/dipper/WorkSpace/C++/chapter_12.15/Vector3d.h
+	"Point3d.h"
+
+1645690714 source:/home/dipper/WorkSpace/C++/chapter_12.15/Point3d.h
+
+1645688972 source:/home/dipper/WorkSpace/C++/chapter_12.15/Vector3d.h
+	"Point3d.h"
+
+1645690673 source:/home/dipper/WorkSpace/C++/chapter_12.15/Point3d.cpp
+	"Point3d.h"
+	"Vector3d.h"
+	<iostream>
+
+1645691066 source:/home/dipper/WorkSpace/C++/chapter_12.15/Vector3d.cpp
+	"Vector3d.h"
+	<iostream>
+

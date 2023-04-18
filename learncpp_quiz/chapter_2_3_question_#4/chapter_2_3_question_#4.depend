@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1642838919 source:/home/dipper/WorkSpace/C++/chapter_2_3_question_#4/main.cpp
+	<iostream>
+
+1642856445 source:/home/dipper/WorkSpace/C++/chapter_2_3_question_#4/file.cpp
+	<iostream>
+

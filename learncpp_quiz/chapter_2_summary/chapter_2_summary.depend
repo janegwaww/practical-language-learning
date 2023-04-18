@@ -1,0 +1,10 @@
+# depslib dependency file v1.0
+1643084897 source:/home/dipper/WorkSpace/C++/chapter_2_summary/io.cpp
+	"io.h"
+	<iostream>
+
+1643084835 source:/home/dipper/WorkSpace/C++/chapter_2_summary/main.cpp
+	"io.h"
+
+1643084837 /home/dipper/WorkSpace/C++/chapter_2_summary/io.h
+

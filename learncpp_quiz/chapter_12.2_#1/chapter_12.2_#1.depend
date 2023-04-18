@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1645503173 source:/home/dipper/WorkSpace/C++/chapter_12.2_#1/main.cpp
+	<iostream>
+	<array>
+

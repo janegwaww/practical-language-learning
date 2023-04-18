@@ -1,0 +1,17 @@
+# depslib dependency file v1.0
+1642394990 source:/home/dipper/WorkSpace/C++/simpl/console/main.cpp
+	<iostream>
+
+1642498195 source:/home/dipper/WorkSpace/C++/simpl/console/test_version.cpp
+	<array>
+	<iostream>
+	<string_view>
+	<tuple>
+	<type_traits>
+
+1642503274 source:/home/dipper/WorkSpace/C++/simpl/console/helloworld.cpp
+	<iostream>
+
+1642652980 source:/home/dipper/WorkSpace/C++/simpl/console/initial.cpp
+	<iostream>
+

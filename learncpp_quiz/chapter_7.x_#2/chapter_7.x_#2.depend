@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1644074009 source:/home/dipper/WorkSpace/C++/chapter_7.x_#2/main.cpp
+	<iostream>
+	<cassert>
+
