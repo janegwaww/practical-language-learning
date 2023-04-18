@@ -26,10 +26,10 @@ Learning Lisp programming language material.
 ## [learn-cpp-quiz](learncpp_quiz/README.md)
 
 
-# haskell-beginners-exercises
+# practical-haskell
 
 
-## [readme](haskell-beginners-exercises/README.md)
+## [haskell-beginners-exercises](haskell-beginners-exercises/README.md)
 
 
 # License
