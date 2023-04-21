@@ -100,6 +100,7 @@ module Lecture4
     , printProductStats
     ) where
 
+import System.Environment
 import Data.List.NonEmpty (NonEmpty (..), fromList)
 import Data.Semigroup (Max (..), Min (..), Semigroup (..), Sum (..))
 import Text.Read (readMaybe)
@@ -220,8 +221,8 @@ instance Semigroup Stats where
 } = Stats {
     statsTotalPositions = s1'+s1
     , statsTotalSum = s2'+s2
-    , statsAbsoluteMax = m1'+m1
-    , statsAbsoluteMin = m2'+m2
+    , statsAbsoluteMax = max m1' m1
+    , statsAbsoluteMin = min m2' m2
     , statsSellMax = mb1'<>mb1
     , statsSellMin = mb2'<>mb2
     , statsBuyMax = mb3'<>mb3
@@ -377,7 +378,9 @@ https://hackage.haskell.org/package/base-4.16.0.0/docs/System-Environment.html#v
 -}
 
 main :: IO ()
-main = printProductStats "app/lecture4.txt"
+main = do
+  (path:_) <- getArgs
+  printProductStats path
 
 
 {-
