@@ -1,12 +1,11 @@
 module Main where
 
-import qualified MyLib (someFunc)
+-- import qualified MyLib (someFunc)
 import Data.Void
 
 main :: IO ()
-main = do
-  elseFun
-  MyLib.someFunc
+main = interact reverse
+
 
 yes :: a -> Bool
 yes _ = True

@@ -1,0 +1,4 @@
+Name,Type,Amount
+Apples,Sell,25
+Tomatoes,Sell,10
+Pineapples,Buy,50

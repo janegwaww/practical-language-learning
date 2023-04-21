@@ -12,7 +12,7 @@
 
 ** abstract
 
-** functional practice
+** functional achieve
 
 * practical-common-lisp
 
