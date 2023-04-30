@@ -140,3 +140,28 @@ strlen = do putStr "Enter a string: "
 descre :: Int -> [Int]
 descre 0 = []
 descre n = n : descre (n - 1)
+
+
+mulTen :: Int -> Int
+mulTen x = x * 10
+
+noneZero :: Int -> Int -> Bool
+noneZero x y | x /= 0 && y /= 0 = True
+             | otherwise = False
+
+sumNum :: Int -> Int
+sumNum 0 = 0
+sumNum n = n + sumNum (n - 1)
+
+powerNum :: Int -> Int -> Int
+powerNum _ 0 = 1
+powerNum x n = x * powerNum x (n - 1)
+
+isConsonant :: Char -> Bool
+isConsonant c = case c of {
+  'a' -> True;
+  'e' -> True;
+  'i' -> True;
+  'o' -> True;
+  'u' -> True;
+  _ -> False}
